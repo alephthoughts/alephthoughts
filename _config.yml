@@ -43,10 +43,9 @@ minima:
     twitter: alephthoughts
     github: alephthoughts
 
-	
-twitter:
-  username: alephthoughts
-  card: summary
+  twitter:
+    username: alephthoughts
+    card: summary
 
 
 # Set this to true to get LaTeX math equation support
