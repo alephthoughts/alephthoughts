@@ -1,13 +1,18 @@
 ---
-layout: page
-title: About Me
+layout: default
+title: About
 permalink: /about/
 ---
 
-This is where you put the contents of your *About* page. Like all your pages, it's in [Markdown](https://guides.github.com/features/mastering-markdown/) format.
+<h1 align="center"> Hi There!</h1>
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
+<h2 align="center">I am Abhishek Sharma.</h2>
 
+## I fix things!
 
+### Goals
+**Short-term Goal:** Create tools with data at its heart to diagnose and cure the world’s ills.
 
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
+**Long Term Goal:** Reform the society to create a world of equal opportunity.
+
+**Stretch Goal:** Fall in Love.
