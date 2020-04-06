@@ -3,19 +3,20 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Title | Alephthoughts</title>
+<title>Paper Reading - Visualizing and Understanding Convolutional Networks | Alephthoughts</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Title" />
+<meta property="og:title" content="Paper Reading - Visualizing and Understanding Convolutional Networks" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="summary" />
-<meta property="og:description" content="summary" />
-<link rel="canonical" href="https://alephthoughts.com/2020/04/06/VisualisingCNNs.html" />
-<meta property="og:url" content="https://alephthoughts.com/2020/04/06/VisualisingCNNs.html" />
+<meta name="description" content="What do CNNs learn?" />
+<meta property="og:description" content="What do CNNs learn?" />
+<link rel="canonical" href="https://alephthoughts.com/deep%20learning/computer%20vision/explainable-ai/2020/04/06/VisualisingCNNs.html" />
+<meta property="og:url" content="https://alephthoughts.com/deep%20learning/computer%20vision/explainable-ai/2020/04/06/VisualisingCNNs.html" />
 <meta property="og:site_name" content="Alephthoughts" />
+<meta property="og:image" content="https://alephthoughts.com/images/mathew.jpg" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-04-06T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"summary","@type":"BlogPosting","headline":"Title","dateModified":"2020-04-06T00:00:00-05:00","datePublished":"2020-04-06T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://alephthoughts.com/2020/04/06/VisualisingCNNs.html"},"url":"https://alephthoughts.com/2020/04/06/VisualisingCNNs.html","@context":"https://schema.org"}</script>
+{"description":"What do CNNs learn?","@type":"BlogPosting","headline":"Paper Reading - Visualizing and Understanding Convolutional Networks","dateModified":"2020-04-06T00:00:00-05:00","datePublished":"2020-04-06T00:00:00-05:00","image":"https://alephthoughts.com/images/mathew.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://alephthoughts.com/deep%20learning/computer%20vision/explainable-ai/2020/04/06/VisualisingCNNs.html"},"url":"https://alephthoughts.com/deep%20learning/computer%20vision/explainable-ai/2020/04/06/VisualisingCNNs.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://alephthoughts.com/feed.xml" title="Alephthoughts" /><!-- the google_analytics_id gets auto inserted from the config file -->
 
@@ -24,19 +25,20 @@
 <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-116353462-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
 
 <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Title | Alephthoughts</title>
+<title>Paper Reading - Visualizing and Understanding Convolutional Networks | Alephthoughts</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="Title" />
+<meta property="og:title" content="Paper Reading - Visualizing and Understanding Convolutional Networks" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="summary" />
-<meta property="og:description" content="summary" />
-<link rel="canonical" href="https://alephthoughts.com/2020/04/06/VisualisingCNNs.html" />
-<meta property="og:url" content="https://alephthoughts.com/2020/04/06/VisualisingCNNs.html" />
+<meta name="description" content="What do CNNs learn?" />
+<meta property="og:description" content="What do CNNs learn?" />
+<link rel="canonical" href="https://alephthoughts.com/deep%20learning/computer%20vision/explainable-ai/2020/04/06/VisualisingCNNs.html" />
+<meta property="og:url" content="https://alephthoughts.com/deep%20learning/computer%20vision/explainable-ai/2020/04/06/VisualisingCNNs.html" />
 <meta property="og:site_name" content="Alephthoughts" />
+<meta property="og:image" content="https://alephthoughts.com/images/mathew.jpg" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-04-06T00:00:00-05:00" />
 <script type="application/ld+json">
-{"description":"summary","@type":"BlogPosting","headline":"Title","dateModified":"2020-04-06T00:00:00-05:00","datePublished":"2020-04-06T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://alephthoughts.com/2020/04/06/VisualisingCNNs.html"},"url":"https://alephthoughts.com/2020/04/06/VisualisingCNNs.html","@context":"https://schema.org"}</script>
+{"description":"What do CNNs learn?","@type":"BlogPosting","headline":"Paper Reading - Visualizing and Understanding Convolutional Networks","dateModified":"2020-04-06T00:00:00-05:00","datePublished":"2020-04-06T00:00:00-05:00","image":"https://alephthoughts.com/images/mathew.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://alephthoughts.com/deep%20learning/computer%20vision/explainable-ai/2020/04/06/VisualisingCNNs.html"},"url":"https://alephthoughts.com/deep%20learning/computer%20vision/explainable-ai/2020/04/06/VisualisingCNNs.html","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -113,7 +115,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Title</h1><p class="page-description">summary</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-04-06T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Paper Reading - Visualizing and Understanding Convolutional Networks</h1><p class="page-description">What do CNNs learn?</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-04-06T00:00:00-05:00" itemprop="datePublished">
         Apr 6, 2020
       </time>
        • <span class="read-time" title="Estimated read time">
@@ -124,33 +126,39 @@ window.onload = wrap_img;
 </span></p>
 
     
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#deep learning">deep learning</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#computer vision">computer vision</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#explainable-ai">explainable-ai</a>
+        
+      
+      </p>
+    
 
     
-      
-        <div class="pb-5 d-flex flex-wrap flex-justify-end">
-          <div class="px-2">
-
-    <a href="https://github.com/alephthoughts/alephthoughts/tree/master/_notebooks/2020-04-06-VisualisingCNNs.ipynb" role="button" target="_blank">
-<img class="notebook-badge-image" src="/assets/badges/github.svg" alt="View On GitHub">
-    </a>
-</div>
-
-          <div class="px-2">
-    <a href="https://mybinder.org/v2/gh/alephthoughts/alephthoughts/master?filepath=_notebooks%2F2020-04-06-VisualisingCNNs.ipynb" target="_blank">
-        <img class="notebook-badge-image" src="/assets/badges/binder.svg" alt="Open In Binder"/>
-    </a>
-</div>
-
-          <div class="px-2">
-    <a href="https://colab.research.google.com/github/alephthoughts/alephthoughts/blob/master/_notebooks/2020-04-06-VisualisingCNNs.ipynb" target="_blank">
-        <img class="notebook-badge-image" src="/assets/badges/colab.svg" alt="Open In Colab"/>
-    </a>
-</div>
-        </div>
       </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <!--
+    <ul class="section-nav">
+<li class="toc-entry toc-h2"><a href="#Visualizing-convolutional-networks-with-Deconvnet">Visualizing convolutional networks with Deconvnet </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#Convnet-Visualization">Convnet Visualization </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Layer-2:">Layer 2: </a></li>
+<li class="toc-entry toc-h4"><a href="#Layer-3:">Layer 3: </a></li>
+<li class="toc-entry toc-h4"><a href="#Layer-4:">Layer 4: </a></li>
+<li class="toc-entry toc-h4"><a href="#Layer-5:">Layer 5: </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#Key-Insights">Key Insights </a></li>
+</ul>
+</li>
+</ul><!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
@@ -166,21 +174,8 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&quot;Paper-Reading---Visualizing-and-Understanding-Convolutional-Networks&quot;">"Paper Reading - Visualizing and Understanding Convolutional Networks"<a class="anchor-link" href="#&quot;Paper-Reading---Visualizing-and-Understanding-Convolutional-Networks&quot;"> </a></h1><ul>
-<li>toc: true </li>
-<li>badges: false</li>
-<li>comments: true</li>
-<li>categories: [deep learning, computer vision, explainable-ai]</li>
-<li>image: images/mathew.jpg</li>
-<li>hide: true</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The first paper I chose to write about is one of the most famous papers in the Deep Learning community titled, <a href="https://arxiv.org/abs/1311.2901">Visualizing and understanding convolutional networks</a> by <a href="https://www.matthewzeiler.com/">M. Zeiler</a>, <a href="https://cs.nyu.edu/~fergus/pmwiki/pmwiki.php">R. Fergus</a>. Appeared in 2013 this paper remains popular as it introduced some of the most fundamental ideas to aid our understanding of convolutional neural networks and transfer learning.
 Convolutional neural networks have performed exceedingly well over time on image related tasks. The main objective of this paper is enquire about :-</p>
@@ -196,32 +191,60 @@ Convolutional neural networks have performed exceedingly well over time on image
 </ol>
 <p>Before looking into these ideas in a little detail, let's first discuss the convnet model architecture studied and used in this paper. The standard operation of a convnet is to map colored two dimensional images to a probability vector over different classes i.e. it takes an image as input and returns a vector of probabilities(adding to 1) of the image belonging to each of the classes. Each layer of the convenet consists of:</p>
 <ul>
-<li><a href="https://www.superdatascience.com/blogs/convolutional-neural-networks-cnn-step-1-convolution-operation">convolution</a> of the previous layer output (for the first layer it's the input image) with a set of filters (parameters)</li>
+<li>
+<a href="https://www.superdatascience.com/blogs/convolutional-neural-networks-cnn-step-1-convolution-operation">convolution</a> of the previous layer output (for the first layer it's the input image) with a set of filters (parameters)</li>
 <li>rectified linear units <a href="https://www.kaggle.com/dansbecker/rectified-linear-units-relu-in-deep-learning">relu</a>, which is essentially replacing all negative activations with 0</li>
-<li><a href="https://computersciencewiki.org/index.php/Max-pooling_/_Pooling">max pooling</a> </li>
-<li>normalizing the activations by <a href="https://towardsdatascience.com/difference-between-local-response-normalization-and-batch-normalization-272308c034ac">local response normalization</a></li>
+<li>
+<a href="https://computersciencewiki.org/index.php/Max-pooling_/_Pooling">max pooling</a> </li>
+<li>normalizing the activations by <a href="https://towardsdatascience.com/difference-between-local-response-normalization-and-batch-normalization-272308c034ac">local response normalization</a>
+</li>
 </ul>
 <p>The top few layers of the convnet are the fully-connected layers follwed by a <a href="https://www.pyimagesearch.com/2016/09/12/softmax-classifiers-explained/">softmax classifier</a> at the end.</p>
 <p>Now let's look at the important ideas discussed in this paper:</p>
-<h2 id="Visualizing-convolutional-networks-with-Deconvnet">Visualizing convolutional networks with Deconvnet<a class="anchor-link" href="#Visualizing-convolutional-networks-with-Deconvnet"> </a></h2><p>The process of visualizing a convnet involves identifying the cause of each activation by mapping the activations back to input pixel space with the aid of a <a href="https://matthewzeiler.com/mattzeiler/adaptivedeconvolutional.pdf">Deconvolutional Network</a> (deconvnet). A deconvnet can be thought of as a convnet but in reverse. It is attached to each of the convnet layers in order to probe the activations. In order to examine a given activation, all other activations in the conenet layer are set to zero and the feature maps are passed to the attached deconvnet layer. Then following operations are performed repeatedly until input pixel space is reconstructed:</p>
+<h2 id="Visualizing-convolutional-networks-with-Deconvnet">
+<a class="anchor" href="#Visualizing-convolutional-networks-with-Deconvnet" aria-hidden="true"><span class="octicon octicon-link"></span></a>Visualizing convolutional networks with Deconvnet<a class="anchor-link" href="#Visualizing-convolutional-networks-with-Deconvnet"> </a>
+</h2>
+<p>The process of visualizing a convnet involves identifying the cause of each activation by mapping the activations back to input pixel space with the aid of a <a href="https://matthewzeiler.com/mattzeiler/adaptivedeconvolutional.pdf">Deconvolutional Network</a> (deconvnet). A deconvnet can be thought of as a convnet but in reverse. It is attached to each of the convnet layers in order to probe the activations. In order to examine a given activation, all other activations in the conenet layer are set to zero and the feature maps are passed to the attached deconvnet layer. Then following operations are performed repeatedly until input pixel space is reconstructed:</p>
 <ul>
-<li><strong>Unpooling</strong> : Since max pooling operation is non-invertible, an approximate inverse is obtained by restoring the activations at the locations of maximum activation selection.</li>
-<li><strong>Rectification</strong> : The reconstructed signals are passed through a relu non-linearity.</li>
-<li><strong>Filtering</strong> : In the deconvnet each convnet filter is transposed (flipped vertically and horizontally) and applied to the rectified activations.
-<img src="/images/copied_from_nb/my_icons/deconvnet.jpeg" alt="Deconvnet attached to a convnet &gt;&lt;" /></li>
+<li>
+<strong>Unpooling</strong> : Since max pooling operation is non-invertible, an approximate inverse is obtained by restoring the activations at the locations of maximum activation selection.</li>
+<li>
+<strong>Rectification</strong> : The reconstructed signals are passed through a relu non-linearity.</li>
+<li>
+<strong>Filtering</strong> : In the deconvnet each convnet filter is transposed (flipped vertically and horizontally) and applied to the rectified activations.
+<img src="/images/copied_from_nb/my_icons/deconvnet.jpeg" alt="Deconvnet attached to a convnet &gt;&lt;">
+</li>
 </ul>
-<h3 id="Convnet-Visualization">Convnet Visualization<a class="anchor-link" href="#Convnet-Visualization"> </a></h3><p>The aforementioned approach is used to visualize the top 9 strongest activations for a given feature map. These activations are projected to pixel space and shown alongside corresponding image patches. Let's see each layer one by one:</p>
-<h4 id="Layer-2:">Layer 2:<a class="anchor-link" href="#Layer-2:"> </a></h4><p>Layer 2 corresponds to corners and other edge/color conjuctions.
-<img src="/images/copied_from_nb/my_icons/Layer2.png" alt="Layer2 &gt;&lt;" /></p>
-<h4 id="Layer-3:">Layer 3:<a class="anchor-link" href="#Layer-3:"> </a></h4><p>Layer 3 captures complex patterns such as mesh patterns, texts etc.
-<img src="/images/copied_from_nb/my_icons/Layer3.png" alt="Layer3 &gt;&lt;" /></p>
-<h4 id="Layer-4:">Layer 4:<a class="anchor-link" href="#Layer-4:"> </a></h4><p>Layer 4 shows further variations and is able to classify objects in the picture such as dog faces, bird legs etc.
-<img src="/images/copied_from_nb/my_icons/Layer4.png" alt="Layer 4 &gt;&lt;" /></p>
-<h4 id="Layer-5:">Layer 5:<a class="anchor-link" href="#Layer-5:"> </a></h4><p>Layer 5 shows complete objects such as keyboards, dogs etc.
-<img src="/images/copied_from_nb/my_icons/Layer5.png" alt="Layer 5 &gt;&lt;" /></p>
-<h3 id="Key-Insights">Key Insights<a class="anchor-link" href="#Key-Insights"> </a></h3><ul>
+<h3 id="Convnet-Visualization">
+<a class="anchor" href="#Convnet-Visualization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Convnet Visualization<a class="anchor-link" href="#Convnet-Visualization"> </a>
+</h3>
+<p>The aforementioned approach is used to visualize the top 9 strongest activations for a given feature map. These activations are projected to pixel space and shown alongside corresponding image patches. Let's see each layer one by one:</p>
+<h4 id="Layer-2:">
+<a class="anchor" href="#Layer-2:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Layer 2:<a class="anchor-link" href="#Layer-2:"> </a>
+</h4>
+<p>Layer 2 corresponds to corners and other edge/color conjuctions.
+<img src="/images/copied_from_nb/my_icons/Layer2.png" alt="Layer2 &gt;&lt;"></p>
+<h4 id="Layer-3:">
+<a class="anchor" href="#Layer-3:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Layer 3:<a class="anchor-link" href="#Layer-3:"> </a>
+</h4>
+<p>Layer 3 captures complex patterns such as mesh patterns, texts etc.
+<img src="/images/copied_from_nb/my_icons/Layer3.png" alt="Layer3 &gt;&lt;"></p>
+<h4 id="Layer-4:">
+<a class="anchor" href="#Layer-4:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Layer 4:<a class="anchor-link" href="#Layer-4:"> </a>
+</h4>
+<p>Layer 4 shows further variations and is able to classify objects in the picture such as dog faces, bird legs etc.
+<img src="/images/copied_from_nb/my_icons/Layer4.png" alt="Layer 4 &gt;&lt;"></p>
+<h4 id="Layer-5:">
+<a class="anchor" href="#Layer-5:" aria-hidden="true"><span class="octicon octicon-link"></span></a>Layer 5:<a class="anchor-link" href="#Layer-5:"> </a>
+</h4>
+<p>Layer 5 shows complete objects such as keyboards, dogs etc.
+<img src="/images/copied_from_nb/my_icons/Layer5.png" alt="Layer 5 &gt;&lt;"></p>
+<h3 id="Key-Insights">
+<a class="anchor" href="#Key-Insights" aria-hidden="true"><span class="octicon octicon-link"></span></a>Key Insights<a class="anchor-link" href="#Key-Insights"> </a>
+</h3>
+<ul>
 <li>The lower layers of the model converge within few epochs and upper layers fully converge only after a considerable number of epochs. This suggests it might be beneficial to train different layers at different learning rates.</li>
-<li></li>
+<li>
 </ul>
 
 </div>
@@ -231,7 +254,15 @@ Convolutional neural networks have performed exceedingly well over time on image
 
 
 
-  </div><a class="u-url" href="/2020/04/06/VisualisingCNNs.html" hidden></a>
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="alephthoughts/alephthoughts"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/deep%20learning/computer%20vision/explainable-ai/2020/04/06/VisualisingCNNs.html" hidden></a>
 </article>
       </div>
     </main><footer class="site-footer h-card">
