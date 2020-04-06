@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Title | Alephthoughts</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Title" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="summary" />
+<meta property="og:description" content="summary" />
+<link rel="canonical" href="https://alephthoughts.com/2020/04/06/VisualisingCNNs.html" />
+<meta property="og:url" content="https://alephthoughts.com/2020/04/06/VisualisingCNNs.html" />
+<meta property="og:site_name" content="Alephthoughts" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-04-06T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"summary","@type":"BlogPosting","headline":"Title","dateModified":"2020-04-06T00:00:00-05:00","datePublished":"2020-04-06T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://alephthoughts.com/2020/04/06/VisualisingCNNs.html"},"url":"https://alephthoughts.com/2020/04/06/VisualisingCNNs.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://alephthoughts.com/feed.xml" title="Alephthoughts" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-116353462-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Title | Alephthoughts</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Title" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="summary" />
+<meta property="og:description" content="summary" />
+<link rel="canonical" href="https://alephthoughts.com/2020/04/06/VisualisingCNNs.html" />
+<meta property="og:url" content="https://alephthoughts.com/2020/04/06/VisualisingCNNs.html" />
+<meta property="og:site_name" content="Alephthoughts" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-04-06T00:00:00-05:00" />
+<script type="application/ld+json">
+{"description":"summary","@type":"BlogPosting","headline":"Title","dateModified":"2020-04-06T00:00:00-05:00","datePublished":"2020-04-06T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://alephthoughts.com/2020/04/06/VisualisingCNNs.html"},"url":"https://alephthoughts.com/2020/04/06/VisualisingCNNs.html","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://alephthoughts.com/feed.xml" title="Alephthoughts" /><!-- the google_analytics_id gets auto inserted from the config file -->
+
+
+
+<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-116353462-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Alephthoughts</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Title</h1><p class="page-description">summary</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-04-06T00:00:00-05:00" itemprop="datePublished">
+        Apr 6, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      3 min read
+    
+</span></p>
+
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/alephthoughts/alephthoughts/tree/master/_notebooks/2020-04-06-VisualisingCNNs.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/alephthoughts/alephthoughts/master?filepath=_notebooks%2F2020-04-06-VisualisingCNNs.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/alephthoughts/alephthoughts/blob/master/_notebooks/2020-04-06-VisualisingCNNs.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-04-06-VisualisingCNNs.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="&quot;Paper-Reading---Visualizing-and-Understanding-Convolutional-Networks&quot;">"Paper Reading - Visualizing and Understanding Convolutional Networks"<a class="anchor-link" href="#&quot;Paper-Reading---Visualizing-and-Understanding-Convolutional-Networks&quot;"> </a></h1><ul>
+<li>toc: true </li>
+<li>badges: false</li>
+<li>comments: true</li>
+<li>categories: [deep learning, computer vision, explainable-ai]</li>
+<li>image: images/mathew.jpg</li>
+<li>hide: true</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The first paper I chose to write about is one of the most famous papers in the Deep Learning community titled, <a href="https://arxiv.org/abs/1311.2901">Visualizing and understanding convolutional networks</a> by <a href="https://www.matthewzeiler.com/">M. Zeiler</a>, <a href="https://cs.nyu.edu/~fergus/pmwiki/pmwiki.php">R. Fergus</a>. Appeared in 2013 this paper remains popular as it introduced some of the most fundamental ideas to aid our understanding of convolutional neural networks and transfer learning.
+Convolutional neural networks have performed exceedingly well over time on image related tasks. The main objective of this paper is enquire about :-</p>
+<ol>
+<li>Why convolutional networks perform so well on image classification tasks?</li>
+<li>How the convolutional model architectures can be improved?</li>
+</ol>
+<p>The most important ideas introduced in this paper are the following:</p>
+<ol>
+<li>Deconvnets and Convnet Visualization</li>
+<li>Convnet Explainability</li>
+<li>Transfer Learning</li>
+</ol>
+<p>Before looking into these ideas in a little detail, let's first discuss the convnet model architecture studied and used in this paper. The standard operation of a convnet is to map colored two dimensional images to a probability vector over different classes i.e. it takes an image as input and returns a vector of probabilities(adding to 1) of the image belonging to each of the classes. Each layer of the convenet consists of:</p>
+<ul>
+<li><a href="https://www.superdatascience.com/blogs/convolutional-neural-networks-cnn-step-1-convolution-operation">convolution</a> of the previous layer output (for the first layer it's the input image) with a set of filters (parameters)</li>
+<li>rectified linear units <a href="https://www.kaggle.com/dansbecker/rectified-linear-units-relu-in-deep-learning">relu</a>, which is essentially replacing all negative activations with 0</li>
+<li><a href="https://computersciencewiki.org/index.php/Max-pooling_/_Pooling">max pooling</a> </li>
+<li>normalizing the activations by <a href="https://towardsdatascience.com/difference-between-local-response-normalization-and-batch-normalization-272308c034ac">local response normalization</a></li>
+</ul>
+<p>The top few layers of the convnet are the fully-connected layers follwed by a <a href="https://www.pyimagesearch.com/2016/09/12/softmax-classifiers-explained/">softmax classifier</a> at the end.</p>
+<p>Now let's look at the important ideas discussed in this paper:</p>
+<h2 id="Visualizing-convolutional-networks-with-Deconvnet">Visualizing convolutional networks with Deconvnet<a class="anchor-link" href="#Visualizing-convolutional-networks-with-Deconvnet"> </a></h2><p>The process of visualizing a convnet involves identifying the cause of each activation by mapping the activations back to input pixel space with the aid of a <a href="https://matthewzeiler.com/mattzeiler/adaptivedeconvolutional.pdf">Deconvolutional Network</a> (deconvnet). A deconvnet can be thought of as a convnet but in reverse. It is attached to each of the convnet layers in order to probe the activations. In order to examine a given activation, all other activations in the conenet layer are set to zero and the feature maps are passed to the attached deconvnet layer. Then following operations are performed repeatedly until input pixel space is reconstructed:</p>
+<ul>
+<li><strong>Unpooling</strong> : Since max pooling operation is non-invertible, an approximate inverse is obtained by restoring the activations at the locations of maximum activation selection.</li>
+<li><strong>Rectification</strong> : The reconstructed signals are passed through a relu non-linearity.</li>
+<li><strong>Filtering</strong> : In the deconvnet each convnet filter is transposed (flipped vertically and horizontally) and applied to the rectified activations.
+<img src="/images/copied_from_nb/my_icons/deconvnet.jpeg" alt="Deconvnet attached to a convnet &gt;&lt;" /></li>
+</ul>
+<h3 id="Convnet-Visualization">Convnet Visualization<a class="anchor-link" href="#Convnet-Visualization"> </a></h3><p>The aforementioned approach is used to visualize the top 9 strongest activations for a given feature map. These activations are projected to pixel space and shown alongside corresponding image patches. Let's see each layer one by one:</p>
+<h4 id="Layer-2:">Layer 2:<a class="anchor-link" href="#Layer-2:"> </a></h4><p>Layer 2 corresponds to corners and other edge/color conjuctions.
+<img src="/images/copied_from_nb/my_icons/Layer2.png" alt="Layer2 &gt;&lt;" /></p>
+<h4 id="Layer-3:">Layer 3:<a class="anchor-link" href="#Layer-3:"> </a></h4><p>Layer 3 captures complex patterns such as mesh patterns, texts etc.
+<img src="/images/copied_from_nb/my_icons/Layer3.png" alt="Layer3 &gt;&lt;" /></p>
+<h4 id="Layer-4:">Layer 4:<a class="anchor-link" href="#Layer-4:"> </a></h4><p>Layer 4 shows further variations and is able to classify objects in the picture such as dog faces, bird legs etc.
+<img src="/images/copied_from_nb/my_icons/Layer4.png" alt="Layer 4 &gt;&lt;" /></p>
+<h4 id="Layer-5:">Layer 5:<a class="anchor-link" href="#Layer-5:"> </a></h4><p>Layer 5 shows complete objects such as keyboards, dogs etc.
+<img src="/images/copied_from_nb/my_icons/Layer5.png" alt="Layer 5 &gt;&lt;" /></p>
+<h3 id="Key-Insights">Key Insights<a class="anchor-link" href="#Key-Insights"> </a></h3><ul>
+<li>The lower layers of the model converge within few epochs and upper layers fully converge only after a considerable number of epochs. This suggests it might be beneficial to train different layers at different learning rates.</li>
+<li></li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+  </div><a class="u-url" href="/2020/04/06/VisualisingCNNs.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>Alephthoughts - Using Data Science to solve interesting problems.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/alephthoughts" title="alephthoughts"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/alephthoughts" title="alephthoughts"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
