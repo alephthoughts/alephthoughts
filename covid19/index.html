@@ -3,17 +3,17 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>About | Alephthoughts</title>
+<title>Covid19 | Alephthoughts</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="About" />
+<meta property="og:title" content="Covid19" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Using Data Science to solve interesting problems." />
 <meta property="og:description" content="Using Data Science to solve interesting problems." />
-<link rel="canonical" href="https://alephthoughts.com/about/" />
-<meta property="og:url" content="https://alephthoughts.com/about/" />
+<link rel="canonical" href="https://alephthoughts.com/covid19/" />
+<meta property="og:url" content="https://alephthoughts.com/covid19/" />
 <meta property="og:site_name" content="Alephthoughts" />
 <script type="application/ld+json">
-{"description":"Using Data Science to solve interesting problems.","@type":"WebSite","url":"https://alephthoughts.com/about/","name":"Alephthoughts","headline":"About","@context":"https://schema.org"}</script>
+{"description":"Using Data Science to solve interesting problems.","@type":"WebPage","url":"https://alephthoughts.com/covid19/","headline":"Covid19","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://alephthoughts.com/feed.xml" title="Alephthoughts" /><!-- the google_analytics_id gets auto inserted from the config file -->
 
@@ -22,17 +22,17 @@
 <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create','UA-116353462-1','auto');ga('require','displayfeatures');ga('send','pageview');</script>
 
 <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>About | Alephthoughts</title>
+<title>Covid19 | Alephthoughts</title>
 <meta name="generator" content="Jekyll v4.0.0" />
-<meta property="og:title" content="About" />
+<meta property="og:title" content="Covid19" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Using Data Science to solve interesting problems." />
 <meta property="og:description" content="Using Data Science to solve interesting problems." />
-<link rel="canonical" href="https://alephthoughts.com/about/" />
-<meta property="og:url" content="https://alephthoughts.com/about/" />
+<link rel="canonical" href="https://alephthoughts.com/covid19/" />
+<meta property="og:url" content="https://alephthoughts.com/covid19/" />
 <meta property="og:site_name" content="Alephthoughts" />
 <script type="application/ld+json">
-{"description":"Using Data Science to solve interesting problems.","@type":"WebSite","url":"https://alephthoughts.com/about/","name":"Alephthoughts","headline":"About","@context":"https://schema.org"}</script>
+{"description":"Using Data Science to solve interesting problems.","@type":"WebPage","url":"https://alephthoughts.com/covid19/","headline":"Covid19","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 <link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
@@ -106,19 +106,21 @@ window.onload = wrap_img;
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <h1 align="center"> Hi There!</h1>
+                <div id="wrapper" class="wrapper">
 
-<h2 align="center">I am Abhishek Sharma.</h2>
+            <div id="tooltip" class="tooltip">
+                <div class="tooltip-date">
+                    <span id="date"></span>
+                </div>
+                <div class="tooltip-confirmed">
+                    Confirmed Cases: <span id="confirmed"></span>
+                </div>
+            </div>
+        </div>
 
-<h2 id="i-fix-things">I fix things!</h2>
-
-<h3 id="goals">Goals</h3>
-<p><strong>Short-term Goal:</strong> Create tools with data at its heart to diagnose and cure the world’s ills.</p>
-
-<p><strong>Long Term Goal:</strong> Reform the society to create a world of equal opportunity.</p>
-
-<p><strong>Stretch Goal:</strong> Fall in Love.</p>
-
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="./chart.js"></script>
+ 
       </div>
     </main><footer class="site-footer h-card">
   <data class="u-url" href="/"></data>
