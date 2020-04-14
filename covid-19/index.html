@@ -431,11 +431,11 @@ body {
     
 function drawLineChart() {
   
-  yAccessor = d => d.summary.total
+  main_yAccessor = d => d.summary.total
   const dateParser = d3.timeParse("%Y-%m-%d")
   format = d3.timeFormat("%b-%d")
-  const xAccessor = d => dateParser(d.day)
-  dataset = dataset.sort((a,b) => xAccessor(a) - xAccessor(b)).slice(0, 100)
+  const main_xAccessor = d => dateParser(d.day)
+  dataset = dataset.sort((a,b) => main_xAccessor(a) - main_xAccessor(b)).slice(0, 100)
 
   let dimensions = {
     width: 750,
@@ -489,26 +489,26 @@ function drawLineChart() {
 
   // 4. Create scales
 
-  const yScale = d3.scaleLinear()
-    .domain(d3.extent(dataset, yAccessor))
+  const main_yScale = d3.scaleLinear()
+    .domain(d3.extent(dataset, main_yAccessor))
     .range([dimensions.boundedHeight, 0])
     .nice()
 
   
-  const xScale = d3.scaleTime()
-    .domain(d3.extent(dataset, xAccessor))
+  const main_xScale = d3.scaleTime()
+    .domain(d3.extent(dataset, main_xAccessor))
     .range([0, dimensions.boundedWidth])
 
   const lineGenerator = d3.line()
-    .x(d => xScale(xAccessor(d)))
-    .y(d => yScale(yAccessor(d)))
+    .x(d => main_xScale(main_xAccessor(d)))
+    .y(d => main_yScale(main_yAccessor(d)))
 
   const line = clip.append("path")
       .attr("class", "line")
       .attr("d", lineGenerator(dataset))
 
   const yAxisGenerator = d3.axisLeft()
-      .scale(yScale)
+      .scale(main_yScale)
       
   
   const yAxis = bounds.append("g")
@@ -522,7 +522,7 @@ function drawLineChart() {
       .html("Confirmed Cases")
 
       const xAxisGenerator = d3.axisBottom()
-      .scale(xScale)
+      .scale(main_xScale)
       .tickFormat(format)
       .ticks(7)
   
@@ -549,16 +549,16 @@ function drawLineChart() {
 
   function onMouseMove() {
     const mousePosition = d3.mouse(this)
-    const xhoveredDate = xScale.invert(mousePosition[0])
+    const xhoveredDate = main_xScale.invert(mousePosition[0])
         
-    const main_getDistanceFromxhoveredDate = d => Math.abs(xAccessor(d) - xhoveredDate)
+    const main_getDistanceFromxhoveredDate = d => Math.abs(main_xAccessor(d) - xhoveredDate)
     const main_closestIndex = d3.scan(dataset, (a, b) => (
     main_getDistanceFromxhoveredDate(a) - main_getDistanceFromxhoveredDate(b)
     ))
     const main_closestDataPoint = dataset[main_closestIndex]
         
-    const main_closestXValue = xAccessor(main_closestDataPoint)
-    const main_closestYValue = yAccessor(main_closestDataPoint)
+    const main_closestXValue = main_xAccessor(main_closestDataPoint)
+    const main_closestYValue = main_yAccessor(main_closestDataPoint)
         
     const formatDate = d3.timeFormat("%A %B %-d, %Y")
     main_tooltip.select("#date")
@@ -567,9 +567,9 @@ function drawLineChart() {
     main_tooltip.select("#main-confirmed")
         .html(main_closestYValue)
 
-    const x = xScale(main_closestXValue)
+    const x = main_xScale(main_closestXValue)
       + dimensions.margin.left
-    const y = yScale(main_closestYValue)
+    const y = main_yScale(main_closestYValue)
       + dimensions.margin.top
 
     main_tooltip.style("transform", `translate(`
@@ -580,8 +580,8 @@ function drawLineChart() {
     main_tooltip.style("opacity", 1)
 
     main_tooltipCircle
-        .attr("cx", xScale(main_closestXValue))
-        .attr("cy", yScale(main_closestYValue))
+        .attr("cx", main_xScale(main_closestXValue))
+        .attr("cy", main_yScale(main_closestYValue))
         .style("opacity", 1)
   }
   function onMouseLeave() {
@@ -945,7 +945,7 @@ function drawRateChart() {
 
     tooltip.style("transform", `translate(`
       + `calc(-50% + ${x}px),`
-      + `calc(-150% + ${y}px)`
+      + `calc(-120% + ${y}px)`
       + `)`)
 
     tooltip.style("opacity", 1)
