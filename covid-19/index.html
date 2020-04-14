@@ -456,6 +456,8 @@ function drawLineChart() {
     .append("svg")
       .attr("width", dimensions.width)
       .attr("height", dimensions.height)
+      .attr('viewBox','0 0 '+Math.min(width,height)+' '+Math.min(width,height))
+      .attr('preserveAspectRatio','xMinYMin')
       
     wrapper.append("rect")
         .attr("class", "chart-background")
