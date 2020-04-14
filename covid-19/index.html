@@ -163,6 +163,28 @@ window.onload = wrap_img;
     
     
 <div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">summary_js</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">let confirmed = </span><span class="si">{</span><span class="n">confirmed_count</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">let recovered = </span><span class="si">{</span><span class="n">recovered_count</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">let deceased = </span><span class="si">{</span><span class="n">deceased_count</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">let active = </span><span class="si">{</span><span class="n">active_count</span><span class="si">}</span><span class="s2"></span>
+<span class="s2">&quot;&quot;&quot;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 <div class="output_wrapper">
 <div class="output">
@@ -170,86 +192,320 @@ window.onload = wrap_img;
 <div class="output_area">
 
 
-<div class="output_markdown rendered_html output_subarea ">
-<p><span style="color: #ff3300;
-                        font-family: Sans-Serif;
-                        font-weight: normal;
-                        font-size: 20px;
-                        font-style: normal;
-                        text-decoration: none;
-                        letter-spacing: 1px;
-                        line-height: 0.8px;
-                        word-spacing: 1px;
-                        text-shadow: none;
-                        background-color: none;">
-                        Confirmed: 10815
-                        </span></p>
+<div class="output_html rendered_html output_subarea output_execute_result">
 
-</div>
+    <script src="https://d3js.org/d3.v5.min.js"></script> 
+    <style scoped="">
+        
+.wrapper {
+    position: relative;
+}
 
-</div>
+.line {
+    fill: none;
+    stroke: #FF9933;
+    stroke-width: 2;
+}
 
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<p><span style="color: #FF9933;
-                        font-family: Sans-Serif;
-                        font-weight: normal;
-                        font-size: 20px;
-                        font-style: normal;
-                        text-decoration: none;
-                        letter-spacing: 1px;
-                        line-height: 0.8px;
-                        word-spacing: 1px;
-                        text-shadow: none;
-                        background-color: none;">
-                        Active: 9272
-                        </span></p>
-
-</div>
-
-</div>
-
-<div class="output_area">
+.y-axis-label {
+    fill: black;
+    font-size: 1.4em;
+    text-anchor: middle;
+    transform: rotate(-90deg);
+}
 
 
-<div class="output_markdown rendered_html output_subarea ">
-<p><span style="color: #339933;
-                        font-family: Sans-Serif;
-                        font-weight: normal;
-                        font-size: 20px;
-                        font-style: normal;
-                        text-decoration: none;
-                        letter-spacing: 1px;
-                        line-height: 0.8px;
-                        word-spacing: 1px;
-                        text-shadow: none;
-                        background-color: none;">
-                        Recovered: 1190
-                        </span></p>
+.main-listening-rect {
+    fill: transparent;
+}
 
-</div>
+.listening-rect {
+    fill: transparent;
+}
 
-</div>
+body {
+    display: flex;
+    justify-content: center;
+    padding: 5em 1em;
+    font-family: sans-serif;
+}
 
-<div class="output_area">
+.main-tooltip {
+    opacity: 0;
+    position: absolute;
+    top: -14px;
+    left: 0;
+    padding: 0.6em 1em;
+    background: #fff;
+    text-align: center;
+    line-height: 1.4em;
+    font-size: 0.9em;
+    border: 1px solid #ddd;
+    z-index: 10;
+    transition: all 0.1s ease-out;
+    pointer-events: none;
+}
+
+.tooltip {
+    opacity: 0;
+    position: absolute;
+    top: -14px;
+    left: 0;
+    padding: 0.6em 1em;
+    background: #fff;
+    text-align: center;
+    line-height: 1.4em;
+    font-size: 0.9em;
+    border: 1px solid #ddd;
+    z-index: 10;
+    transition: all 0.1s ease-out;
+    pointer-events: none;
+}
+
+.main-tooltip:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border: 1px solid #ddd;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    transform: translate(-50%, 50%) rotate(45deg);
+    transform-origin: center center;
+    z-index: 10;
+}
+
+.tooltip:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border: 1px solid #ddd;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    transform: translate(-50%, 50%) rotate(45deg);
+    transform-origin: center center;
+    z-index: 10;
+}
+
+.main-tooltip-date {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+    font-size: 1.1em;
+    line-height: 1.4em;
+}
+
+.tooltip-date {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+    font-size: 1.1em;
+    line-height: 1.4em;
+}
+
+.rate-wrapper {
+    position: relative;
+}
+    
+.rate-line {
+    fill: none;
+    stroke: #8B0000;
+    stroke-width: 2;
+}
+
+.summary-wrapper {
+    position: relative;
+}
+
+.summary-confirmed{
+    fill: #FF0000;
+
+}
+
+.confirmed-badge{
+    fill : white;
+    font-size: 13pt;
+    font-weight: 700;
+    text-anchor: middle;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.confirmed-badge-value{
+    fill : white;
+    font-size: 38pt;
+    font-weight: 700;
+    text-anchor: middle;;
+}
+
+.summary-active{
+    fill: #FF9933;
+
+}
+
+.active-badge{
+    fill : white;
+    font-size: 13pt;
+    font-weight: 700;
+    text-anchor: middle;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.active-badge-value{
+    fill : white;
+    font-size: 38pt;
+    font-weight: 700;
+    text-anchor: middle;;
+}
+
+.summary-recovered{
+    fill: #00FF00;
+
+}
+
+.recovered-badge{
+    fill : white;
+    font-size: 13pt;
+    font-weight: 700;
+    text-anchor: middle;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.recovered-badge-value{
+    fill : white;
+    font-size: 38pt;
+    font-weight: 700;
+    text-anchor: middle;;
+}
+
+.summary-deceased{
+    fill: #808080;
+
+}
+
+.deceased-badge{
+    fill : white;
+    font-size: 13pt;
+    font-weight: 700;
+    text-anchor: middle;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.deceased-badge-value{
+    fill : white;
+    font-size: 38pt;
+    font-weight: 700;
+    text-anchor: middle;;
+}
 
 
-<div class="output_markdown rendered_html output_subarea ">
-<p><span style="color: #737373;
-                        font-family: Sans-Serif;
-                        font-weight: normal;
-                        font-size: 20px;
-                        font-style: normal;
-                        text-decoration: none;
-                        letter-spacing: 1px;
-                        line-height: 0.8px;
-                        word-spacing: 1px;
-                        text-shadow: none;
-                        background-color: none;">
-                        Deceased : 353
-                        </span></p>
+    </style>
+    <div id="summary-wrapper" class="summary-wrapper">
+        </div>    
+    <script>
+    
+let confirmed = 10815
+let recovered = 1190
+let deceased = 353
+let active = 9272
+
+    
+function drawSummaryChart() {
+
+  let dimensions = {
+    width: 750,
+    height: 100,
+  }
+
+  // 3. Draw canvas
+
+  const wrapper = d3.select("#summary-wrapper")
+    .append("svg")
+      .attr("width", dimensions.width)
+      .attr("height", dimensions.height)
+
+  const confirmed_badge = wrapper.append("rect")
+    .attr("class", "summary-confirmed")
+    .attr("width", "20%")
+    .attr("height", "100%")
+   
+
+  const active_badge = wrapper.append("rect")
+    .attr("class", "summary-active")
+    .attr("x", (0.25 * dimensions.width))
+    .attr("width", "20%")
+    .attr("height", "100%")
+   
+
+  const recovered_badge = wrapper.append("rect")
+    .attr("class", "summary-recovered")
+    .attr("x", (0.50 * dimensions.width))
+    .attr("width", "20%")
+    .attr("height", "100%")
+    
+
+  const deceased_badge = wrapper.append("rect")
+    .attr("class", "summary-deceased")
+    .attr("x", (0.75 * dimensions.width))
+    .attr("width", "20%")
+    .attr("height", "100%")
+
+  wrapper.append("text")
+  .attr("class", "confirmed-badge")
+  .attr("x", (0.2 * dimensions.width)/ 2)
+  .attr("y", (0.8 * dimensions.height))
+  .text("Confirmed")
+
+  wrapper.append("text")
+  .attr("class", "confirmed-badge-value")
+  .attr("x", (0.2 * dimensions.width)/ 2)
+  .attr("y", (0.5 * dimensions.height))
+  .text(`${confirmed}`)
+
+  wrapper.append("text")
+  .attr("class", "active-badge")
+  .attr("x", (0.25 * dimensions.width) + (0.2 * dimensions.width)/ 2)
+  .attr("y", (0.8 * dimensions.height))
+  .text("Active")
+
+  wrapper.append("text")
+  .attr("class", "active-badge-value")
+  .attr("x", (0.25 * dimensions.width) +  (0.2 * dimensions.width)/ 2)
+  .attr("y", (0.5 * dimensions.height))
+  .text(`${active}`)
+
+  wrapper.append("text")
+  .attr("class", "recovered-badge")
+  .attr("x", (0.50 * dimensions.width) + (0.2 * dimensions.width)/ 2)
+  .attr("y", (0.8 * dimensions.height))
+  .text("Recovered")
+
+  wrapper.append("text")
+  .attr("class", "active-badge-value")
+  .attr("x", (0.50 * dimensions.width) +  (0.2 * dimensions.width)/ 2)
+  .attr("y", (0.5 * dimensions.height))
+  .text(`${recovered}`)
+
+  wrapper.append("text")
+  .attr("class", "deceased-badge")
+  .attr("x", (0.75 * dimensions.width) + (0.2 * dimensions.width)/ 2)
+  .attr("y", (0.8 * dimensions.height))
+  .text("Deceased")
+
+  wrapper.append("text")
+  .attr("class", "deceased-badge-value")
+  .attr("x", (0.75 * dimensions.width) +  (0.2 * dimensions.width)/ 2)
+  .attr("y", (0.5 * dimensions.height))
+  .text(`${deceased}`)
+      
+}
+drawSummaryChart();
+
+    </script>
 
 </div>
 
@@ -411,6 +667,90 @@ body {
     fill: none;
     stroke: #8B0000;
     stroke-width: 2;
+}
+
+.summary-wrapper {
+    position: relative;
+}
+
+.summary-confirmed{
+    fill: #FF0000;
+
+}
+
+.confirmed-badge{
+    fill : white;
+    font-size: 13pt;
+    font-weight: 700;
+    text-anchor: middle;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.confirmed-badge-value{
+    fill : white;
+    font-size: 38pt;
+    font-weight: 700;
+    text-anchor: middle;;
+}
+
+.summary-active{
+    fill: #FF9933;
+
+}
+
+.active-badge{
+    fill : white;
+    font-size: 13pt;
+    font-weight: 700;
+    text-anchor: middle;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.active-badge-value{
+    fill : white;
+    font-size: 38pt;
+    font-weight: 700;
+    text-anchor: middle;;
+}
+
+.summary-recovered{
+    fill: #00FF00;
+
+}
+
+.recovered-badge{
+    fill : white;
+    font-size: 13pt;
+    font-weight: 700;
+    text-anchor: middle;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.recovered-badge-value{
+    fill : white;
+    font-size: 38pt;
+    font-weight: 700;
+    text-anchor: middle;;
+}
+
+.summary-deceased{
+    fill: #808080;
+
+}
+
+.deceased-badge{
+    fill : white;
+    font-size: 13pt;
+    font-weight: 700;
+    text-anchor: middle;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.deceased-badge-value{
+    fill : white;
+    font-size: 38pt;
+    font-weight: 700;
+    text-anchor: middle;;
 }
 
 
@@ -745,6 +1085,90 @@ body {
     fill: none;
     stroke: #8B0000;
     stroke-width: 2;
+}
+
+.summary-wrapper {
+    position: relative;
+}
+
+.summary-confirmed{
+    fill: #FF0000;
+
+}
+
+.confirmed-badge{
+    fill : white;
+    font-size: 13pt;
+    font-weight: 700;
+    text-anchor: middle;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.confirmed-badge-value{
+    fill : white;
+    font-size: 38pt;
+    font-weight: 700;
+    text-anchor: middle;;
+}
+
+.summary-active{
+    fill: #FF9933;
+
+}
+
+.active-badge{
+    fill : white;
+    font-size: 13pt;
+    font-weight: 700;
+    text-anchor: middle;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.active-badge-value{
+    fill : white;
+    font-size: 38pt;
+    font-weight: 700;
+    text-anchor: middle;;
+}
+
+.summary-recovered{
+    fill: #00FF00;
+
+}
+
+.recovered-badge{
+    fill : white;
+    font-size: 13pt;
+    font-weight: 700;
+    text-anchor: middle;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.recovered-badge-value{
+    fill : white;
+    font-size: 38pt;
+    font-weight: 700;
+    text-anchor: middle;;
+}
+
+.summary-deceased{
+    fill: #808080;
+
+}
+
+.deceased-badge{
+    fill : white;
+    font-size: 13pt;
+    font-weight: 700;
+    text-anchor: middle;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.deceased-badge-value{
+    fill : white;
+    font-size: 38pt;
+    font-weight: 700;
+    text-anchor: middle;;
 }
 
 
