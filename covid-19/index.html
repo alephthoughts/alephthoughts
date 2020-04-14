@@ -358,6 +358,10 @@ body {
     font-size: 1.1em;
     line-height: 1.4em;
 }
+
+.rate-wrapper {
+    position: relative;
+}
     
 .rate-line {
     fill: none;
@@ -644,6 +648,10 @@ body {
     font-size: 1.1em;
     line-height: 1.4em;
 }
+
+.rate-wrapper {
+    position: relative;
+}
     
 .rate-line {
     fill: none;
@@ -653,7 +661,7 @@ body {
 
 
     </style>
-    <div id="wrapper" class="wrapper">
+    <div id="rate-wrapper" class="rate-wrapper">
 
             <div id="tooltip" class="tooltip">
                 <div class="tooltip-date">
@@ -673,7 +681,6 @@ function drawRateChart() {
   const dateParser = d3.timeParse("%Y-%m-%d")
   format = d3.timeFormat("%b-%d")
   const xAccessor = d => dateParser(d.day)
-  console.log(format(xAccessor(rate_dataset[0])))
   rate_dataset = rate_dataset.sort((a,b) => xAccessor(a) - xAccessor(b)).slice(0, 100)
 
   let dimensions = {
@@ -691,7 +698,7 @@ function drawRateChart() {
 
   // 3. Draw canvas
 
-  const wrapper = d3.select("#wrapper")
+  const wrapper = d3.select("#rate-wrapper")
     .append("svg")
       .attr("width", dimensions.width)
       .attr("height", dimensions.height)
