@@ -174,7 +174,7 @@ window.onload = wrap_img;
 <p><span style="color: #ff3300;
                         font-family: Sans-Serif;
                         font-weight: normal;
-                        font-size: 16px;
+                        font-size: 20px;
                         font-style: normal;
                         text-decoration: none;
                         letter-spacing: 1px;
@@ -196,7 +196,7 @@ window.onload = wrap_img;
 <p><span style="color: #FF9933;
                         font-family: Sans-Serif;
                         font-weight: normal;
-                        font-size: 16px;
+                        font-size: 20px;
                         font-style: normal;
                         text-decoration: none;
                         letter-spacing: 1px;
@@ -218,7 +218,7 @@ window.onload = wrap_img;
 <p><span style="color: #339933;
                         font-family: Sans-Serif;
                         font-weight: normal;
-                        font-size: 16px;
+                        font-size: 20px;
                         font-style: normal;
                         text-decoration: none;
                         letter-spacing: 1px;
@@ -240,7 +240,7 @@ window.onload = wrap_img;
 <p><span style="color: #737373;
                         font-family: Sans-Serif;
                         font-weight: normal;
-                        font-size: 16px;
+                        font-size: 20px;
                         font-style: normal;
                         text-decoration: none;
                         letter-spacing: 1px;
@@ -549,39 +549,39 @@ function drawLineChart() {
 
   function onMouseMove() {
     const mousePosition = d3.mouse(this)
-    const hoveredDate = xScale.invert(mousePosition[0])
+    const xhoveredDate = xScale.invert(mousePosition[0])
         
-    const getDistanceFromHoveredDate = d => Math.abs(xAccessor(d) - hoveredDate)
-    const closestIndex = d3.scan(dataset, (a, b) => (
-    getDistanceFromHoveredDate(a) - getDistanceFromHoveredDate(b)
+    const main_getDistanceFromxhoveredDate = d => Math.abs(xAccessor(d) - xhoveredDate)
+    const main_closestIndex = d3.scan(dataset, (a, b) => (
+    main_getDistanceFromxhoveredDate(a) - main_getDistanceFromxhoveredDate(b)
     ))
-    const closestDataPoint = dataset[closestIndex]
+    const main_closestDataPoint = dataset[main_closestIndex]
         
-    const closestXValue = xAccessor(closestDataPoint)
-    const closestYValue = yAccessor(closestDataPoint)
+    const main_closestXValue = xAccessor(main_closestDataPoint)
+    const main_closestYValue = yAccessor(main_closestDataPoint)
         
     const formatDate = d3.timeFormat("%A %B %-d, %Y")
     main_tooltip.select("#date")
-    .text(formatDate(closestXValue))
+    .text(formatDate(main_closestXValue))
 
     main_tooltip.select("#main-confirmed")
-        .html(closestYValue)
+        .html(main_closestYValue)
 
-    const x = xScale(closestXValue)
+    const x = xScale(main_closestXValue)
       + dimensions.margin.left
-    const y = yScale(closestYValue)
+    const y = yScale(main_closestYValue)
       + dimensions.margin.top
 
     main_tooltip.style("transform", `translate(`
-      + `calc( -35% + ${x}px),`
+      + `calc( -50% + ${x}px),`
       + `calc(-120% + ${y}px)`
       + `)`)
 
     main_tooltip.style("opacity", 1)
 
     main_tooltipCircle
-        .attr("cx", xScale(closestXValue))
-        .attr("cy", yScale(closestYValue))
+        .attr("cx", xScale(main_closestXValue))
+        .attr("cy", yScale(main_closestYValue))
         .style("opacity", 1)
   }
   function onMouseLeave() {
@@ -944,7 +944,7 @@ function drawRateChart() {
       + dimensions.margin.top
 
     tooltip.style("transform", `translate(`
-      + `calc(-40% + ${x}px),`
+      + `calc(-50% + ${x}px),`
       + `calc(-150% + ${y}px)`
       + `)`)
 
