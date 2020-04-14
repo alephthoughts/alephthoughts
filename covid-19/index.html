@@ -174,7 +174,7 @@ window.onload = wrap_img;
 <p><span style="color: #ff3300;
                         font-family: Sans-Serif;
                         font-weight: normal;
-                        font-size: 24px;
+                        font-size: 16px;
                         font-style: normal;
                         text-decoration: none;
                         letter-spacing: 1px;
@@ -196,7 +196,7 @@ window.onload = wrap_img;
 <p><span style="color: #FF9933;
                         font-family: Sans-Serif;
                         font-weight: normal;
-                        font-size: 24px;
+                        font-size: 16px;
                         font-style: normal;
                         text-decoration: none;
                         letter-spacing: 1px;
@@ -218,7 +218,7 @@ window.onload = wrap_img;
 <p><span style="color: #339933;
                         font-family: Sans-Serif;
                         font-weight: normal;
-                        font-size: 24px;
+                        font-size: 16px;
                         font-style: normal;
                         text-decoration: none;
                         letter-spacing: 1px;
@@ -240,7 +240,7 @@ window.onload = wrap_img;
 <p><span style="color: #737373;
                         font-family: Sans-Serif;
                         font-weight: normal;
-                        font-size: 24px;
+                        font-size: 16px;
                         font-style: normal;
                         text-decoration: none;
                         letter-spacing: 1px;
@@ -309,6 +309,11 @@ window.onload = wrap_img;
     transform: rotate(-90deg);
 }
 
+
+.main-listening-rect {
+    fill: transparent;
+}
+
 .listening-rect {
     fill: transparent;
 }
@@ -318,6 +323,22 @@ body {
     justify-content: center;
     padding: 5em 1em;
     font-family: sans-serif;
+}
+
+.main-tooltip {
+    opacity: 0;
+    position: absolute;
+    top: -14px;
+    left: 0;
+    padding: 0.6em 1em;
+    background: #fff;
+    text-align: center;
+    line-height: 1.4em;
+    font-size: 0.9em;
+    border: 1px solid #ddd;
+    z-index: 10;
+    transition: all 0.1s ease-out;
+    pointer-events: none;
 }
 
 .tooltip {
@@ -336,6 +357,22 @@ body {
     pointer-events: none;
 }
 
+.main-tooltip:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border: 1px solid #ddd;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    transform: translate(-50%, 50%) rotate(45deg);
+    transform-origin: center center;
+    z-index: 10;
+}
+
 .tooltip:before {
     content: '';
     position: absolute;
@@ -350,6 +387,13 @@ body {
     transform: translate(-50%, 50%) rotate(45deg);
     transform-origin: center center;
     z-index: 10;
+}
+
+.main-tooltip-date {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+    font-size: 1.1em;
+    line-height: 1.4em;
 }
 
 .tooltip-date {
@@ -373,11 +417,11 @@ body {
     </style>
     <div id="wrapper" class="wrapper">
 
-            <div id="tooltip" class="tooltip">
-                <div class="tooltip-date">
+            <div id="main-tooltip" class="main-tooltip">
+                <div class="main-tooltip-date">
                     <span id="date"></span>
                 </div>
-                <div class="tooltip-confirmed">
+                <div class="main-tooltip-confirmed">
                     Confirmed Cases: <span id="confirmed"></span>
                 </div>
             </div>
@@ -487,16 +531,16 @@ function drawLineChart() {
       .style("transform", `translateY(${dimensions.boundedHeight}px)`)
       .call(xAxisGenerator)
 
-  const listeningRect = bounds.append("rect")
-      .attr("class", "listening-rect")
+  const main_listeningRect = bounds.append("rect")
+      .attr("class", "main-listening-rect")
       .attr("width", dimensions.boundedWidth)
       .attr("height", dimensions.boundedHeight)
       .on("mousemove", onMouseMove)
       .on("mouseleave", onMouseLeave)
 
-  const tooltip = d3.select("#tooltip")
-  const tooltipCircle = bounds.append("circle")
-          .attr("class", "tooltip-circle")
+  const main_tooltip = d3.select("#main-tooltip")
+  const main_tooltipCircle = bounds.append("circle")
+          .attr("class", "main-tooltip-circle")
           .attr("r", 4)
           .attr("stroke", "#FF9933")
           .attr("fill", "white")
@@ -520,7 +564,7 @@ function drawLineChart() {
     tooltip.select("#date")
     .text(formatDate(closestXValue))
 
-    tooltip.select("#confirmed")
+    main_tooltip.select("#confirmed")
         .html(closestYValue)
 
     const x = xScale(closestXValue)
@@ -528,22 +572,22 @@ function drawLineChart() {
     const y = yScale(closestYValue)
       + dimensions.margin.top
 
-    tooltip.style("transform", `translate(`
+    main_tooltip.style("transform", `translate(`
       + `calc( -35% + ${x}px),`
       + `calc(-120% + ${y}px)`
       + `)`)
 
-    tooltip.style("opacity", 1)
+    main_tooltip.style("opacity", 1)
 
-    tooltipCircle
+    main_tooltipCircle
         .attr("cx", xScale(closestXValue))
         .attr("cy", yScale(closestYValue))
         .style("opacity", 1)
   }
   function onMouseLeave() {
-    tooltip.style("opacity", 0)
+    main_tooltip.style("opacity", 0)
 
-    tooltipCircle.style("opacity", 0)
+    main_tooltipCircle.style("opacity", 0)
   }
       
 }
@@ -599,6 +643,11 @@ drawLineChart();
     transform: rotate(-90deg);
 }
 
+
+.main-listening-rect {
+    fill: transparent;
+}
+
 .listening-rect {
     fill: transparent;
 }
@@ -608,6 +657,22 @@ body {
     justify-content: center;
     padding: 5em 1em;
     font-family: sans-serif;
+}
+
+.main-tooltip {
+    opacity: 0;
+    position: absolute;
+    top: -14px;
+    left: 0;
+    padding: 0.6em 1em;
+    background: #fff;
+    text-align: center;
+    line-height: 1.4em;
+    font-size: 0.9em;
+    border: 1px solid #ddd;
+    z-index: 10;
+    transition: all 0.1s ease-out;
+    pointer-events: none;
 }
 
 .tooltip {
@@ -626,6 +691,22 @@ body {
     pointer-events: none;
 }
 
+.main-tooltip:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border: 1px solid #ddd;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    transform: translate(-50%, 50%) rotate(45deg);
+    transform-origin: center center;
+    z-index: 10;
+}
+
 .tooltip:before {
     content: '';
     position: absolute;
@@ -640,6 +721,13 @@ body {
     transform: translate(-50%, 50%) rotate(45deg);
     transform-origin: center center;
     z-index: 10;
+}
+
+.main-tooltip-date {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+    font-size: 1.1em;
+    line-height: 1.4em;
 }
 
 .tooltip-date {
