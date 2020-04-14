@@ -561,7 +561,7 @@ function drawLineChart() {
     const closestYValue = yAccessor(closestDataPoint)
         
     const formatDate = d3.timeFormat("%A %B %-d, %Y")
-    tooltip.select("#date")
+    main_tooltip.select("#date")
     .text(formatDate(closestXValue))
 
     main_tooltip.select("#confirmed")
