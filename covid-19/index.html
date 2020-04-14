@@ -422,7 +422,7 @@ body {
                     <span id="date"></span>
                 </div>
                 <div class="main-tooltip-confirmed">
-                    Confirmed Cases: <span id="confirmed"></span>
+                    Confirmed Cases: <span id="main-confirmed"></span>
                 </div>
             </div>
         </div>
@@ -564,7 +564,7 @@ function drawLineChart() {
     main_tooltip.select("#date")
     .text(formatDate(closestXValue))
 
-    main_tooltip.select("#confirmed")
+    main_tooltip.select("#main-confirmed")
         .html(closestYValue)
 
     const x = xScale(closestXValue)
