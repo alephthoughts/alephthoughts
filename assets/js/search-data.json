@@ -3,7 +3,7 @@
     
         "post0": {
             "title": "Covid-19 ~ India",
-            "content": "Summary . summary_js = f&quot;&quot;&quot; let confirmed = {confirmed_count} let recovered = {recovered_count} let deceased = {deceased_count} let active = {active_count} &quot;&quot;&quot; . Covid-19 India Timeline . . Note: The source API fetches data from March 10, 2020 onwards. . Confirmed Cases: Growth Rate Over Time . Rate:",
+            "content": "Summary . Covid-19 India Timeline . . Note: The source API fetches data from March 10, 2020 onwards. . Confirmed Cases: Growth Rate Over Time . Rate:",
             "url": "https://alephthoughts.com/covid-19/",
             "relUrl": "/covid-19/",
             "date": " • Apr 12, 2020"
