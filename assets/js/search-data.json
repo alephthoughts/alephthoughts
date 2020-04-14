@@ -3,9 +3,9 @@
     
         "post0": {
             "title": "Covid-19 - India Dashboard",
-            "content": "Summary . Confirmed: 10363 . Active: 8988 . Recovered: 1036 . Deceased : 339 . Covid-19 India Timeline . . Note: The source API fetches data from March 10, 2020 onwards. . Confirmed Cases:",
-            "url": "https://alephthoughts.com/ai-in-society/2020/04/12/CovidIndia.html",
-            "relUrl": "/ai-in-society/2020/04/12/CovidIndia.html",
+            "content": "Summary . Confirmed: 10815 . Active: 9272 . Recovered: 1190 . Deceased : 353 . Covid-19 India Timeline . . Note: The source API fetches data from March 10, 2020 onwards. . Confirmed Cases: Growth Rate Over Time . Rate:",
+            "url": "https://alephthoughts.com/covid-19/",
+            "relUrl": "/covid-19/",
             "date": " • Apr 12, 2020"
         }
         
