@@ -507,19 +507,22 @@ drawSummaryChart();
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p> &gt;Note: The source data API{% fn 1 %} fetches data from March 10, 2020 onwards.</p>
+<p>The source data API<sup id="fnref-1" class="footnote-ref"><a href="#fn-1">1</a></sup> fetches data from March 10, 2020 onwards.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>{% include tip.html content='Mouse over chart to see data points for a specific day.' %}</p>
+<p><div class="flash flash-success">
+    <svg class="octicon octicon-checklist" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M16 8.5l-6 6-3-3L8.5 10l1.5 1.5L14.5 7 16 8.5zM5.7 12.2l.8.8H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h7c.55 0 1 .45 1 1v6.5l-.8-.8c-.39-.39-1.03-.39-1.42 0L5.7 10.8a.996.996 0 000 1.41v-.01zM4 4h5V3H4v1zm0 2h5V5H4v1zm0 2h3V7H4v1zM3 9H2v1h1V9zm0-2H2v1h1V7zm0-2H2v1h1V5zm0-2H2v1h1V3z"></path></svg>
+    <strong>Tip: </strong>Mouse over chart to see data points for a specific day.
+</div></p>
 
 </div>
 </div>
 </div>
-    {% raw %}
+    
     
 <div class="cell border-box-sizing code_cell rendered">
 
@@ -940,7 +943,7 @@ drawLineChart();
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><div class="flash flash-success">
-    <svg class="octicon octicon-checklist" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M16 8.5l-6 6-3-3L8.5 10l1.5 1.5L14.5 7 16 8.5zM5.7 12.2l.8.8H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h7c.55 0 1 .45 1 1v6.5l-.8-.8c-.39-.39-1.03-.39-1.42 0L5.7 10.8a.996.996 0 000 1.41v-.01zM4 4h5V3H4v1zm0 2h5V5H4v1zm0 2h3V7H4v1zM3 9H2v1h1V9zm0-2H2v1h1V7zm0-2H2v1h1V5zm0-2H2v1h1V3z"></path></svg>
+    <svg class="octicon octicon-checklist octicon octicon-checklist" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M16 8.5l-6 6-3-3L8.5 10l1.5 1.5L14.5 7 16 8.5zM5.7 12.2l.8.8H2c-.55 0-1-.45-1-1V3c0-.55.45-1 1-1h7c.55 0 1 .45 1 1v6.5l-.8-.8c-.39-.39-1.03-.39-1.42 0L5.7 10.8a.996.996 0 000 1.41v-.01zM4 4h5V3H4v1zm0 2h5V5H4v1zm0 2h3V7H4v1zM3 9H2v1h1V9zm0-2H2v1h1V7zm0-2H2v1h1V5zm0-2H2v1h1V3z"></path></svg>
     <strong>Tip: </strong>Mouse over chart to see data points for a specific day.
 </div></p>
 
@@ -1396,85 +1399,15 @@ drawRateChart();
 </div>
     
 
-    
-    
-<div class="cell border-box-sizing code_cell rendered">
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<p><span style="color: black;
-                        font-family: Calligraffitti;
-                        font-weight: normal;
-                        font-size: 12px;
-                        font-style: normal;
-                        text-decoration: none;
-                        letter-spacing: 1px;
-                        line-height: 0.5px;
-                        word-spacing: 1px;
-                        text-shadow: none;
-                        background-color: none;">
-                        The above chart tracks % change in the number of cases on a given day.
-                        </span></p>
-
-</div>
-
-</div>
-
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<p><span style="color: black;
-                        font-family: Calligraffitti;
-                        font-weight: normal;
-                        font-size: 12px;
-                        font-style: normal;
-                        text-decoration: none;
-                        letter-spacing: 1px;
-                        line-height: 0.5px;
-                        word-spacing: 1px;
-                        text-shadow: none;
-                        background-color: none;">
-                        The shaded region shows the number of days when the cofirmed cases grew by less than 5%.
-                        </span></p>
-
-</div>
-
-</div>
-
-<div class="output_area">
-
-
-<div class="output_markdown rendered_html output_subarea ">
-<p><span style="color: black;
-                        font-family: Calligraffitti;
-                        font-weight: normal;
-                        font-size: 12px;
-                        font-style: normal;
-                        text-decoration: none;
-                        letter-spacing: 1px;
-                        line-height: 0.5px;
-                        word-spacing: 1px;
-                        text-shadow: none;
-                        background-color: none;">
-                        The pink datapoint marks the beginning of the government initiated lockdown of 1.3 billion Indian population.
-                        </span></p>
-
-</div>
-
-</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The above chart tracks % change in the number of cases on a given day.</p>
+<p>The shaded region shows the number of days when the cofirmed cases grew by less than 5%.</p>
+<p>The pink datapoint marks the beginning of the government initiated lockdown of 1.3 billion Indian population.</p>
 
 </div>
 </div>
-
 </div>
-    
-
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><div class="footnotes"><p id="fn-1">1. The official Ministry of Health and Familiy Welfare API can be found <a href="https://api.rootnet.in/">here</a><a href="#fnref-1" class="footnote footnotes">↩</a></p></div></p>
