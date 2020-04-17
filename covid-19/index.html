@@ -401,19 +401,19 @@ function drawSummaryChart() {
 
   // 3. Draw canvas
 
-  const wrapper = d3.select("#summary-wrapper")
+  const summary_wrapper = d3.select("#summary-wrapper")
     .append("svg")
       .attr("width", dimensions.width)
       .attr("height", dimensions.height)
 
-  const confirmed_badge = wrapper.append("rect")
+  const confirmed_badge = summary_wrapper.append("rect")
     .attr("class", "summary-confirmed")
     .attr("width", "20%")
     .attr("height", "100%")
     .attr("rx", 8)
    
 
-  const active_badge = wrapper.append("rect")
+  const active_badge = summary_wrapper.append("rect")
     .attr("class", "summary-active")
     .attr("x", (0.25 * dimensions.width))
     .attr("width", "20%")
@@ -421,7 +421,7 @@ function drawSummaryChart() {
     .attr("rx", 8)
    
 
-  const recovered_badge = wrapper.append("rect")
+  const recovered_badge = summary_wrapper.append("rect")
     .attr("class", "summary-recovered")
     .attr("x", (0.50 * dimensions.width))
     .attr("width", "20%")
@@ -429,56 +429,56 @@ function drawSummaryChart() {
     .attr("rx", 8)
     
 
-  const deceased_badge = wrapper.append("rect")
+  const deceased_badge = summary_wrapper.append("rect")
     .attr("class", "summary-deceased")
     .attr("x", (0.75 * dimensions.width))
     .attr("width", "20%")
     .attr("height", "100%")
     .attr("rx", 8)
 
-  wrapper.append("text")
+  summary_wrapper.append("text")
   .attr("class", "confirmed-badge")
   .attr("x", (0.2 * dimensions.width)/ 2)
   .attr("y", (0.8 * dimensions.height))
   .text("Confirmed")
 
-  wrapper.append("text")
+  summary_wrapper.append("text")
   .attr("class", "confirmed-badge-value")
   .attr("x", (0.2 * dimensions.width)/ 2)
   .attr("y", (0.5 * dimensions.height))
   .text(`${confirmed}`)
 
-  wrapper.append("text")
+  summary_wrapper.append("text")
   .attr("class", "active-badge")
   .attr("x", (0.25 * dimensions.width) + (0.2 * dimensions.width)/ 2)
   .attr("y", (0.8 * dimensions.height))
   .text("Active")
 
-  wrapper.append("text")
+  summary_wrapper.append("text")
   .attr("class", "active-badge-value")
   .attr("x", (0.25 * dimensions.width) +  (0.2 * dimensions.width)/ 2)
   .attr("y", (0.5 * dimensions.height))
   .text(`${active}`)
 
-  wrapper.append("text")
+  summary_wrapper.append("text")
   .attr("class", "recovered-badge")
   .attr("x", (0.50 * dimensions.width) + (0.2 * dimensions.width)/ 2)
   .attr("y", (0.8 * dimensions.height))
   .text("Recovered")
 
-  wrapper.append("text")
+  summary_wrapper.append("text")
   .attr("class", "active-badge-value")
   .attr("x", (0.50 * dimensions.width) +  (0.2 * dimensions.width)/ 2)
   .attr("y", (0.5 * dimensions.height))
   .text(`${recovered}`)
 
-  wrapper.append("text")
+  summary_wrapper.append("text")
   .attr("class", "deceased-badge")
   .attr("x", (0.75 * dimensions.width) + (0.2 * dimensions.width)/ 2)
   .attr("y", (0.8 * dimensions.height))
   .text("Deceased")
 
-  wrapper.append("text")
+  summary_wrapper.append("text")
   .attr("class", "deceased-badge-value")
   .attr("x", (0.75 * dimensions.width) +  (0.2 * dimensions.width)/ 2)
   .attr("y", (0.5 * dimensions.height))
@@ -781,18 +781,18 @@ function drawLineChart() {
 
   // 3. Draw canvas
 
-  const wrapper = d3.select("#main-wrapper")
+  const main_wrapper = d3.select("#main-wrapper")
     .append("svg")
       .attr("width", dimensions.width)
       .attr("height", dimensions.height)
       
-    wrapper.append("rect")
+    main_wrapper.append("rect")
         .attr("class", "chart-background")
         .attr("width", "100%")
         .attr("height", "100%")
         .attr("fill", "#faebd7")
 
-  const bounds = wrapper.append("g")
+  const bounds = main_wrapper.append("g")
       .attr("transform", `translate(${
         dimensions.margin.left
       }, ${
@@ -1209,18 +1209,18 @@ function drawRateChart() {
 
   // 3. Draw canvas
 
-  const wrapper = d3.select("#rate-wrapper")
+  const rate_wrapper = d3.select("#rate-wrapper")
     .append("svg")
       .attr("width", dimensions.width)
       .attr("height", dimensions.height)
 
-  wrapper.append("rect")
+  rate_wrapper.append("rect")
     .attr("class", "background")
     .attr("width", "100%")
     .attr("height", "100%")
     .attr("fill", "#faebd7")
 
-  const bounds = wrapper.append("g")
+  const bounds = rate_wrapper.append("g")
       .attr("transform", `translate(${
         dimensions.margin.left
       }, ${
@@ -1439,7 +1439,7 @@ drawRateChart();
     <script src="https://d3js.org/d3.v5.min.js"></script> 
     <style scoped="">
         
-@font-face {
+/*@font-face {
     font-family: 'Inter var';
     src: url('https://rsms.me/inter/inter.css');
 }
@@ -1501,7 +1501,7 @@ tbody .text {
     font-size: 0.9em;
     white-space: nowrap;
     text-overflow: ellipsis;
-    overflow: hidden;
+    overflow: hidden;*/
 }
 
     </style>
@@ -1604,7 +1604,7 @@ drawTable();
                         word-spacing: 1px;
                         text-shadow: none;
                         background-color: none;">
-                        The data was last refreshed at Friday, April 17, 04:18 PM
+                        The data was last refreshed at Friday, April 17, 05:06 PM
                         </span></p>
 
 </div>
