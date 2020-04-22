@@ -215,8 +215,8 @@ window.onload = wrap_img;
     display: flex;
     justify-content: center;
     padding: 5em 1em;
-    font-family: sans-serif;*/
-}
+    font-family: sans-serif;
+}*/
 
 .main-tooltip {
     opacity: 0;
@@ -413,8 +413,10 @@ function drawSummaryChart() {
 
   const summary_wrapper = d3.select("#summary-wrapper")
     .append("svg")
-      .attr("width", dimensions.width)
-      .attr("height", dimensions.height)
+    .attr("preserveAspectRatio", "xMinYMin meet")
+    .attr("viewBox", "0 0 750 100")
+      //.attr("width", dimensions.width)
+      //.attr("height", dimensions.height)
 
   const confirmed_badge = summary_wrapper.append("rect")
     .attr("class", "summary-confirmed")
@@ -682,7 +684,7 @@ drawSummaryChart();
                         word-spacing: 1px;
                         text-shadow: none;
                         background-color: none;">
-                        The data was last refreshed at Wednesday, April 22, 06:06 PM.
+                        The data was last refreshed at Wednesday, April 22, 06:18 PM.
                         </span></p>
 
 </div>
