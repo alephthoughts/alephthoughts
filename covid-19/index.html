@@ -211,16 +211,16 @@ window.onload = wrap_img;
     fill: transparent;
 }
 
-/*body {
+body {
     display: flex;
     justify-content: center;
     padding: 5em 1em;
     font-family: sans-serif;
-}*/
+}
 
 .main-tooltip {
     opacity: 0;
-    position: relative;
+    position: absolute;
     top: -14px;
     left: 0;
     padding: 0.6em 1em;
@@ -236,7 +236,7 @@ window.onload = wrap_img;
 
 .tooltip {
     opacity: 0;
-    position: relative;
+    position: absolute;
     top: -14px;
     left: 0;
     padding: 0.6em 1em;
@@ -252,7 +252,7 @@ window.onload = wrap_img;
 
 .main-tooltip:before {
     content: '';
-    position: relative;
+    position: absolute;
     bottom: 0;
     left: 50%;
     width: 12px;
@@ -268,7 +268,7 @@ window.onload = wrap_img;
 
 .tooltip:before {
     content: '';
-    position: relative;
+    position: absolute;
     bottom: 0;
     left: 50%;
     width: 12px;
@@ -415,8 +415,8 @@ function drawSummaryChart() {
     .append("svg")
     .attr("preserveAspectRatio", "xMinYMin meet")
     .attr("viewBox", "0 0 750 100")
-      //.attr("width", dimensions.width)
-      //.attr("height", dimensions.height)
+    //.attr("width", dimensions.width)
+    //.attr("height", dimensions.height)
 
   const confirmed_badge = summary_wrapper.append("rect")
     .attr("class", "summary-confirmed")
@@ -575,16 +575,16 @@ drawSummaryChart();
     fill: transparent;
 }
 
-/*body {
+body {
     display: flex;
     justify-content: center;
     padding: 5em 1em;
     font-family: sans-serif;
-}*/
+}
 
 .main-tooltip {
     opacity: 0;
-    position: relative;
+    position: absolute;
     top: -14px;
     left: 0;
     padding: 0.6em 1em;
@@ -600,7 +600,7 @@ drawSummaryChart();
 
 .tooltip {
     opacity: 0;
-    position: relative;
+    position: absolute;
     top: -14px;
     left: 0;
     padding: 0.6em 1em;
@@ -616,7 +616,7 @@ drawSummaryChart();
 
 .main-tooltip:before {
     content: '';
-    position: relative;
+    position: absolute;
     bottom: 0;
     left: 50%;
     width: 12px;
@@ -632,7 +632,7 @@ drawSummaryChart();
 
 .tooltip:before {
     content: '';
-    position: relative;
+    position: absolute;
     bottom: 0;
     left: 50%;
     width: 12px;
@@ -795,8 +795,10 @@ function drawLineChart() {
 
   const main_wrapper = d3.select("#main-wrapper")
     .append("svg")
-    .attr("preserveAspectRatio", "xMinYMin meet")
-    .attr("viewBox", "0 0 750 550")
+    .attr("width", dimensions.width)
+    .attr("height", dimensions.height)
+    //.attr("preserveAspectRatio", "xMinYMin meet")
+    //.attr("viewBox", "0 0 750 550")
       
     main_wrapper.append("rect")
         .attr("class", "chart-background")
@@ -962,6 +964,455 @@ drawLineChart();
 </div>
 </div>
 </div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+
+    <script src="https://d3js.org/d3.v5.min.js"></script> 
+    <style scoped="">
+        
+.main-wrapper {
+    position: relative;
+}
+
+.line {
+    fill: none;
+    stroke: #FF9933;
+    stroke-width: 2;
+}
+
+.y-axis-label {
+    fill: black;
+    font-size: 1.4em;
+    text-anchor: middle;
+    transform: rotate(-90deg);
+}
+
+
+.main-listening-rect {
+    fill: transparent;
+}
+
+.listening-rect {
+    fill: transparent;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    padding: 5em 1em;
+    font-family: sans-serif;
+}
+
+.main-tooltip {
+    opacity: 0;
+    position: absolute;
+    top: -14px;
+    left: 0;
+    padding: 0.6em 1em;
+    background: #fff;
+    text-align: center;
+    line-height: 1.4em;
+    font-size: 0.9em;
+    border: 1px solid #ddd;
+    z-index: 10;
+    transition: all 0.1s ease-out;
+    pointer-events: none;
+}
+
+.tooltip {
+    opacity: 0;
+    position: absolute;
+    top: -14px;
+    left: 0;
+    padding: 0.6em 1em;
+    background: #fff;
+    text-align: center;
+    line-height: 1.4em;
+    font-size: 0.9em;
+    border: 1px solid #ddd;
+    z-index: 10;
+    transition: all 0.1s ease-out;
+    pointer-events: none;
+}
+
+.main-tooltip:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border: 1px solid #ddd;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    transform: translate(-50%, 50%) rotate(45deg);
+    transform-origin: center center;
+    z-index: 10;
+}
+
+.tooltip:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border: 1px solid #ddd;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    transform: translate(-50%, 50%) rotate(45deg);
+    transform-origin: center center;
+    z-index: 10;
+}
+
+.main-tooltip-date {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+    font-size: 1.1em;
+    line-height: 1.4em;
+}
+
+.tooltip-date {
+    margin-bottom: 0.2em;
+    font-weight: 600;
+    font-size: 1.1em;
+    line-height: 1.4em;
+}
+
+.rate-wrapper {
+    position: relative;
+}
+    
+.rate-line {
+    fill: none;
+    stroke: #8B0000;
+    stroke-width: 2;
+}
+
+.summary-wrapper {
+    position: relative;
+}
+
+.summary-confirmed{
+    fill: #8B0000;
+
+}
+
+.confirmed-badge{
+    fill : white;
+    font-size: 13pt;
+    font-weight: 700;
+    text-anchor: middle;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.confirmed-badge-value{
+    fill : white;
+    font-size: 38pt;
+    font-weight: 700;
+    text-anchor: middle;;
+}
+
+.summary-active{
+    fill: #FF8C00;
+
+}
+
+.active-badge{
+    fill : white;
+    font-size: 13pt;
+    font-weight: 700;
+    text-anchor: middle;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.active-badge-value{
+    fill : white;
+    font-size: 38pt;
+    font-weight: 700;
+    text-anchor: middle;;
+}
+
+.summary-recovered{
+    fill: #006400;
+
+}
+
+.recovered-badge{
+    fill : white;
+    font-size: 13pt;
+    font-weight: 700;
+    text-anchor: middle;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.recovered-badge-value{
+    fill : white;
+    font-size: 38pt;
+    font-weight: 700;
+    text-anchor: middle;;
+}
+
+.summary-deceased{
+    fill: #A9A9A9;
+
+}
+
+.deceased-badge{
+    fill : white;
+    font-size: 13pt;
+    font-weight: 700;
+    text-anchor: middle;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.deceased-badge-value{
+    fill : white;
+    font-size: 38pt;
+    font-weight: 700;
+    text-anchor: middle;;
+}
+
+
+    </style>
+    <div id="rate-wrapper" class="rate-wrapper">
+
+            <div id="tooltip" class="tooltip">
+                <div class="tooltip-date">
+                    <span id="date"></span>
+                </div>
+                <div class="tooltip-rate">
+                    Rate: <span id="rate"></span>
+                </div>
+            </div>
+        </div>
+    <script>
+    let rate_dataset = [{"day": "2020-03-10", "growth": 17.5}, {"day": "2020-03-11", "growth": 27.659574468085108}, {"day": "2020-03-12", "growth": 21.666666666666668}, {"day": "2020-03-13", "growth": 12.32876712328767}, {"day": "2020-03-14", "growth": 2.4390243902439024}, {"day": "2020-03-15", "growth": 30.952380952380953}, {"day": "2020-03-16", "growth": 3.6363636363636362}, {"day": "2020-03-17", "growth": 20.175438596491226}, {"day": "2020-03-18", "growth": 10.218978102189782}, {"day": "2020-03-19", "growth": 14.56953642384106}, {"day": "2020-03-20", "growth": 28.901734104046245}, {"day": "2020-03-21", "growth": 26.905829596412556}, {"day": "2020-03-22", "growth": 27.208480565371023}, {"day": "2020-03-23", "growth": 29.72222222222222}, {"day": "2020-03-24", "growth": 11.134903640256958}, {"day": "2020-03-25", "growth": 16.76300578034682}, {"day": "2020-03-26", "growth": 14.521452145214523}, {"day": "2020-03-27", "growth": 4.322766570605188}, {"day": "2020-03-28", "growth": 25.552486187845304}, {"day": "2020-03-29", "growth": 12.651265126512651}, {"day": "2020-03-30", "growth": 22.16796875}, {"day": "2020-03-31", "growth": 11.670663469224621}, {"day": "2020-04-01", "growth": 31.281317108088764}, {"day": "2020-04-02", "growth": 12.813522355507088}, {"day": "2020-04-03", "growth": 23.102948284195264}, {"day": "2020-04-04", "growth": 20.61248527679623}, {"day": "2020-04-05", "growth": 16.438802083333336}, {"day": "2020-04-06", "growth": 19.681297176404808}, {"day": "2020-04-07", "growth": 11.866386358327494}, {"day": "2020-04-08", "growth": 10.127375234913343}, {"day": "2020-04-09", "growth": 11.205915813424346}, {"day": "2020-04-10", "growth": 15.277067348678603}, {"day": "2020-04-11", "growth": 11.359266380712912}, {"day": "2020-04-12", "growth": 12.192854296719352}, {"day": "2020-04-13", "growth": 10.713862909908842}, {"day": "2020-04-14", "growth": 15.6437125748503}, {"day": "2020-04-15", "growth": 10.337494220989367}, {"day": "2020-04-16", "growth": 6.921981060923489}, {"day": "2020-04-17", "growth": 8.433262794889881}, {"day": "2020-04-18", "growth": 6.917238886881099}, {"day": "2020-04-19", "growth": 8.950784207679826}, {"day": "2020-04-20", "growth": 9.55572102258625}, {"day": "2020-04-21", "growth": 7.527186225645672}, {"day": "2020-04-22", "growth": 7.827232025283118}] 
+    
+function drawRateChart() {
+  
+  yAccessor = d => d.growth
+  const dateParser = d3.timeParse("%Y-%m-%d")
+  format = d3.timeFormat("%b-%d")
+  const xAccessor = d => dateParser(d.day)
+  rate_dataset = rate_dataset.sort((a,b) => xAccessor(a) - xAccessor(b)).slice(0, 100)
+
+  let dimensions = {
+    width: 750,
+    height: 550,
+    margin: {
+      top: 20,
+      right: 30,
+      bottom: 30,
+      left: 70,
+    },
+  }
+  dimensions.boundedWidth = dimensions.width - dimensions.margin.left - dimensions.margin.right
+  dimensions.boundedHeight = dimensions.height - dimensions.margin.top - dimensions.margin.bottom
+
+  // 3. Draw canvas
+
+  const rate_wrapper = d3.select("#rate-wrapper")
+    .append("svg")
+      .attr("width", dimensions.width)
+      .attr("height", dimensions.height)
+
+  rate_wrapper.append("rect")
+    .attr("class", "background")
+    .attr("width", "100%")
+    .attr("height", "100%")
+    .attr("fill", "#faebd7")
+
+  const bounds = rate_wrapper.append("g")
+      .attr("transform", `translate(${
+        dimensions.margin.left
+      }, ${
+        dimensions.margin.top
+      })`)
+
+  
+
+  // 4. Create scales
+
+  const yScale = d3.scaleLinear()
+    .domain(d3.extent(rate_dataset, yAccessor))
+    .range([dimensions.boundedHeight, 0])
+    .nice()
+
+  const LT5Placement = yScale(5)
+  const LT5 = bounds.append("rect")
+        .attr("x", 0)
+        .attr("width", dimensions.boundedWidth)
+        .attr("y", LT5Placement)
+        .attr("height", dimensions.boundedHeight
+          - LT5Placement)
+        .attr("fill", "#dcd7fa")
+
+  bounds.append("text")
+        .attr("class", "watermark")
+        .attr("x", dimensions.width - 180)
+        .attr("y", dimensions.height - 60)
+        .attr("fill", "grey")
+        .style("opacity", 0.5)
+        .html("@Alephthoughts")
+  
+  bounds.append("defs").append("clipPath")
+        .attr("id", "bounds-clip-path")
+      .append("rect")
+        .attr("width", dimensions.boundedWidth)
+        .attr("height", dimensions.boundedHeight)
+  
+    const clip = bounds.append("g")
+      .attr("clip-path", "url(#bounds-clip-path)")
+  
+  const xScale = d3.scaleTime()
+    .domain(d3.extent(rate_dataset, xAccessor))
+    .range([0, dimensions.boundedWidth])
+    .nice()
+    
+
+  const lineGenerator = d3.line()
+    .x(d => xScale(xAccessor(d)))
+    .y(d => yScale(yAccessor(d)))
+    .curve(d3.curveMonotoneX)
+
+  const line = clip.append("path")
+      .attr("class", "rate-line")
+      .attr("d", lineGenerator(rate_dataset))
+
+
+  const yAxisGenerator = d3.axisLeft()
+      .scale(yScale)
+      
+  
+  const yAxis = bounds.append("g")
+      .attr("class", "y-axis")
+      .call(yAxisGenerator)
+
+  const yAxisLabel = yAxis.append("text")
+      .attr("class", "y-axis-label")
+      .attr("x", -dimensions.boundedHeight / 2)
+      .attr("y", -dimensions.margin.left + 20)
+      .html("Growth Rate in (%)")
+
+      const xAxisGenerator = d3.axisBottom()
+      .scale(xScale)
+      .tickFormat(format)
+      .ticks(d3.timeSunday)
+      
+    
+  
+  const xAxis = bounds.append("g")
+      .attr("class", "x-axis")
+      .style("transform", `translateY(${dimensions.boundedHeight}px)`)
+      .call(xAxisGenerator)
+
+  const listeningRect = bounds.append("rect")
+      .attr("class", "listening-rect")
+      .attr("width", dimensions.boundedWidth)
+      .attr("height", dimensions.boundedHeight)
+      .on("mousemove", onMouseMove)
+      .on("mouseleave", onMouseLeave)
+
+  const tooltip = d3.select("#tooltip")
+  const tooltipCircle = bounds.append("circle")
+          .attr("class", "tooltip-circle")
+          .attr("r", 4)
+          .attr("stroke", "#8B0000")
+          .attr("fill", "white")
+          .attr("stroke-width", 2)
+          .style("opacity", 0)
+
+  const lockdown = bounds.append("circle")
+            .attr("cx", xScale(dateParser("2020-03-25")))
+            .attr("cy", yScale(16.76300578034682))
+            .attr("r", 4)
+            .attr("fill", "#FF0D86")
+            .attr("tabindex", "0")
+
+  const lockdownLabel = bounds.append("text")
+            .attr("class", "lockdown-annotation")
+            .attr("x", xScale(dateParser("2020-03-25")))
+            .attr("y", yScale(16.76300578034682) -10)
+            .attr("fill", "#FF0D86")
+            .attr("font-size", "0.7em")
+            .attr("font-family", "Bradley Hand")
+            .attr("text-anchor", "middle")
+            .text("Lockdown")
+            
+      
+  
+
+  function onMouseMove() {
+    const mousePosition = d3.mouse(this)
+    const hoveredDate = xScale.invert(mousePosition[0])
+        
+    const getDistanceFromHoveredDate = d => Math.abs(xAccessor(d) - hoveredDate)
+    const closestIndex = d3.scan(rate_dataset, (a, b) => (
+    getDistanceFromHoveredDate(a) - getDistanceFromHoveredDate(b)
+    ))
+    const closestDataPoint = rate_dataset[closestIndex]
+        
+    const closestXValue = xAccessor(closestDataPoint)
+    const closestYValue = yAccessor(closestDataPoint)
+        
+    const formatDate = d3.timeFormat("%A %B %-d, %Y")
+    tooltip.select("#date")
+    .text(formatDate(closestXValue))
+
+    const formatRate = d => `${d3.format(".2f")(d)}%`
+    tooltip.select("#rate")
+        .html(formatRate(closestYValue))
+
+    const x = xScale(closestXValue)
+      + dimensions.margin.left
+    const y = yScale(closestYValue)
+      + dimensions.margin.top
+
+    tooltip.style("transform", `translate(`
+      + `calc(-50% + ${x}px),`
+      + `calc(-120% + ${y}px)`
+      + `)`)
+
+    tooltip.style("opacity", 1)
+
+    tooltipCircle
+        .attr("cx", xScale(closestXValue))
+        .attr("cy", yScale(closestYValue))
+        .style("opacity", 1)
+  }
+  function onMouseLeave() {
+    tooltip.style("opacity", 0)
+
+    tooltipCircle.style("opacity", 0)
+  } 
+      
+}
+drawRateChart();
+
+    </script>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The above chart tracks % change in the number of cases on a given day.</p>
@@ -1096,7 +1547,7 @@ drawLineChart();
                         word-spacing: 1px;
                         text-shadow: none;
                         background-color: none;">
-                        The data was last refreshed at Wednesday, April 22, 06:30 PM.
+                        The data was last refreshed at Wednesday, April 22, 06:54 PM.
                         </span></p>
 
 </div>
