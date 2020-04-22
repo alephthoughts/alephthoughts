@@ -2078,7 +2078,7 @@ function drawStateTrajectory() {
 
   const xAxisGenerator = d3.axisBottom()
       .scale(xScale)
-      .tickValues([5, 10, 15, 20, 25, 30])
+      .tickValues([5, 10, 15, 20, 25, 30, 35])
   
   const xAxis = st_bounds.append("g")
       .attr("class", "x-axis")
@@ -2416,7 +2416,7 @@ st_wrapper.append("text")
       .attr("class", "notes")
       .attr("x", 0)
       .attr("y", st_dimensions.height - 5)
-      .html("source: https://api.rootnet.in/. Last Updated on April 22, 9:38 AM.")
+      .html("source: https://api.rootnet.in/. Chart Updated April 22, 9:38 IST.")
 
 
 }
@@ -2530,7 +2530,7 @@ drawStateTrajectory();
                         word-spacing: 1px;
                         text-shadow: none;
                         background-color: none;">
-                        The data was last refreshed at Wednesday, April 22, 04:30 AM.
+                        The data was last refreshed at Wednesday, April 22, 04:42 AM.
                         </span></p>
 
 </div>
