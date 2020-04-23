@@ -779,10 +779,9 @@ function drawLineChart() {
   format = d3.timeFormat("%b-%d")
   const main_xAccessor = d => dateParser(d.day)
   dataset = dataset.sort((a,b) => main_xAccessor(a) - main_xAccessor(b)).slice(0, 100)
-  var mydiv = document.getElementsByClassName("post-content");
 
   let dimensions = {
-    width: mydiv[0].style.width, //750,
+    width: 750,
     height: 550,
     margin: {
       top: 20,
