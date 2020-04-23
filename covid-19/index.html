@@ -779,9 +779,10 @@ function drawLineChart() {
   format = d3.timeFormat("%b-%d")
   const main_xAccessor = d => dateParser(d.day)
   dataset = dataset.sort((a,b) => main_xAccessor(a) - main_xAccessor(b)).slice(0, 100)
+  var mydiv = document.getElementById("notebook-container");
 
   let dimensions = {
-    width: window.innerWidth * 0.9, //750,
+    width: mydiv.style.width, //750,
     height: 550,
     margin: {
       top: 20,
@@ -2567,7 +2568,7 @@ drawStateTrajectory();
                         word-spacing: 1px;
                         text-shadow: none;
                         background-color: none;">
-                        The data was last refreshed at Thursday, April 23, 07:42 AM.
+                        The data was last refreshed at Thursday, April 23, 07:54 AM.
                         </span></p>
 
 </div>
