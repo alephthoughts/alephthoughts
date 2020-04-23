@@ -781,7 +781,7 @@ function drawLineChart() {
   dataset = dataset.sort((a,b) => main_xAccessor(a) - main_xAccessor(b)).slice(0, 100)
 
   let dimensions = {
-    width: 750,
+    width: window.innerWidth * 0.9, //750,
     height: 550,
     margin: {
       top: 20,
@@ -2567,7 +2567,7 @@ drawStateTrajectory();
                         word-spacing: 1px;
                         text-shadow: none;
                         background-color: none;">
-                        The data was last refreshed at Thursday, April 23, 07:06 AM.
+                        The data was last refreshed at Thursday, April 23, 07:42 AM.
                         </span></p>
 
 </div>
