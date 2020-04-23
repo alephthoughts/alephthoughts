@@ -796,10 +796,11 @@ function drawLineChart() {
 
   const main_wrapper = d3.select("#main-wrapper")
     .append("svg")
-    .attr("width", dimensions.width)
-    .attr("height", dimensions.height)
-    //.attr("preserveAspectRatio", "xMinYMin meet")
-    //.attr("viewBox", "0 0 750 550")
+    .attr("preserveAspectRatio", "xMinYMin meet")
+    .attr("viewBox", "0 0 750 550")
+    //.attr("width", dimensions.width)
+    //.attr("height", dimensions.height)
+    
       
     main_wrapper.append("rect")
         .attr("class", "chart-background")
