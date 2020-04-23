@@ -932,8 +932,8 @@ function drawLineChart() {
       + dimensions.margin.top
 
     main_tooltip.style("transform", `translate(`
-      + `calc(${x}px),`
-      + `calc(${y}px)`
+      + `calc(${d3.mouse(this)[0]}px),`
+      + `calc(${d3.mouse(this)[1]}px)`
       + `)`)
 
     main_tooltip.style("opacity", 1)
