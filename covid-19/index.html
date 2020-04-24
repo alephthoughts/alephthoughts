@@ -796,22 +796,6 @@ function drawLineChart() {
     .attr("width", dimensions.width)
     .attr("height", dimensions.height)
     
-    const structure = main_wrapper.append("div")
-        .attr("id","main-tooltip")
-        .attr("class", "main-tooltip")
-        
-    const structure1 = structure.append("div")
-        .attr("class", "main-tooltip-date")
-        .append("span")
-        .attr("id", "date")
-        
-    const structure2 = structure.append("div")
-        .attr("class", "main-confirmed")
-        .html("Confirmed Cases :")
-        .append("span")
-        .attr("id", "main-confirmed")
-
-      
     main_wrapper.append("rect")
         .attr("class", "chart-background")
         .attr("width", "100%")
@@ -929,7 +913,7 @@ function drawLineChart() {
 
     main_tooltip.style("transform", `translate(`
       + `calc(-50% + ${x}px),`
-      + `calc(-100% + ${y)}px)`
+      + `calc(-100% + ${y}px)`
       + `)`)
 
     main_tooltip.style("opacity", 1)
@@ -2577,7 +2561,7 @@ drawStateTrajectory();
                         word-spacing: 1px;
                         text-shadow: none;
                         background-color: none;">
-                        The data was last refreshed at Friday, April 24, 04:06 AM.
+                        The data was last refreshed at Friday, April 24, 04:18 AM.
                         </span></p>
 
 </div>
