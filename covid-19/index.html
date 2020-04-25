@@ -2263,8 +2263,8 @@ const circle_AP = st_bounds.append("circle")
   
 const anno_AP = st_bounds.append("text")
         .attr("class", "ap-text")
-        .attr("x", xScale(xAccessor(ap_dataset[ap_dataset.length - 1])))
-        .attr("y", yScale(yAccessor(ap_dataset[ap_dataset.length - 1])) + 10)
+        .attr("x", xScale(xAccessor(ap_dataset[ap_dataset.length - 1])) + 5)
+        .attr("y", yScale(yAccessor(ap_dataset[ap_dataset.length - 1])))
         .html("Andhra Pradesh")
 
 // Madhya Pradesh
@@ -2389,9 +2389,9 @@ const circle_UP = st_bounds.append("circle")
   
 const anno_UP = st_bounds.append("text")
         .attr("class", "up-text")
-        .attr("x", xScale(xAccessor(up_dataset[up_dataset.length - 1])) + 5)
-        .attr("y", yScale(yAccessor(up_dataset[up_dataset.length - 1])))
-        .html("Uttar Pradesh")
+        .attr("x", xScale(xAccessor(up_dataset[up_dataset.length - 1])))
+        .attr("y", yScale(yAccessor(up_dataset[up_dataset.length - 1])) + 10)
+        .html("UP")
 
 // WB
 
@@ -2446,8 +2446,8 @@ drawStateTrajectory();
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>The rapid spread continues in Gujarat and Maharashtra. Delhi numbers continue to grow.</li>
-<li>Rajasthan sees a significant rise in cases.</li>
+<li>The rapid spread continues in Maharashtra. Delhi numbers continue to grow.</li>
+<li>Steep rise in UP and Andhra Pradesh.</li>
 <li>Kerala's curve remains flat and steady</li>
 </ul>
 
@@ -2517,7 +2517,7 @@ drawStateTrajectory();
                         word-spacing: 1px;
                         text-shadow: none;
                         background-color: none;">
-                        The data was last refreshed at Saturday, April 25, 01:42 PM.
+                        The data was last refreshed at Saturday, April 25, 02:30 PM.
                         </span></p>
 
 </div>
