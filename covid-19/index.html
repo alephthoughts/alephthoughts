@@ -2121,7 +2121,7 @@ const line_COMP = clip.append("path")
 const anno_COMP = st_bounds.append("text")
         .attr("class", "comp-text")
         .attr("x", st_dimensions.boundedWidth/2 + 5)
-        .attr("y", st_dimensions.boundedHeight/2 + 245)
+        .attr("y", st_dimensions.boundedHeight/2 + 235)
         .html("100 Cases Per Day")
      
 //Maharashtra
@@ -2281,8 +2281,8 @@ const circle_MP = st_bounds.append("circle")
   
 const anno_MP = st_bounds.append("text")
         .attr("class", "mp-text")
-        .attr("x", xScale(xAccessor(mp_dataset[mp_dataset.length - 1])))
-        .attr("y", yScale(yAccessor(mp_dataset[mp_dataset.length - 1])) + 20)
+        .attr("x", xScale(xAccessor(mp_dataset[mp_dataset.length - 1])) + 5)
+        .attr("y", yScale(yAccessor(mp_dataset[mp_dataset.length - 1])))
         .html("MP")
 
 // Gujarat
@@ -2391,7 +2391,7 @@ const anno_UP = st_bounds.append("text")
         .attr("class", "up-text")
         .attr("x", xScale(xAccessor(up_dataset[up_dataset.length - 1])))
         .attr("y", yScale(yAccessor(up_dataset[up_dataset.length - 1])) + 10)
-        .html("UP")
+        .html("Uttar Pradesh")
 
 // WB
 
@@ -2517,7 +2517,7 @@ drawStateTrajectory();
                         word-spacing: 1px;
                         text-shadow: none;
                         background-color: none;">
-                        The data was last refreshed at Monday, April 27, 05:30 AM.
+                        The data was last refreshed at Monday, April 27, 05:42 AM.
                         </span></p>
 
 </div>
