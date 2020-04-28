@@ -2389,8 +2389,8 @@ const circle_UP = st_bounds.append("circle")
   
 const anno_UP = st_bounds.append("text")
         .attr("class", "up-text")
-        .attr("x", xScale(xAccessor(up_dataset[up_dataset.length - 1])))
-        .attr("y", yScale(yAccessor(up_dataset[up_dataset.length - 1])) + 10)
+        .attr("x", xScale(xAccessor(up_dataset[up_dataset.length - 1])) + 5)
+        .attr("y", yScale(yAccessor(up_dataset[up_dataset.length - 1])))
         .html("Uttar Pradesh")
 
 // WB
@@ -2425,7 +2425,7 @@ st_wrapper.append("text")
       .attr("class", "notes")
       .attr("x", 0)
       .attr("y", st_dimensions.height - 5)
-      .html("source: https://api.rootnet.in/. Chart Updated April 28, 11:03 IST.")
+      .html("source: https://api.rootnet.in/. Chart Updated April 28, 20:16 IST.")
 
 
 }
@@ -2446,9 +2446,7 @@ drawStateTrajectory();
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
-<li>The rapid spread continues in Maharashtra. Delhi numbers continue to grow.</li>
-<li>Steep rise in UP and Andhra Pradesh.</li>
-<li>Kerala's curve remains flat and steady</li>
+<li>The rapid spread continues in Maharashtra. Delhi spread worsens.</li>
 </ul>
 
 </div>
@@ -2517,7 +2515,7 @@ drawStateTrajectory();
                         word-spacing: 1px;
                         text-shadow: none;
                         background-color: none;">
-                        The data was last refreshed at Tuesday, April 28, 02:18 PM.
+                        The data was last refreshed at Tuesday, April 28, 02:42 PM.
                         </span></p>
 
 </div>
