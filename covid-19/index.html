@@ -2120,8 +2120,8 @@ const line_COMP = clip.append("path")
   
 const anno_COMP = st_bounds.append("text")
         .attr("class", "comp-text")
-        .attr("x", xScale(xAccessor(comp_dataset[comp_dataset.length - 3])))
-        .attr("y", yScale(yAccessor(comp_dataset[comp_dataset.length - 3])) + 5)
+        .attr("x", st_dimensions.boundedWidth * 0.75)
+        .attr("y", st_dimensions.boundedHeight * 0.75)
         .html("100 Cases Per Day")
      
 //Maharashtra
@@ -2515,7 +2515,7 @@ drawStateTrajectory();
                         word-spacing: 1px;
                         text-shadow: none;
                         background-color: none;">
-                        The data was last refreshed at Thursday, April 30, 04:06 AM.
+                        The data was last refreshed at Thursday, April 30, 04:18 AM.
                         </span></p>
 
 </div>
