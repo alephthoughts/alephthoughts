@@ -1,0 +1,38 @@
+{
+  "fileSortOrder": "alphabetical",
+  "pluginEnabledStatus": {
+    "File explorer": true,
+    "Search": true,
+    "Quick switcher": true,
+    "Graph view": true,
+    "Backlinks": true,
+    "Word count": true,
+    "Command palette": true,
+    "Markdown format converter": true
+  },
+  "isSidebarCollapsed": false,
+  "isRightSidedockCollapsed": false,
+  "lastOpenSidebarTab": "File explorer",
+  "lastOpenRightSidedockTab": "Backlinks",
+  "theme": "obsidian",
+  "workspaceLayout": {
+    "id": "4471a186a6d29347",
+    "type": "split",
+    "dimension": null,
+    "direction": "vertical",
+    "children": [
+      {
+        "id": "4a0a834109a3876b",
+        "type": "leaf",
+        "dimension": null,
+        "view": "empty",
+        "path": "",
+        "preview": false,
+        "active": true,
+        "master": "",
+        "locked": false
+      }
+    ]
+  },
+  "lastOpenFiles": []
+}
