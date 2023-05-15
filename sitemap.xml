@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://alephthoughts.com/index.html</loc>
-    <lastmod>2023-05-15T16:04:22.548Z</lastmod>
-  </url>
-  <url>
-    <loc>https://alephthoughts.com/now.html</loc>
-    <lastmod>2023-05-15T16:04:23.177Z</lastmod>
-  </url>
-  <url>
-    <loc>https://alephthoughts.com/thoughts/posts/vision/visualizingCNNs.html</loc>
-    <lastmod>2023-05-15T16:04:23.873Z</lastmod>
+    <loc>https://alephthoughts.com/thoughts/index.html</loc>
+    <lastmod>2023-05-15T16:12:44.623Z</lastmod>
   </url>
   <url>
     <loc>https://alephthoughts.com/thoughts/posts/welcome/Welcome.html</loc>
-    <lastmod>2023-05-15T16:04:24.310Z</lastmod>
+    <lastmod>2023-05-15T16:12:45.419Z</lastmod>
   </url>
   <url>
-    <loc>https://alephthoughts.com/thoughts/posts/ai-in-society/covid19.html</loc>
-    <lastmod>2023-05-15T16:04:26.100Z</lastmod>
-  </url>
-  <url>
-    <loc>https://alephthoughts.com/thoughts/posts/ai-in-society/Masks4All.html</loc>
-    <lastmod>2023-05-15T16:04:27.485Z</lastmod>
-  </url>
-  <url>
-    <loc>https://alephthoughts.com/thoughts/posts/data-engineering/PandasandSQL.html</loc>
-    <lastmod>2023-05-15T16:04:31.235Z</lastmod>
-  </url>
-  <url>
-    <loc>https://alephthoughts.com/thoughts/posts/data-engineering/ScalingPython.html</loc>
-    <lastmod>2023-05-15T16:04:31.952Z</lastmod>
+    <loc>https://alephthoughts.com/thoughts/posts/vision/visualizingCNNs.html</loc>
+    <lastmod>2023-05-15T16:12:45.967Z</lastmod>
   </url>
   <url>
     <loc>https://alephthoughts.com/thoughts/posts/notebooks/jupyterNotebook.html</loc>
-    <lastmod>2023-05-15T16:04:32.567Z</lastmod>
+    <lastmod>2023-05-15T16:12:46.487Z</lastmod>
   </url>
   <url>
-    <loc>https://alephthoughts.com/thoughts/index.html</loc>
-    <lastmod>2023-05-15T16:04:34.367Z</lastmod>
+    <loc>https://alephthoughts.com/thoughts/posts/ai-in-society/Masks4All.html</loc>
+    <lastmod>2023-05-15T16:12:47.439Z</lastmod>
+  </url>
+  <url>
+    <loc>https://alephthoughts.com/thoughts/posts/ai-in-society/covid19.html</loc>
+    <lastmod>2023-05-15T16:12:48.863Z</lastmod>
+  </url>
+  <url>
+    <loc>https://alephthoughts.com/thoughts/posts/data-engineering/PandasandSQL.html</loc>
+    <lastmod>2023-05-15T16:12:51.720Z</lastmod>
+  </url>
+  <url>
+    <loc>https://alephthoughts.com/thoughts/posts/data-engineering/ScalingPython.html</loc>
+    <lastmod>2023-05-15T16:12:52.204Z</lastmod>
+  </url>
+  <url>
+    <loc>https://alephthoughts.com/now.html</loc>
+    <lastmod>2023-05-15T16:12:52.684Z</lastmod>
+  </url>
+  <url>
+    <loc>https://alephthoughts.com/index.html</loc>
+    <lastmod>2023-05-15T16:12:53.052Z</lastmod>
   </url>
 </urlset>

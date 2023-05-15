@@ -16,8 +16,8 @@
 <height>144</height>
 <width>144</width>
 </image>
-<generator>quarto-1.3.340</generator>
-<lastBuildDate>Sun, 05 Mar 2023 18:30:00 GMT</lastBuildDate>
+<generator>quarto-1.3.353</generator>
+<lastBuildDate>Mon, 06 Mar 2023 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Marketing in the Age of AI?</title>
   <link>https://alephthoughts.com/</link>
@@ -27,7 +27,7 @@
   <category>AI</category>
   <category>Generative AI</category>
   <guid>https://alephthoughts.com/</guid>
-  <pubDate>Sun, 05 Mar 2023 18:30:00 GMT</pubDate>
+  <pubDate>Mon, 06 Mar 2023 00:00:00 GMT</pubDate>
   <media:content url="https://static.businessworld.in/article/article_extra_large_image/1674872739_Kt26I7_technology_.png" medium="image" type="image/png"/>
 </item>
 <item>
@@ -2072,7 +2072,7 @@ font-style: inherit;">'SELECT Team, COUNT(Medal) FROM data Where Sport = "Swimmi
   <category>pandas</category>
   <category>sql</category>
   <guid>https://alephthoughts.com/thoughts/posts/data-engineering/PandasandSQL.html</guid>
-  <pubDate>Tue, 04 Jan 2022 18:30:00 GMT</pubDate>
+  <pubDate>Wed, 05 Jan 2022 00:00:00 GMT</pubDate>
   <media:content url="https://alephthoughts.com/thoughts/posts/data-engineering/pandasql.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -2161,7 +2161,7 @@ Note
   <category>data-science</category>
   <category>data-engineering</category>
   <guid>https://alephthoughts.com/thoughts/posts/data-engineering/ScalingPython.html</guid>
-  <pubDate>Sun, 02 Jan 2022 18:30:00 GMT</pubDate>
+  <pubDate>Mon, 03 Jan 2022 00:00:00 GMT</pubDate>
   <media:content url="https://alephthoughts.com/thoughts/posts/data-engineering/scalingpython.png" medium="image" type="image/png" height="53" width="144"/>
 </item>
 <item>
@@ -2277,7 +2277,7 @@ Note
   <category>ai in society</category>
   <category>covid19</category>
   <guid>https://alephthoughts.com/thoughts/posts/ai-in-society/Masks4All.html</guid>
-  <pubDate>Tue, 14 Apr 2020 18:30:00 GMT</pubDate>
+  <pubDate>Wed, 15 Apr 2020 00:00:00 GMT</pubDate>
   <media:content url="https://alephthoughts.com/thoughts/posts/ai-in-society/mask4all.jpeg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -2371,7 +2371,7 @@ Note
   <category>computer vision</category>
   <category>CNNs</category>
   <guid>https://alephthoughts.com/thoughts/posts/vision/visualizingCNNs.html</guid>
-  <pubDate>Sun, 05 Apr 2020 18:30:00 GMT</pubDate>
+  <pubDate>Mon, 06 Apr 2020 00:00:00 GMT</pubDate>
   <media:content url="https://alephthoughts.com/thoughts/posts/vision/mathew.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -2492,7 +2492,7 @@ Note
   <category>ai in society</category>
   <category>covid19</category>
   <guid>https://alephthoughts.com/thoughts/posts/ai-in-society/covid19.html</guid>
-  <pubDate>Sun, 15 Mar 2020 18:30:00 GMT</pubDate>
+  <pubDate>Mon, 16 Mar 2020 00:00:00 GMT</pubDate>
   <media:content url="https://alephthoughts.com/thoughts/posts/ai-in-society/coronavirus.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
@@ -2654,7 +2654,7 @@ font-style: inherit;">--</span>to hide_code_latex notebook_to_convert.ipynb</spa
   <category>notebooks</category>
   <category>data science</category>
   <guid>https://alephthoughts.com/thoughts/posts/notebooks/jupyterNotebook.html</guid>
-  <pubDate>Fri, 14 Jun 2019 18:30:00 GMT</pubDate>
+  <pubDate>Sat, 15 Jun 2019 00:00:00 GMT</pubDate>
   <media:content url="https://alephthoughts.com/thoughts/posts/notebooks/jupyter.png" medium="image" type="image/png" height="72" width="144"/>
 </item>
 <item>
@@ -2681,7 +2681,7 @@ font-style: inherit;">--</span>to hide_code_latex notebook_to_convert.ipynb</spa
  ]]></description>
   <category>others</category>
   <guid>https://alephthoughts.com/thoughts/posts/welcome/Welcome.html</guid>
-  <pubDate>Thu, 13 Jun 2019 18:30:00 GMT</pubDate>
+  <pubDate>Fri, 14 Jun 2019 00:00:00 GMT</pubDate>
   <media:content url="https://alephthoughts.com/thoughts/posts/welcome/shakespeare.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
