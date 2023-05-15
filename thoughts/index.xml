@@ -1,0 +1,2688 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>alephthoughts</title>
+<link>https://alephthoughts.com/thoughts/index.html</link>
+<atom:link href="https://alephthoughts.com/thoughts/index.xml" rel="self" type="application/rss+xml"/>
+<description>AI consulting for growing your business</description>
+<image>
+<url>https://alephthoughts.com/quarto.png</url>
+<title>alephthoughts</title>
+<link>https://alephthoughts.com/thoughts/index.html</link>
+<height>144</height>
+<width>144</width>
+</image>
+<generator>quarto-1.3.340</generator>
+<lastBuildDate>Sun, 05 Mar 2023 18:30:00 GMT</lastBuildDate>
+<item>
+  <title>Marketing in the Age of AI?</title>
+  <link>https://alephthoughts.com/</link>
+  <description>How Machine Learning is Changing the Game?
+</description>
+  <category>Marketing</category>
+  <category>AI</category>
+  <category>Generative AI</category>
+  <guid>https://alephthoughts.com/</guid>
+  <pubDate>Sun, 05 Mar 2023 18:30:00 GMT</pubDate>
+  <media:content url="https://static.businessworld.in/article/article_extra_large_image/1674872739_Kt26I7_technology_.png" medium="image" type="image/png"/>
+</item>
+<item>
+  <title>Pandas and SQL side by side</title>
+  <dc:creator>Abhishek </dc:creator>
+  <link>https://alephthoughts.com/thoughts/posts/data-engineering/PandasandSQL.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>SQL is a must have skill if you are working with data. Pandas is as essential for data analysis in the python. If you’re someone who knows pandas and want to learn SQL or you know SQL and want to learn pandas, this post will introduce you to some basic skills.</p>
+<p>To work on SQL you need access to a database hosted locally or on the cloud. Some popular databases you can work with are the following:</p>
+<ul>
+<li><a href="https://www.mysql.com/">MySQL</a></li>
+<li><a href="https://www.microsoft.com/en-us/sql-server/sql-server-downloads">MS SQL Server</a></li>
+<li><a href="https://www.oracle.com/database/">Oracle</a></li>
+<li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+<li><a href="https://www.teradata.com/Products/Software/Database">Teradata</a></li>
+<li><a href="https://cloud.google.com/bigquery/">BigQuery</a></li>
+<li><a href="https://aws.amazon.com/redshift/">Redshift</a></li>
+</ul>
+<p>There are many more but I’ve tried to list down the popular ones. To show side by side examples, however, I am not using any database. I have using a SQL engine called <a href="https://github.com/yhat/pandasql/">pandasql</a>. So to run these examples, you will have to read some <a href="https://www.kaggle.com/heesoo37/120-years-of-olympic-history-athletes-and-results">data</a> into pandas dataframe and then use pandasql to run SQL queries.</p>
+<p>So the steps are as follows:</p>
+<ol type="1">
+<li>!pip install -U pandassql</li>
+<li>import pandas as pd</li>
+<li>from pandassql import sqldf</li>
+<li>data = pd.read_csv(&lt;path-to-athlete_events.csv&gt;)</li>
+<li>Run these examples</li>
+</ol>
+<section id="selecting-data" class="level2">
+<h2 class="anchored" data-anchor-id="selecting-data">SELECTing Data</h2>
+<p>Once you import the data, select 5 rows from the data just to inspects. Below is an example of how to select top 5 rows in pandas:</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1">data.head()</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Height</th>
+<th data-quarto-table-cell-role="th">Weight</th>
+<th data-quarto-table-cell-role="th">Team</th>
+<th data-quarto-table-cell-role="th">NOC</th>
+<th data-quarto-table-cell-role="th">Games</th>
+<th data-quarto-table-cell-role="th">Year</th>
+<th data-quarto-table-cell-role="th">Season</th>
+<th data-quarto-table-cell-role="th">City</th>
+<th data-quarto-table-cell-role="th">Sport</th>
+<th data-quarto-table-cell-role="th">Event</th>
+<th data-quarto-table-cell-role="th">Medal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>A Dijiang</td>
+<td>M</td>
+<td>24.0</td>
+<td>180.0</td>
+<td>80.0</td>
+<td>China</td>
+<td>CHN</td>
+<td>1992 Summer</td>
+<td>1992</td>
+<td>Summer</td>
+<td>Barcelona</td>
+<td>Basketball</td>
+<td>Basketball Men's Basketball</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>A Lamusi</td>
+<td>M</td>
+<td>23.0</td>
+<td>170.0</td>
+<td>60.0</td>
+<td>China</td>
+<td>CHN</td>
+<td>2012 Summer</td>
+<td>2012</td>
+<td>Summer</td>
+<td>London</td>
+<td>Judo</td>
+<td>Judo Men's Extra-Lightweight</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>Gunnar Nielsen Aaby</td>
+<td>M</td>
+<td>24.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Denmark</td>
+<td>DEN</td>
+<td>1920 Summer</td>
+<td>1920</td>
+<td>Summer</td>
+<td>Antwerpen</td>
+<td>Football</td>
+<td>Football Men's Football</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>Edgar Lindenau Aabye</td>
+<td>M</td>
+<td>34.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Denmark/Sweden</td>
+<td>DEN</td>
+<td>1900 Summer</td>
+<td>1900</td>
+<td>Summer</td>
+<td>Paris</td>
+<td>Tug-Of-War</td>
+<td>Tug-Of-War Men's Tug-Of-War</td>
+<td>Gold</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>Christine Jacoba Aaftink</td>
+<td>F</td>
+<td>21.0</td>
+<td>185.0</td>
+<td>82.0</td>
+<td>Netherlands</td>
+<td>NED</td>
+<td>1988 Winter</td>
+<td>1988</td>
+<td>Winter</td>
+<td>Calgary</td>
+<td>Speed Skating</td>
+<td>Speed Skating Women's 500 metres</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>You can achieve the same result in SQL:</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">sqldf(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"SELECT * FROM data LIMIT 5"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Height</th>
+<th data-quarto-table-cell-role="th">Weight</th>
+<th data-quarto-table-cell-role="th">Team</th>
+<th data-quarto-table-cell-role="th">NOC</th>
+<th data-quarto-table-cell-role="th">Games</th>
+<th data-quarto-table-cell-role="th">Year</th>
+<th data-quarto-table-cell-role="th">Season</th>
+<th data-quarto-table-cell-role="th">City</th>
+<th data-quarto-table-cell-role="th">Sport</th>
+<th data-quarto-table-cell-role="th">Event</th>
+<th data-quarto-table-cell-role="th">Medal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1</td>
+<td>A Dijiang</td>
+<td>M</td>
+<td>24.0</td>
+<td>180.0</td>
+<td>80.0</td>
+<td>China</td>
+<td>CHN</td>
+<td>1992 Summer</td>
+<td>1992</td>
+<td>Summer</td>
+<td>Barcelona</td>
+<td>Basketball</td>
+<td>Basketball Men's Basketball</td>
+<td>None</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2</td>
+<td>A Lamusi</td>
+<td>M</td>
+<td>23.0</td>
+<td>170.0</td>
+<td>60.0</td>
+<td>China</td>
+<td>CHN</td>
+<td>2012 Summer</td>
+<td>2012</td>
+<td>Summer</td>
+<td>London</td>
+<td>Judo</td>
+<td>Judo Men's Extra-Lightweight</td>
+<td>None</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>3</td>
+<td>Gunnar Nielsen Aaby</td>
+<td>M</td>
+<td>24.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Denmark</td>
+<td>DEN</td>
+<td>1920 Summer</td>
+<td>1920</td>
+<td>Summer</td>
+<td>Antwerpen</td>
+<td>Football</td>
+<td>Football Men's Football</td>
+<td>None</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>4</td>
+<td>Edgar Lindenau Aabye</td>
+<td>M</td>
+<td>34.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>Denmark/Sweden</td>
+<td>DEN</td>
+<td>1900 Summer</td>
+<td>1900</td>
+<td>Summer</td>
+<td>Paris</td>
+<td>Tug-Of-War</td>
+<td>Tug-Of-War Men's Tug-Of-War</td>
+<td>Gold</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>5</td>
+<td>Christine Jacoba Aaftink</td>
+<td>F</td>
+<td>21.0</td>
+<td>185.0</td>
+<td>82.0</td>
+<td>Netherlands</td>
+<td>NED</td>
+<td>1988 Winter</td>
+<td>1988</td>
+<td>Winter</td>
+<td>Calgary</td>
+<td>Speed Skating</td>
+<td>Speed Skating Women's 500 metres</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Both pandas and SQL allow you to select specific columns from the dataframe(pandas) or table(SQL).</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">data[[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Name'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Age'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Team'</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Year'</span>]].head()</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Team</th>
+<th data-quarto-table-cell-role="th">Year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>A Dijiang</td>
+<td>24.0</td>
+<td>China</td>
+<td>1992</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>A Lamusi</td>
+<td>23.0</td>
+<td>China</td>
+<td>2012</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Gunnar Nielsen Aaby</td>
+<td>24.0</td>
+<td>Denmark</td>
+<td>1920</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Edgar Lindenau Aabye</td>
+<td>34.0</td>
+<td>Denmark/Sweden</td>
+<td>1900</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Christine Jacoba Aaftink</td>
+<td>21.0</td>
+<td>Netherlands</td>
+<td>1988</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1">sqldf(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'SELECT Name, Age, Team, Year FROM data LIMIT 5'</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Team</th>
+<th data-quarto-table-cell-role="th">Year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>A Dijiang</td>
+<td>24.0</td>
+<td>China</td>
+<td>1992</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>A Lamusi</td>
+<td>23.0</td>
+<td>China</td>
+<td>2012</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Gunnar Nielsen Aaby</td>
+<td>24.0</td>
+<td>Denmark</td>
+<td>1920</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Edgar Lindenau Aabye</td>
+<td>34.0</td>
+<td>Denmark/Sweden</td>
+<td>1900</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Christine Jacoba Aaftink</td>
+<td>21.0</td>
+<td>Netherlands</td>
+<td>1988</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="filtering-with-constraints" class="level2">
+<h2 class="anchored" data-anchor-id="filtering-with-constraints">FILTERing with constraints</h2>
+<p><code>iloc</code> property of a pandas dataframe allows you to select a row by its index as shown below. Here we are particulary selecting the 6th row by applying the filter on index.</p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">data.iloc[<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">6</span>]</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>ID                                       5
+Name              Christine Jacoba Aaftink
+Sex                                      F
+Age                                   25.0
+Height                               185.0
+Weight                                82.0
+Team                           Netherlands
+NOC                                    NED
+Games                          1992 Winter
+Year                                  1992
+Season                              Winter
+City                           Albertville
+Sport                        Speed Skating
+Event     Speed Skating Women's 500 metres
+Medal                                  NaN
+Name: 6, dtype: object</code></pre>
+</div>
+</div>
+<p>In SQL most databases provide a rowid index to select a specific row from the table.</p>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1">sqldf(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"SELECT * FROM data WHERE rowid=6"</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Height</th>
+<th data-quarto-table-cell-role="th">Weight</th>
+<th data-quarto-table-cell-role="th">Team</th>
+<th data-quarto-table-cell-role="th">NOC</th>
+<th data-quarto-table-cell-role="th">Games</th>
+<th data-quarto-table-cell-role="th">Year</th>
+<th data-quarto-table-cell-role="th">Season</th>
+<th data-quarto-table-cell-role="th">City</th>
+<th data-quarto-table-cell-role="th">Sport</th>
+<th data-quarto-table-cell-role="th">Event</th>
+<th data-quarto-table-cell-role="th">Medal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>5</td>
+<td>Christine Jacoba Aaftink</td>
+<td>F</td>
+<td>21.0</td>
+<td>185.0</td>
+<td>82.0</td>
+<td>Netherlands</td>
+<td>NED</td>
+<td>1988 Winter</td>
+<td>1988</td>
+<td>Winter</td>
+<td>Calgary</td>
+<td>Speed Skating</td>
+<td>Speed Skating Women's 1,000 metres</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>You can filter on a condition applied on column or multiple columns. In case of multiple columns, the conditions are combined with boolen expressions such as AND, OR etc.</p>
+<p>Here is how to count records which satisfy the condition “Age of the athelete is greater than 30”.</p>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1">data[data[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Age'</span>]<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30</span>][<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'ID'</span>].count()</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>42107</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1">sqldf(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'SELECT COUNT(*) FROM data WHERE Age &gt; 30'</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="11">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">COUNT(*)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>42107</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Below is an example of multiple conditions. We are selecting all records of <code>Hockey</code> for team <code>India</code>.</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1">data[(data[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Team'</span>] <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'India'</span>) <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> (data[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Sport'</span>]<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Hockey'</span>)]</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="12">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Height</th>
+<th data-quarto-table-cell-role="th">Weight</th>
+<th data-quarto-table-cell-role="th">Team</th>
+<th data-quarto-table-cell-role="th">NOC</th>
+<th data-quarto-table-cell-role="th">Games</th>
+<th data-quarto-table-cell-role="th">Year</th>
+<th data-quarto-table-cell-role="th">Season</th>
+<th data-quarto-table-cell-role="th">City</th>
+<th data-quarto-table-cell-role="th">Sport</th>
+<th data-quarto-table-cell-role="th">Event</th>
+<th data-quarto-table-cell-role="th">Medal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2513</td>
+<td>1415</td>
+<td>Shakeel Ahmed</td>
+<td>M</td>
+<td>21.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>India</td>
+<td>IND</td>
+<td>1992 Summer</td>
+<td>1992</td>
+<td>Summer</td>
+<td>Barcelona</td>
+<td>Hockey</td>
+<td>Hockey Men's Hockey</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4289</td>
+<td>2453</td>
+<td>Anil Alexander Aldrin</td>
+<td>M</td>
+<td>24.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>India</td>
+<td>IND</td>
+<td>1996 Summer</td>
+<td>1996</td>
+<td>Summer</td>
+<td>Atlanta</td>
+<td>Hockey</td>
+<td>Hockey Men's Hockey</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4732</td>
+<td>2699</td>
+<td>Shaukat Ali</td>
+<td>M</td>
+<td>30.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>India</td>
+<td>IND</td>
+<td>1928 Summer</td>
+<td>1928</td>
+<td>Summer</td>
+<td>Amsterdam</td>
+<td>Hockey</td>
+<td>Hockey Men's Hockey</td>
+<td>Gold</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4735</td>
+<td>2702</td>
+<td>Syed Ali</td>
+<td>M</td>
+<td>19.0</td>
+<td>169.0</td>
+<td>60.0</td>
+<td>India</td>
+<td>IND</td>
+<td>1976 Summer</td>
+<td>1976</td>
+<td>Summer</td>
+<td>Montreal</td>
+<td>Hockey</td>
+<td>Hockey Men's Hockey</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4736</td>
+<td>2703</td>
+<td>Syed Mushtaq Ali</td>
+<td>M</td>
+<td>22.0</td>
+<td>165.0</td>
+<td>61.0</td>
+<td>India</td>
+<td>IND</td>
+<td>1964 Summer</td>
+<td>1964</td>
+<td>Summer</td>
+<td>Tokyo</td>
+<td>Hockey</td>
+<td>Hockey Men's Hockey</td>
+<td>Gold</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">253354</td>
+<td>126867</td>
+<td>Sunil Sowmarpet Vitalacharya</td>
+<td>M</td>
+<td>27.0</td>
+<td>176.0</td>
+<td>68.0</td>
+<td>India</td>
+<td>IND</td>
+<td>2016 Summer</td>
+<td>2016</td>
+<td>Summer</td>
+<td>Rio de Janeiro</td>
+<td>Hockey</td>
+<td>Hockey Men's Hockey</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">256143</td>
+<td>128249</td>
+<td>Devindar Sunil Walmiki</td>
+<td>M</td>
+<td>24.0</td>
+<td>178.0</td>
+<td>69.0</td>
+<td>India</td>
+<td>IND</td>
+<td>2016 Summer</td>
+<td>2016</td>
+<td>Summer</td>
+<td>Rio de Janeiro</td>
+<td>Hockey</td>
+<td>Hockey Men's Hockey</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">263723</td>
+<td>131974</td>
+<td>William Xalco</td>
+<td>M</td>
+<td>20.0</td>
+<td>167.0</td>
+<td>60.0</td>
+<td>India</td>
+<td>IND</td>
+<td>2004 Summer</td>
+<td>2004</td>
+<td>Summer</td>
+<td>Athina</td>
+<td>Hockey</td>
+<td>Hockey Men's Hockey</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">264075</td>
+<td>132142</td>
+<td>Renuka Yadav</td>
+<td>F</td>
+<td>22.0</td>
+<td>159.0</td>
+<td>53.0</td>
+<td>India</td>
+<td>IND</td>
+<td>2016 Summer</td>
+<td>2016</td>
+<td>Summer</td>
+<td>Rio de Janeiro</td>
+<td>Hockey</td>
+<td>Hockey Women's Hockey</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">266934</td>
+<td>133554</td>
+<td>Sayed Muhammad Yusuf</td>
+<td>M</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>India</td>
+<td>IND</td>
+<td>1928 Summer</td>
+<td>1928</td>
+<td>Summer</td>
+<td>Amsterdam</td>
+<td>Hockey</td>
+<td>Hockey Men's Hockey</td>
+<td>Gold</td>
+</tr>
+</tbody>
+</table>
+
+<p>345 rows × 15 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1">sqldf(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'SELECT * FROM data WHERE Team="India" AND Sport="Hockey"'</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Height</th>
+<th data-quarto-table-cell-role="th">Weight</th>
+<th data-quarto-table-cell-role="th">Team</th>
+<th data-quarto-table-cell-role="th">NOC</th>
+<th data-quarto-table-cell-role="th">Games</th>
+<th data-quarto-table-cell-role="th">Year</th>
+<th data-quarto-table-cell-role="th">Season</th>
+<th data-quarto-table-cell-role="th">City</th>
+<th data-quarto-table-cell-role="th">Sport</th>
+<th data-quarto-table-cell-role="th">Event</th>
+<th data-quarto-table-cell-role="th">Medal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>1415</td>
+<td>Shakeel Ahmed</td>
+<td>M</td>
+<td>21.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>India</td>
+<td>IND</td>
+<td>1992 Summer</td>
+<td>1992</td>
+<td>Summer</td>
+<td>Barcelona</td>
+<td>Hockey</td>
+<td>Hockey Men's Hockey</td>
+<td>None</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2453</td>
+<td>Anil Alexander Aldrin</td>
+<td>M</td>
+<td>24.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>India</td>
+<td>IND</td>
+<td>1996 Summer</td>
+<td>1996</td>
+<td>Summer</td>
+<td>Atlanta</td>
+<td>Hockey</td>
+<td>Hockey Men's Hockey</td>
+<td>None</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2699</td>
+<td>Shaukat Ali</td>
+<td>M</td>
+<td>30.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>India</td>
+<td>IND</td>
+<td>1928 Summer</td>
+<td>1928</td>
+<td>Summer</td>
+<td>Amsterdam</td>
+<td>Hockey</td>
+<td>Hockey Men's Hockey</td>
+<td>Gold</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2702</td>
+<td>Syed Ali</td>
+<td>M</td>
+<td>19.0</td>
+<td>169.0</td>
+<td>60.0</td>
+<td>India</td>
+<td>IND</td>
+<td>1976 Summer</td>
+<td>1976</td>
+<td>Summer</td>
+<td>Montreal</td>
+<td>Hockey</td>
+<td>Hockey Men's Hockey</td>
+<td>None</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2703</td>
+<td>Syed Mushtaq Ali</td>
+<td>M</td>
+<td>22.0</td>
+<td>165.0</td>
+<td>61.0</td>
+<td>India</td>
+<td>IND</td>
+<td>1964 Summer</td>
+<td>1964</td>
+<td>Summer</td>
+<td>Tokyo</td>
+<td>Hockey</td>
+<td>Hockey Men's Hockey</td>
+<td>Gold</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">340</td>
+<td>126867</td>
+<td>Sunil Sowmarpet Vitalacharya</td>
+<td>M</td>
+<td>27.0</td>
+<td>176.0</td>
+<td>68.0</td>
+<td>India</td>
+<td>IND</td>
+<td>2016 Summer</td>
+<td>2016</td>
+<td>Summer</td>
+<td>Rio de Janeiro</td>
+<td>Hockey</td>
+<td>Hockey Men's Hockey</td>
+<td>None</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">341</td>
+<td>128249</td>
+<td>Devindar Sunil Walmiki</td>
+<td>M</td>
+<td>24.0</td>
+<td>178.0</td>
+<td>69.0</td>
+<td>India</td>
+<td>IND</td>
+<td>2016 Summer</td>
+<td>2016</td>
+<td>Summer</td>
+<td>Rio de Janeiro</td>
+<td>Hockey</td>
+<td>Hockey Men's Hockey</td>
+<td>None</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">342</td>
+<td>131974</td>
+<td>William Xalco</td>
+<td>M</td>
+<td>20.0</td>
+<td>167.0</td>
+<td>60.0</td>
+<td>India</td>
+<td>IND</td>
+<td>2004 Summer</td>
+<td>2004</td>
+<td>Summer</td>
+<td>Athina</td>
+<td>Hockey</td>
+<td>Hockey Men's Hockey</td>
+<td>None</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">343</td>
+<td>132142</td>
+<td>Renuka Yadav</td>
+<td>F</td>
+<td>22.0</td>
+<td>159.0</td>
+<td>53.0</td>
+<td>India</td>
+<td>IND</td>
+<td>2016 Summer</td>
+<td>2016</td>
+<td>Summer</td>
+<td>Rio de Janeiro</td>
+<td>Hockey</td>
+<td>Hockey Women's Hockey</td>
+<td>None</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">344</td>
+<td>133554</td>
+<td>Sayed Muhammad Yusuf</td>
+<td>M</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>India</td>
+<td>IND</td>
+<td>1928 Summer</td>
+<td>1928</td>
+<td>Summer</td>
+<td>Amsterdam</td>
+<td>Hockey</td>
+<td>Hockey Men's Hockey</td>
+<td>Gold</td>
+</tr>
+</tbody>
+</table>
+
+<p>345 rows × 15 columns</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sorting" class="level2">
+<h2 class="anchored" data-anchor-id="sorting">SORTing</h2>
+<p>Sorting is another common operation required during data analysis. You can sort on one or more columns and in ascending (low to high) or descending (high to low) order.</p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1">data.sort_values(by<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Age'</span>, ascending<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span>).head()</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Height</th>
+<th data-quarto-table-cell-role="th">Weight</th>
+<th data-quarto-table-cell-role="th">Team</th>
+<th data-quarto-table-cell-role="th">NOC</th>
+<th data-quarto-table-cell-role="th">Games</th>
+<th data-quarto-table-cell-role="th">Year</th>
+<th data-quarto-table-cell-role="th">Season</th>
+<th data-quarto-table-cell-role="th">City</th>
+<th data-quarto-table-cell-role="th">Sport</th>
+<th data-quarto-table-cell-role="th">Event</th>
+<th data-quarto-table-cell-role="th">Medal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">257054</td>
+<td>128719</td>
+<td>John Quincy Adams Ward</td>
+<td>M</td>
+<td>97.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>United States</td>
+<td>USA</td>
+<td>1928 Summer</td>
+<td>1928</td>
+<td>Summer</td>
+<td>Amsterdam</td>
+<td>Art Competitions</td>
+<td>Art Competitions Mixed Sculpturing, Statues</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">98118</td>
+<td>49663</td>
+<td>Winslow Homer</td>
+<td>M</td>
+<td>96.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>United States</td>
+<td>USA</td>
+<td>1932 Summer</td>
+<td>1932</td>
+<td>Summer</td>
+<td>Los Angeles</td>
+<td>Art Competitions</td>
+<td>Art Competitions Mixed Painting, Unknown Event</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">60863</td>
+<td>31173</td>
+<td>Thomas Cowperthwait Eakins</td>
+<td>M</td>
+<td>88.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>United States</td>
+<td>USA</td>
+<td>1932 Summer</td>
+<td>1932</td>
+<td>Summer</td>
+<td>Los Angeles</td>
+<td>Art Competitions</td>
+<td>Art Competitions Mixed Painting, Unknown Event</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">60861</td>
+<td>31173</td>
+<td>Thomas Cowperthwait Eakins</td>
+<td>M</td>
+<td>88.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>United States</td>
+<td>USA</td>
+<td>1932 Summer</td>
+<td>1932</td>
+<td>Summer</td>
+<td>Los Angeles</td>
+<td>Art Competitions</td>
+<td>Art Competitions Mixed Painting, Unknown Event</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">60862</td>
+<td>31173</td>
+<td>Thomas Cowperthwait Eakins</td>
+<td>M</td>
+<td>88.0</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>United States</td>
+<td>USA</td>
+<td>1932 Summer</td>
+<td>1932</td>
+<td>Summer</td>
+<td>Los Angeles</td>
+<td>Art Competitions</td>
+<td>Art Competitions Mixed Painting, Unknown Event</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1">sqldf(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'SELECT * from data ORDER BY Age DESC LIMIT 5'</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">ID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">Sex</th>
+<th data-quarto-table-cell-role="th">Age</th>
+<th data-quarto-table-cell-role="th">Height</th>
+<th data-quarto-table-cell-role="th">Weight</th>
+<th data-quarto-table-cell-role="th">Team</th>
+<th data-quarto-table-cell-role="th">NOC</th>
+<th data-quarto-table-cell-role="th">Games</th>
+<th data-quarto-table-cell-role="th">Year</th>
+<th data-quarto-table-cell-role="th">Season</th>
+<th data-quarto-table-cell-role="th">City</th>
+<th data-quarto-table-cell-role="th">Sport</th>
+<th data-quarto-table-cell-role="th">Event</th>
+<th data-quarto-table-cell-role="th">Medal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>128719</td>
+<td>John Quincy Adams Ward</td>
+<td>M</td>
+<td>97.0</td>
+<td>None</td>
+<td>None</td>
+<td>United States</td>
+<td>USA</td>
+<td>1928 Summer</td>
+<td>1928</td>
+<td>Summer</td>
+<td>Amsterdam</td>
+<td>Art Competitions</td>
+<td>Art Competitions Mixed Sculpturing, Statues</td>
+<td>None</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>49663</td>
+<td>Winslow Homer</td>
+<td>M</td>
+<td>96.0</td>
+<td>None</td>
+<td>None</td>
+<td>United States</td>
+<td>USA</td>
+<td>1932 Summer</td>
+<td>1932</td>
+<td>Summer</td>
+<td>Los Angeles</td>
+<td>Art Competitions</td>
+<td>Art Competitions Mixed Painting, Unknown Event</td>
+<td>None</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>31173</td>
+<td>Thomas Cowperthwait Eakins</td>
+<td>M</td>
+<td>88.0</td>
+<td>None</td>
+<td>None</td>
+<td>United States</td>
+<td>USA</td>
+<td>1932 Summer</td>
+<td>1932</td>
+<td>Summer</td>
+<td>Los Angeles</td>
+<td>Art Competitions</td>
+<td>Art Competitions Mixed Painting, Unknown Event</td>
+<td>None</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>31173</td>
+<td>Thomas Cowperthwait Eakins</td>
+<td>M</td>
+<td>88.0</td>
+<td>None</td>
+<td>None</td>
+<td>United States</td>
+<td>USA</td>
+<td>1932 Summer</td>
+<td>1932</td>
+<td>Summer</td>
+<td>Los Angeles</td>
+<td>Art Competitions</td>
+<td>Art Competitions Mixed Painting, Unknown Event</td>
+<td>None</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>31173</td>
+<td>Thomas Cowperthwait Eakins</td>
+<td>M</td>
+<td>88.0</td>
+<td>None</td>
+<td>None</td>
+<td>United States</td>
+<td>USA</td>
+<td>1932 Summer</td>
+<td>1932</td>
+<td>Summer</td>
+<td>Los Angeles</td>
+<td>Art Competitions</td>
+<td>Art Competitions Mixed Painting, Unknown Event</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="joining" class="level2">
+<h2 class="anchored" data-anchor-id="joining">JOINing</h2>
+<p>Joining one dataset with another is a common operation while working with data. This is a simple aspect of SQL which stumps more people than it should.</p>
+<p>I reckon, it is important to work with a simple example using few rows of data to get this right. That is what I am going to do using synthetic tables <code>employee</code> and <code>assets</code> with dummy data.</p>
+<p>Please notice the column we are joining on, usually termed as <em>key</em>. If the <em>key</em> has duplicate values, the records multiply.</p>
+<div class="cell" data-execution_count="18">
+<div class="cell-output cell-output-display" data-execution_count="18">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">EmployeeID</th>
+<th data-quarto-table-cell-role="th">DepartmentID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>100</td>
+<td>100</td>
+<td>John Doe</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>101</td>
+<td>100</td>
+<td>Will green</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>102</td>
+<td>200</td>
+<td>Wilson Miner</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>104</td>
+<td>200</td>
+<td>Rochel Dmello</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>105</td>
+<td>300</td>
+<td>Dickie Bird</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="19">
+<div class="cell-output cell-output-display" data-execution_count="19">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">AssetID</th>
+<th data-quarto-table-cell-role="th">EmployeeID</th>
+<th data-quarto-table-cell-role="th">DepartmentID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>aab</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>aba</td>
+<td>101</td>
+<td>100</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>baa</td>
+<td>201</td>
+<td>200</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>cde</td>
+<td>202</td>
+<td>200</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>efg</td>
+<td>103</td>
+<td>300</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<section id="inner-join" class="level3">
+<h3 class="anchored" data-anchor-id="inner-join">INNER JOIN</h3>
+<p>The simplest type of join is the <code>inner</code> join. This operation returns the common records from the left table (employee) and the right table (asset).</p>
+<p>Pandas uses <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.merge.html">merge</a> method to join to tables.</p>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1">employee.merge(asset, on<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'EmployeeID'</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">EmployeeID</th>
+<th data-quarto-table-cell-role="th">DepartmentID_x</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">AssetID</th>
+<th data-quarto-table-cell-role="th">DepartmentID_y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>100</td>
+<td>100</td>
+<td>John Doe</td>
+<td>aab</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>101</td>
+<td>100</td>
+<td>Will green</td>
+<td>aba</td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1">sqldf(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'SELECT * FROM employee E JOIN asset A ON E.EmployeeID = A.EmployeeID'</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="21">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">EmployeeID</th>
+<th data-quarto-table-cell-role="th">DepartmentID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">AssetID</th>
+<th data-quarto-table-cell-role="th">EmployeeID</th>
+<th data-quarto-table-cell-role="th">DepartmentID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>100</td>
+<td>100</td>
+<td>John Doe</td>
+<td>aab</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>101</td>
+<td>100</td>
+<td>Will green</td>
+<td>aba</td>
+<td>101</td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="left-outer-join" class="level3">
+<h3 class="anchored" data-anchor-id="left-outer-join">LEFT OUTER JOIN</h3>
+<p>In Left Outer Join, you get all records from the left table, and only matching records from the right table. Note the <code>NaN</code> and <code>None</code> values resulting in rows for which <em>key</em> doesn’t match.</p>
+<div class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1">employee.merge(asset, on<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'EmployeeID'</span>, how<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'left'</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">EmployeeID</th>
+<th data-quarto-table-cell-role="th">DepartmentID_x</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">AssetID</th>
+<th data-quarto-table-cell-role="th">DepartmentID_y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>100</td>
+<td>100</td>
+<td>John Doe</td>
+<td>aab</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>101</td>
+<td>100</td>
+<td>Will green</td>
+<td>aba</td>
+<td>100</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>102</td>
+<td>200</td>
+<td>Wilson Miner</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>104</td>
+<td>200</td>
+<td>Rochel Dmello</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>105</td>
+<td>300</td>
+<td>Dickie Bird</td>
+<td>NaN</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1">sqldf(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'SELECT E.*, A.* FROM employee E LEFT JOIN asset A ON E.EmployeeID = A.EmployeeID'</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">EmployeeID</th>
+<th data-quarto-table-cell-role="th">DepartmentID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">AssetID</th>
+<th data-quarto-table-cell-role="th">EmployeeID</th>
+<th data-quarto-table-cell-role="th">DepartmentID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>100</td>
+<td>100</td>
+<td>John Doe</td>
+<td>aab</td>
+<td>100.0</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>101</td>
+<td>100</td>
+<td>Will green</td>
+<td>aba</td>
+<td>101.0</td>
+<td>100</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>102</td>
+<td>200</td>
+<td>Wilson Miner</td>
+<td>None</td>
+<td>NaN</td>
+<td>None</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>104</td>
+<td>200</td>
+<td>Rochel Dmello</td>
+<td>None</td>
+<td>NaN</td>
+<td>None</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>105</td>
+<td>300</td>
+<td>Dickie Bird</td>
+<td>None</td>
+<td>NaN</td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="right-outer-join" class="level3">
+<h3 class="anchored" data-anchor-id="right-outer-join">RIGHT OUTER JOIN</h3>
+<p>Right join has the opposite effect of the left join.</p>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1">employee.merge(asset, on<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'EmployeeID'</span>, how<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'right'</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">EmployeeID</th>
+<th data-quarto-table-cell-role="th">DepartmentID_x</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">AssetID</th>
+<th data-quarto-table-cell-role="th">DepartmentID_y</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>100</td>
+<td>100.0</td>
+<td>John Doe</td>
+<td>aab</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>101</td>
+<td>100.0</td>
+<td>Will green</td>
+<td>aba</td>
+<td>100</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>201</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>baa</td>
+<td>200</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>202</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>cde</td>
+<td>200</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>103</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>efg</td>
+<td>300</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>In fact pandassql doesn’t support Right Join but you can achieve the same result by calling <code>asset</code> as the left table and <code>employee</code> as the right table.</p>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1">sqldf(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'SELECT E.*, A.* FROM asset A LEFT JOIN employee E ON A.EmployeeID = E.EmployeeID'</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">EmployeeID</th>
+<th data-quarto-table-cell-role="th">DepartmentID</th>
+<th data-quarto-table-cell-role="th">Name</th>
+<th data-quarto-table-cell-role="th">AssetID</th>
+<th data-quarto-table-cell-role="th">EmployeeID</th>
+<th data-quarto-table-cell-role="th">DepartmentID</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>100.0</td>
+<td>100.0</td>
+<td>John Doe</td>
+<td>aab</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>101.0</td>
+<td>100.0</td>
+<td>Will green</td>
+<td>aba</td>
+<td>101</td>
+<td>100</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>None</td>
+<td>baa</td>
+<td>201</td>
+<td>200</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>None</td>
+<td>cde</td>
+<td>202</td>
+<td>200</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>NaN</td>
+<td>NaN</td>
+<td>None</td>
+<td>efg</td>
+<td>103</td>
+<td>300</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Another type of join pandasql doesn’t support is the <strong>Full outer join</strong>, which returns all matching as well as not matching records from both the tables.</p>
+<p>You need not worry about these missing type of joins in pandassql, all database that I have worked with support Right Join and Full Outer Join. With some trickery you can even achieve these in pandassql but it’s not required for this conversation.</p>
+</section>
+</section>
+<section id="queries-with-aggregates" class="level2">
+<h2 class="anchored" data-anchor-id="queries-with-aggregates">Queries with aggregates</h2>
+<p>Aggregates are another SQL technique where you group your records based on one or more columns and perform some aggregate calculation on another set of columns such as MIN, MAX, SUM, COUNT, AVG, and so on.</p>
+<p>Here is an example of count where we count <code>Medal</code>s by team, sort them in descending order and show top % results.</p>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1">data.groupby(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Team'</span>, as_index<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span>)[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Medal'</span>].count().sort_values(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Medal'</span>, ascending<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span>).head()</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Team</th>
+<th data-quarto-table-cell-role="th">Medal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1095</td>
+<td>United States</td>
+<td>5219</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">976</td>
+<td>Soviet Union</td>
+<td>2451</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">398</td>
+<td>Germany</td>
+<td>1984</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">412</td>
+<td>Great Britain</td>
+<td>1673</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">361</td>
+<td>France</td>
+<td>1550</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1">sqldf(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'SELECT Team, COUNT(Medal) FROM data GROUP BY Team ORDER BY COUNT(Medal) DESC LIMIT 5'</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Team</th>
+<th data-quarto-table-cell-role="th">COUNT(Medal)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>United States</td>
+<td>5219</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Soviet Union</td>
+<td>2451</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Germany</td>
+<td>1984</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>Great Britain</td>
+<td>1673</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>France</td>
+<td>1550</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Here is another example where we filter just one sport <code>swimming</code> and do the earlier calculation.</p>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1">data[data[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Sport'</span>]<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Swimming'</span>].groupby(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Team'</span>, as_index<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span>)[<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Medal'</span>].count().sort_values(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'Medal'</span>, ascending<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">False</span>).head()</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Team</th>
+<th data-quarto-table-cell-role="th">Medal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">197</td>
+<td>United States</td>
+<td>1066</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">10</td>
+<td>Australia</td>
+<td>401</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">56</td>
+<td>East Germany</td>
+<td>152</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">70</td>
+<td>Germany</td>
+<td>152</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">72</td>
+<td>Great Britain</td>
+<td>127</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1">sqldf(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'SELECT Team, COUNT(Medal) FROM data Where Sport = "Swimming" GROUP BY Team ORDER BY COUNT(Medal) DESC LIMIT 5'</span>)</span></code></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Team</th>
+<th data-quarto-table-cell-role="th">COUNT(Medal)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>United States</td>
+<td>1066</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>Australia</td>
+<td>401</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>Germany</td>
+<td>152</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>East Germany</td>
+<td>152</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>Great Britain</td>
+<td>127</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>There is a lot more you can do with SQL, like filtering on aggregated data usin HAVING clause. Partition data by row, rank or dense rank. Use analytical functions to compute values across rows or over a window.</p>
+<p>There is even more that you can do with pandas. Here I am listing some resources if you’re ready for a deep dive.</p>
+</section>
+<section id="pandas-resources" class="level2">
+<h2 class="anchored" data-anchor-id="pandas-resources">Pandas Resources</h2>
+<ul>
+<li><a href="https://www.amazon.com/Python-Data-Analysis-Wrangling-IPython/dp/1491957662/ref=sr_1_1?crid=FHSZBNN2LW2O&amp;keywords=wes+mckinney&amp;qid=1641999545&amp;sprefix=wes+mckinney%2Caps%2C417&amp;sr=8-1">Python for data analysis by Wes McKinney</a> <sup>1</sup></li>
+</ul>
+</section>
+<section id="sql-resources" class="level2">
+<h2 class="anchored" data-anchor-id="sql-resources">SQL Resources</h2>
+<ul>
+<li><a href="https://kaggle.com/learn/intro-to-sql">Kaggle’s Intro to SQL</a></li>
+<li><a href="https://t.co/GRhUKFSyS6">SQL Bolt</a></li>
+<li><a href="https://t.co/c1KRNA74vY">SQL for Data Scientists by Renee Teate</a></li>
+</ul>
+<div style="display: flex; justify-content: center;">
+<p><a href="https://www.buymeacoffee.com/alephthoughts" target="_blank"> <img src="https://alephthoughts.com/thoughts/posts/data-engineering/https:/cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important; width: 217px !important;"> </a></p>
+</div>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>“There are many resources but for pandas this is all you really need”↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>data-engineering</category>
+  <category>pandas</category>
+  <category>sql</category>
+  <guid>https://alephthoughts.com/thoughts/posts/data-engineering/PandasandSQL.html</guid>
+  <pubDate>Tue, 04 Jan 2022 18:30:00 GMT</pubDate>
+  <media:content url="https://alephthoughts.com/thoughts/posts/data-engineering/pandasql.jpeg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Scaling your python powered ML pipeline</title>
+  <dc:creator>Abhishek </dc:creator>
+  <link>https://alephthoughts.com/thoughts/posts/data-engineering/ScalingPython.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<blockquote class="blockquote">
+<p>Scaling, in general, is starting out with a small solution and growing it into a bigger solution.</p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://alephthoughts.com/thoughts/posts/data-engineering/scalingpython.png" title="what does it mean to scale?" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<p>Different people mean different things when they talk about scaling. Do you want to scale a mountain, a web app, or an ML pipeline?</p>
+<p>Even when talking about machine learning, scaling can mean different things:~</p>
+<ul>
+<li>Processing more data</li>
+<li>Using a more complex model</li>
+<li>Running more often</li>
+</ul>
+<section id="scaling-comes-at-a-cost" class="level3">
+<h3 class="anchored" data-anchor-id="scaling-comes-at-a-cost">Scaling comes at a cost</h3>
+<p>Scaling requires resources and cost to execute. The cost can be in the form of:~</p>
+<ul>
+<li>Developer time required for code refactoring and optimization for performance</li>
+<li>Performance optimized hardware for accelerated computing</li>
+<li>Distributed processing requires more computers</li>
+<li>Longer wait time for processing more on the same infrastructure</li>
+</ul>
+</section>
+<section id="think-before-you-scale" class="level3">
+<h3 class="anchored" data-anchor-id="think-before-you-scale">Think before you scale</h3>
+<p>There are two important things to consider before you invest in scaling:~</p>
+<ul>
+<li><p><strong>What are your goals?</strong> You must decide beforehand, what is good enough? Over-engineering is a trap, all engineers are familiar with. Don’t over-engineer!</p></li>
+<li><p><strong>Measure your code?</strong> To treat a patient, a doctor has to determine what the illness is? Likewise, you need to measure your code for bottlenecks before deciding on a scaling strategy. There are many tools that can use to profile your python code. <a href="https://github.com/plasma-umass/scalene">Scalene</a> is one of the most complete measuring tools available at the moment.</p></li>
+</ul>
+</section>
+<section id="how-to-scale" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-scale">How to scale?</h3>
+<ol type="1">
+<li><p><strong>Increase code efficiency:</strong> Python is designed for ease of use and easy extension, but not performance. As a developer, the onus is on you to do more work so that the application executes less code. Whenever possible use vectorized library functions instead of loops. Python is successful in data science because of the pre-compiled code offered by data-appropriate libraries in the pydata stack such as <a href="https://pandas.pydata.org/">pandas</a> and <a href="https://numpy.org/">numpy</a>.</p></li>
+<li><p><strong>Adding parallelism:</strong> You can achieve parallelism on a single machine or by using multiple machines. In principle, you want to stay on a single machine as much as possible as distributed computing increased complexity because of the following challenges:</p>
+<ul>
+<li>network transfer</li>
+<li>task management</li>
+<li>cluster management</li>
+</ul>
+<p>2.1 <strong>Hardware accelerators:</strong> You can leverage GPUs and TPUs for your ML workflows. Libraries such as CuPy and RAPIDS leverage GPUs. There are non-GPU accelerators also like <a href="https://cloud.google.com/tpu/docs/tpus">TPUs offered by Google</a> and <a href="https://developer.apple.com/machine-learning/core-ml/">Apple Neural Engine</a>.</p>
+<p>2.2 <strong>Distributed Computing:</strong> Going distributed is much harder for the aforementioned reasons but if you have to then you can look at the following projects:</p>
+<ul>
+<li><a href="https://dask.org/">Dask</a>: Distributed data frames, machine learning and more</li>
+<li><a href="https://www.ray.io/ray-core">Ray</a>: Parallel python framework</li>
+<li><a href="https://eng.uber.com/horovod/">Horovod</a>: Uber’s framework for distributed deep learning</li>
+<li><a href="https://spark.apache.org/docs/latest/api/python/index.html">PySpark</a>: Python wrapper for Apache Spark ecosystem</li>
+</ul></li>
+</ol>
+<p>Whichever direction you take on your scaling journey, be sure to pause before you commit, and solve one problem at a time.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I have not covered I/O scaling in this post. That is a conversation for some other day.</p>
+</div>
+</div>
+<div style="display: flex; justify-content: center;">
+<p><a href="https://www.buymeacoffee.com/alephthoughts" target="_blank"> <img src="https://alephthoughts.com/thoughts/posts/data-engineering/https:/cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important; width: 217px !important;"> </a></p>
+</div>
+
+
+</section>
+
+ ]]></description>
+  <category>data-science</category>
+  <category>data-engineering</category>
+  <guid>https://alephthoughts.com/thoughts/posts/data-engineering/ScalingPython.html</guid>
+  <pubDate>Sun, 02 Jan 2022 18:30:00 GMT</pubDate>
+  <media:content url="https://alephthoughts.com/thoughts/posts/data-engineering/scalingpython.png" medium="image" type="image/png" height="53" width="144"/>
+</item>
+<item>
+  <title>सभी के लिए मास्क? विज्ञान कहता है हाँ।</title>
+  <dc:creator>Abhishek </dc:creator>
+  <link>https://alephthoughts.com/thoughts/posts/ai-in-society/Masks4All.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>मास्क पहनने को लेकर उलझन में हैं? ये पेचीदा ज़रूर है पर इतना भी नहीं जितना कुछ लोग जता रहे हैं। हम विज्ञान की ओर देख रहे हैं (हमारे पेपर देखिए <a href="http://up.fm/masks">Covid-19 के खिलाफ फेस मास्क : प्रमाण की समीक्षा</a> —84 उद्धरणों के साथ और <a href="https://www.bmj.com/content/369/bmj.m1435">Covid-19 संकट के समय में जनता के लिए फेस मास्क</a>)। यह सारांश है विभिन्न प्रमाण धाराओं का, और इस सब के बारे में हमारी समझ का।</p>
+<section id="रग-क-फलन-क-महमर-वजञन" class="level2">
+<h2 class="anchored" data-anchor-id="रग-क-फलन-क-महमर-वजञन">रोगों के फैलने का महामारी विज्ञान</h2>
+<p>अपने शायद पास-पास रखे डोमिनोज़ और चूहेदानी के वीडियो देखे होंगे जिनमें एक छोटी से चीज़ एक विशाल झरने को शुरू कर देती है। डोमिनोज़ (या चूहेदानी) जितने पास-पास हों उथल-पुथल उतनी ही ज़्यादा होती है। हर संक्रामक बीमारी की संचरण दर (R0) होती है। 1.0 के R0 के साथ एक बीमारी का मतलब है कि प्रत्येक संक्रमित व्यक्ति, औसतन, एक दूसरे व्यक्ति को संक्रमित करता है। एक बीमारी जिसका R0 1.0 से कम है, वह नष्ट हो जाएगी। 1918 महामारी के कारण होने वाले फ्लू के तनाव में 1.8 की R0 थी। वायरस का R0 जो COVID-19 का कारण बनता है, वह इम्पीरियल कॉलेज के शोधकर्ताओं द्वारा 2.4 का अनुमान लगाया गया था, हालांकि कुछ शोध बताते हैं कि यह 5.7 से भी अधिक हो सकता है। इसका मतलब है कि रोकथाम उपायों के बिना, COVID-19 दूर तक और तेजी से फैल जाएगा। महत्वपूर्ण रूप से, COVID-19 रोगी रोग के शुरुआती दिनों में सबसे अधिक संक्रामक हैं (To et al.&nbsp;2020; Zou et al.&nbsp;2020; Bai et al.&nbsp;2020; Zhang et al.&nbsp;2020; Doremalen et al.&nbsp;2020; Wei 2020), जिसके दौरान उनके पास आम तौर पर कम लक्षण होते हैं या कोई लक्षण नहीं होते हैं।</p>
+</section>
+<section id="बद-और-एरसल-क-भतक" class="level2">
+<h2 class="anchored" data-anchor-id="बद-और-एरसल-क-भतक">बूंदों और एरोसोल की भौतिकी</h2>
+<p>जब आप बोलते हैं, तो आपके मुंह से छोटी सूक्ष्म बूंदें निकल जाती हैं। यदि आप संक्रामक हैं, तो इनमें वायरस के कण होते हैं। केवल बहुत बड़ी बूंदें समाप्त होने से पहले 0.1 सेकेंड से अधिक जीवित रहती हैं और छोटी बूंद नाभिक (वेल्स 1934; डुगिड 1946; मोरवास्का एट अल। 2009) में बदल जाती हैं, जो मूल बूंद से 3-5 गुना छोटे होते हैं, लेकिन फिर भी कुछ वाइरस होते हैं।</p>
+<p>इसका मतलब है कि बूंदों को ब्लॉक करना बहुत आसान है, क्योंकि वे आपके मुंह से निकलते हैं, जब वे बहुत बड़े होते हैं, तो उन्हें अवरुद्ध करने की तुलना में क्योंकि वे एक गैर-संक्रमित व्यक्ति के चेहरे से संपर्क करते हैं जो उन बूंदों के प्राप्त करने हेतु दुसरे छोर पर होता है। किन्तु अधिकतर शोधकर्ता इस ओर नहीं देख रहे…</p>
+</section>
+<section id="मसक-क-भतक-वजञन" class="level2">
+<h2 class="anchored" data-anchor-id="मसक-क-भतक-वजञन">मास्क का भौतिक विज्ञान</h2>
+<p>मास्क की प्रभावशीलता के बारे में बहस अक्सर यह धारणा रखती है कि मास्क का उद्देश्य पहनने वाले की रक्षा करना है, क्योंकि यह बात सभी डॉक्टर मेडिकल स्कूल में सीखते हैं। इस पर कपड़े के मास्क अपेक्षाकृत खराब होते हैं (हालांकि यह पूरी तरह से अप्रभावी नहीं)। 100% सुरक्षा के लिए, * पहनने वाले * को एक उचित रूप से सज्जित चिकित्सा श्वासयंत्र (जैसे N95) की आवश्यकता होती है। लेकिन एक संक्रमित व्यक्ति द्वारा पहने जाने वाले कपड़े के मास्क * अपने आस-पास के लोगों की रक्षा करने हेतु * अत्यधिक प्रभावी * होते हैं। * इसे “स्रोत नियंत्रण” के रूप में जाना जाता है। और यह स्रोत नियंत्रण है जो इस बहस में मायने रखता है कि क्या * जनता को * मास्क पहनना चाहिए।</p>
+<p>अगर आपको COVID-19 है और आप 8 इंच दूर से किसी पर खांसते है, तो कॉटन मास्क पहनने से उस व्यक्ति के लिए आपके द्वारा प्रसारित वायरस की मात्रा कम हो जाएगी <a href="https://annals.org/aim/fullarticle/2764367/effectiveness-surgical-cotton-masks-blocking-sars-cov-2-controlled-comparison">36 गुना</a>, और सर्जिकल मास्क की तुलना में यह और भी अधिक प्रभावी है। अजीब है, इस तथ्य की खोज करने वाले शोधकर्ताओं ने 36 गुना कमी को “अप्रभावी” माना। हम इससे असहमत है। इसका मतलब है कि आप केवल 1/36 <sup> वें </sup> वायरस की मात्रा को प्रसारित करेंगे जो आपने अन्यथा किया होता, वायरल का लोड कम होगा, जिससे संक्रमण की संभावना कम हो सकती है, और संक्रमित होने पर कम लक्षण ।</p>
+</section>
+<section id="सचरण-क-गणत" class="level2">
+<h2 class="anchored" data-anchor-id="सचरण-क-गणत">संचरण का गणित</h2>
+<p>हमारी टीम द्वारा गणितीय मॉडलिंग, जो अन्य अनुसंधान (Yan et al.&nbsp;2019) द्वारा समर्थित है, का सुझाव है कि यदि अधिकांश लोग सार्वजनिक रूप से मास्क पहनते हैं, तो संचरण दर (“प्रभावी R”) 1.0 से नीचे जा सकती है, जो पूरी तरह से बीमारी के प्रसार को रोक सकता है। मास्क को हर एक वायरल कण को ब्लॉक नहीं करना है, लेकिन जितने अधिक कण यह अवरुद्ध करता है, उतना ही प्रभावी R कम होगा ।</p>
+<p><img src="https://alephthoughts.com/thoughts/posts/ai-in-society/image1.png" title="प्रजनन दर पर मास्क उपयोग के प्रभाव की मॉडलिंग" class="img-fluid"></p>
+<p>सिर्फ मास्क पहनना कितना प्रभावी है, यह रेखा-चित्र में चित्रित तीन चीजों पर निर्भर करता है: मास्क कितनी अच्छी तरह से वायरस (‘प्रभावकारिता’: क्षैतिज अक्ष) को अवरुद्ध करता है, जनता किस अनुपात में मास्क पहनती है (‘पालन’: ऊर्ध्वाधर अक्ष) और रोग की संचरण दर (R0: लेखाचित्र पर काली रेखाएँ)। लेखाचित्र का नीला क्षेत्र 1.0 से नीचे एक R0 को इंगित करता है, जो कि हमें बीमारी को खत्म करने के लिए प्राप्त करने की आवश्यकता है। यदि मास्क 100% कणों (लेखाचित्र के सबसे दाईं ओर) को अवरुद्ध करता है, तो भी कम पालन दर से रोग का नियंत्रण हो जाएगा। यहां तक कि अगर मास्क वायरल कणों के बहुत कम अनुपात को अवरुद्ध करते हैं, तब भी बीमारी को समाहित किया जा सकता है - लेकिन तभी जब ज्यादातर या सभी लोग मास्क पहनते हैं।</p>
+</section>
+<section id="मसक-पहनन-क-रजनतक-वजञन" class="level2">
+<h2 class="anchored" data-anchor-id="मसक-पहनन-क-रजनतक-वजञन">मास्क पहनने का राजनीतिक विज्ञान</h2>
+<p>आप सभी या अधिकांश लोगों को मास्क पहनने के लिए कैसे सहमत करेंगे? ठीक है, आप उन्हें शिक्षित कर सकते हैं और उन्हें मनाने की कोशिश कर सकते हैं, लेकिन एक अधिक प्रभावी तरीका यह है कि उनका मास्क पहनना <em>आवश्यक हो</em>, या तो विशिष्ट परिस्तिथियों में जैसे कि सार्वजनिक परिवहन या किराने की दुकानों या घर के बाहर भी हर समय। टीकाकरण (ब्रैडफोर्ड और मांडिच 2015) पर किए गए शोध से पता चलता है कि टीकाकरण की छूट के लिए उच्चतर सीमा निर्धारित करने वाले न्यायालयों में टीकाकरण की दर अधिक होती है। इसी दृष्टिकोण का उपयोग अब मास्क पहनने के अनुपालन को बढ़ाने के लिए किया जा रहा है, और प्रारंभिक परिणाम (लेफ़लर आदि - 2020) सुझाव देते हैं कि ये कानून अनुपालन बढ़ाने और Covid-19 के प्रसार को धीमा करने या रोकने में प्रभावी हैं।</p>
+</section>
+<section id="मसक-पहनन-क-परयग-कतरम-और-परकतक" class="level2">
+<h2 class="anchored" data-anchor-id="मसक-पहनन-क-परयग-कतरम-और-परकतक">मास्क पहनने के प्रयोग: कृत्रिम और प्राकृतिक</h2>
+<p>एक कृत्रिम प्रयोग तब होता है जब एक शोधकर्ता लोगों को आवंटित करता है (आमतौर पर यादृच्छिक(Random) - इसलिए Randomized Control Trial या RCT उक्ति प्रगोग होती है ) या तो मास्क पहने हुए या मास्क पहने नहीं (नियंत्रण समूह)। COVID-19 में जनता के सदस्यों द्वारा मास्क पहनने का कोई RCT नहीं किया गया है। अन्य बीमारियों (जैसे इन्फ्लूएंजा या तपेदिक) को रोकने के लिए मास्क-पहनने के RCT ने एक छोटे प्रभाव को दिखाने का प्रयास किया है जो कई अध्ययनों में सांख्यिकीय रूप से महत्वपूर्ण नहीं था। ऐसे अधिकांश अध्ययनों में, मास्क पहनने वाले समूह को सौंपे गए लोगों ने हर समय अपने मास्क नहीं पहने थे।</p>
+<p>प्रयोग प्राकृतिक तब है जब हम किसी ऐसी चीज का अध्ययन करते हैं जो वास्तव में हो रही है - उदाहरण के लिए जब कोई देश मास्क पहनने की नीति का परिचय देता है। उदाहरण के लिए, दक्षिण कोरिया ने तेजी से सामुदायिक प्रसार किया जिसने शुरुआती हफ्तों में इटली में प्रक्षेपवक्र पर नज़र रखी। फिर, फरवरी 2020 के अंत में, सरकार ने प्रत्येक नागरिक को मास्क की नियमित आपूर्ति प्रदान की। उस बिंदु से, सब कुछ बदल गया। जैसे-जैसे इटली की मौत की संख्या भयावह स्तर पर बढ़ी, दक्षिण कोरिया ने वास्तव में <em>कम करना</em> शुरू कर दिया। यहाँ दक्षिण कोरिया के सक्रिय मामलों की संख्या (लाल), और इटली की (नीला) है; मार्च की शुरुआत में क्या होता है, इस पर करीब से नज़र डालें, क्योंकि मास्क वितरण का प्रभाव (दक्षिण कोरियाई विश्लेषण <a href="https://twitter.com/slowblogger">हयोकोन ज़्हीअंग</a> के लिए धन्यवाद और रेशमा शेख द्वारा चित्रण):</p>
+<p><img src="https://alephthoughts.com/thoughts/posts/ai-in-society/image2.png" title="कोरिया और इटली के बीच COVID-19 मामलों की तुलना" class="img-fluid"></p>
+<p>प्राकृतिक प्रयोग वैज्ञानिक रूप से अपूर्ण हैं, क्योंकि कोई प्रत्यक्ष नियंत्रण समूह नहीं है, इसलिए हम यह सुनिश्चित नहीं कर सकते हैं कि मास्क के कारण कोई भी परिवर्तन हो। कुछ देशों में जिन्होंने मास्क पहनना शुरू किया, अन्य उपाय जैसे कि सख्त सामाजिक दूरी, स्कूल बंद करना और सार्वजनिक कार्यक्रमों को रद्द करना लगभग एक ही समय में हुआ। इन मामलों में भी, हम प्रासंगिक तुलना पा सकते हैं। उदाहरण के लिए, यूरोपीय पड़ोसी ऑस्ट्रिया और चेकिया ने एक ही तारीख को सामाजिक दूर की आवश्यकताओं की शुरुआत की, लेकिन चेकिया <em>ने भी</em> अनिवार्य मास्क पहनना शुरू किया। चेकिया के वक्र के चपटा होने के दौरान ऑस्ट्रियाई मामले की दर ने अपने ऊपर की ओर गति को जारी रखा। यह तब तक नहीं था जब तक कि ऑस्ट्रिया ने भी मास्क कानूनों को हफ्तों बाद पेश नहीं किया था कि दोनों काउंटियां समान प्रक्षेप पथ पर वापस आ गईं।</p>
+<p><img src="https://alephthoughts.com/thoughts/posts/ai-in-society/image3.png" title="चेकिया और ऑस्ट्रिया के बीच COVID-19 मामलों की तुलना" class="img-fluid"></p>
+<p>महत्वपूर्ण रूप से, <em>प्रत्येक</em> देश और हर समय अवधि में जहां कानूनों के माध्यम से मास्क उपयोग को प्रोत्साहित किया गया है, या जहां नागरिकों को मास्क प्रदान किए गए थे, मामलों और मृत्यु दर में गिरावट आई है।</p>
+</section>
+<section id="मसक-पहनन-क-वयहवरक-वजञन" class="level2">
+<h2 class="anchored" data-anchor-id="मसक-पहनन-क-वयहवरक-वजञन">मास्क पहनने का व्यहवारिक विज्ञान</h2>
+<p>कुछ लोगों ने दावा किया है कि मास्क पहनने के लिए (या दृढ़ता से प्रोत्साहित करने वाले) जोखिम भरे व्यवहार को बढ़ावा देंगे ब्रुसो आदि 2020) (उदाहरण के लिए, अधिक बाहर जाना, हाथों को कम धोना),जिसका कुल परिणाम नकारात्मक होगा, और इस प्रभाव को प्रयोगात्मक परीक्षणों में देखा गया। कुछ इसी तरह की दलीलें पहले एचआईवी की रोकथाम की रणनीतियों (कैसेल आदि 2006; रोजस कास्त्रो, डेलब्रे, और मोलिना 2019) और मोटरसाइकिल हेलमेट कानूनों (ओयूलेट 2011) के लिए की गई हैं। हालांकि, इन विषयों पर वास्तविक दुनिया के शोध में पाया गया कि भले ही कुछ व्यक्तियों ने जोखिम भरे व्यवहार के साथ प्रतिक्रिया दी, किंतु जनसंख्या स्तर पर सुरक्षा और जन-कल्याण में व्यापक सुधार हुआ (पेंग आदि 2017; ह्यूस्टन और रिचर्डसन 2007)।</p>
+</section>
+<section id="मसक-पहनन-क-अरथशसतर" class="level2">
+<h2 class="anchored" data-anchor-id="मसक-पहनन-क-अरथशसतर">मास्क पहनने का अर्थशास्त्र</h2>
+<p>आर्थिक विश्लेषण इस बात पर विचार करते हैं कि मास्क प्रदान करने में कितना खर्च होता है (वित्तीय और गैर-वित्तीय दोनों) कितना मूल्य बनाया जा सकता है - और, संभवतः, खोया जा सकता है - यदि उन्हें प्रदान किया जाता है। इस तरह के आर्थिक अध्ययन (अबेलक आदि 2020) संकेत देते हैं कि प्रत्येक व्यक्ति द्वारा पहना जाने वाला एक मास्क (जिसकी कीमत लगभग कुछ भी नहीं है) हजारों डॉलर के आर्थिक लाभ उत्पन्न कर सकता है और कई लोगों की जान बचा सकता है।</p>
+</section>
+<section id="मसक-पहनन-क-मनवशसतर" class="level2">
+<h2 class="anchored" data-anchor-id="मसक-पहनन-क-मनवशसतर">मास्क पहनने का मानवशास्त्र</h2>
+<p>कई एशियाई देशों में जनता द्वारा मास्क पहनना, आंशिक रूप से व्यक्तिगत कारणों से (प्रदूषण से बचाने के लिए) और आंशिक रूप से सामूहिक लोगों के लिए (हाल ही में MERS और SARS महामारी के परिणामस्वरूप) किया गया है। मेरा मास्क तुम्हारी रक्षा करता है; आपकी रक्षा करता है। हालाँकि, इनमें से अधिकांश देशों में नियम केवल मास्क तब पहनने के लिए है यदि आपके लक्षण हैं; यह केवल हाल के हफ्तों में हुआ है, क्योंकि स्पर्शोन्मुख प्रसार के बारे में जागरूकता बढ़ी है, इसलिए लक्षणों की परवाह किए बिना मास्क पहनना आम हो गया है।</p>
+</section>
+<section id="नषकरष" class="level2">
+<h2 class="anchored" data-anchor-id="नषकरष">निष्कर्ष</h2>
+<p>यह सत्य है की हर वैज्ञानिक प्रमाण मास्क पहनने का समर्थन नहीं करता, किन्तु इनमे से तो ज़्यादातर एक ही दिशा में इंगित करते है। इस साक्ष्य का हमारा मूल्यांकन हमें एक स्पष्ट निष्कर्ष पर ले जाता है: अपनी बूँद-कणो को अपने पास रखें - एक मास्क पहनें।</p>
+<p>आप <a href="https://masks4all.co">घर पर एक बना सकते हैं</a>, एक टी-शर्ट, रूमाल या कागज तौलिया से, या यहां तक कि सिर्फ अपने चेहरे के चारों ओर एक स्कार्फ या बंडाना लपेटें। आदर्श रूप से, कसकर बुने हुए कपड़े का उपयोग करें जिसे आप अभी भी सांस ले सकते हैं। शोधकर्ता एक डिस्पोजेबल फिल्टर के रूप में कागज तौलिया की एक परत सहित सलाह देते हैं; आप बस इसे कपड़े की दो परतों के बीच स्लाइड कर सकते हैं। ऐसा कोई सबूत नहीं है कि स्रोत नियंत्रण के लिए प्रभावी होने के लिए आपके मास्क को किसी विशेष विशेषज्ञता या देखभाल के साथ बनाने की आवश्यकता है। आप कपड़े धोने में एक कपड़े का मुखौटा डाल सकते हैं और इसे पुन: उपयोग कर सकते हैं, जैसे आप एक टी-शर्ट का पुन: उपयोग करते हैं।</p>
+<p>यदि यह पता चलता है कि आप में COVID-19 विकासशील हैं, तो जिन लोगों की आप परवाह करते हैं, उन्हें खुशी होगी कि आपने मास्क पहना था।</p>
+</section>
+<section id="उपसहर-जरम-दवर-सरत-नयतरण-क-उदहरण" class="level2">
+<h2 class="anchored" data-anchor-id="उपसहर-जरम-दवर-सरत-नयतरण-क-उदहरण">उपसंहार: जेरेमी द्वारा स्रोत नियंत्रण का उदाहरण</h2>
+<p>यह जेरेमी द्वारा स्रोत नियंत्रण का छोटा सा नमूना है!</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/F0RcH9DfuyE" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is the translation of an important post which you can read <a href="https://www.fast.ai/2020/04/13/masks-summary/">here</a></p>
+</div>
+</div>
+<div style="display: flex; justify-content: center;">
+<p><a href="https://www.buymeacoffee.com/alephthoughts" target="_blank"> <img src="https://alephthoughts.com/thoughts/posts/ai-in-society/https:/cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important; width: 217px !important;"> </a></p>
+</div>
+</section>
+<section id="उदधरण" class="level2">
+<h2 class="anchored" data-anchor-id="उदधरण">उद्धरण</h2>
+<ul>
+<li>Abaluck, Jason, Judith A. Chevalier, Nicholas A. Christakis, Howard Paul Forman, Edward H. Kaplan, Albert Ko, and Sten H. Vermund. 2020. “The Case for Universal Cloth Mask Adoption and Policies to Increase Supply of Medical Masks for Health Workers.” SSRN Scholarly Paper ID 3567438. Rochester, NY: Social Science Research Network. <a href="https://papers.ssrn.com/abstract=3567438" class="uri">https://papers.ssrn.com/abstract=3567438</a>.</li>
+<li>Bai, Yan, Lingsheng Yao, Tao Wei, Fei Tian, Dong-Yan Jin, Lijuan Chen, and Meiyun Wang. 2020. “Presumed Asymptomatic Carrier Transmission of Covid-19.” <em>Jama</em>.</li>
+<li>Bradford, W David, and Anne Mandich. 2015. “Some State Vaccination Laws Contribute to Greater Exemption Rates and Disease Outbreaks in the United States.” <em>Health Affairs</em> 34 (8): 1383–90.</li>
+<li>Brosseau, Lisa M., ScD, Margaret Sietsema, PhD Apr 01, and 2020. 2020. “COMMENTARY: Masks-for-All for COVID-19 Not Based on Sound Data.” <em>CIDRAP</em>. <a href="https://www.cidrap.umn.edu/news-perspective/2020/04/commentary-masks-all-covid-19-not-based-sound-data" class="uri">https://www.cidrap.umn.edu/news-perspective/2020/04/commentary-masks-all-covid-19-not-based-sound-data</a>.</li>
+<li>Cassell, Michael M, Daniel T Halperin, James D Shelton, and David Stanton. 2006. “Risk Compensation: The Achilles’ Heel of Innovations in Hiv Prevention?” <em>Bmj</em> 332 (7541): 605–7.</li>
+<li>Doremalen, Neeltje van, Trenton Bushmaker, Dylan H. Morris, Myndi G. Holbrook, Amandine Gamble, Brandi N. Williamson, Azaibi Tamin, et al.&nbsp;2020. “Aerosol and Surface Stability of SARS-CoV-2 as Compared with SARS-CoV-1.” <em>New England Journal of Medicine</em> 0 (0): null. <a href="https://doi.org/10.1056/NEJMc2004973" class="uri">https://doi.org/10.1056/NEJMc2004973</a>.</li>
+<li>Duguid, JP. 1946. “The Size and the Duration of Air-Carriage of Respiratory Droplets and Droplet-Nuclei.” <em>Epidemiology &amp; Infection</em> 44 (6): 471–79.</li>
+<li>Houston, David J, and Lilliard E Richardson. 2007. “Risk Compensation or Risk Reduction? Seatbelts, State Laws, and Traffic Fatalities.” <em>Social Science Quarterly</em> 88 (4): 913–36.</li>
+<li>Leffler, Christopher, Edsel Ing, Craig A. McKeown, Dennis Pratt, and Andrzej Grzybowski. 2020. “Country-Wide Mortality from the Novel Coronavirus (COVID-19) Pandemic and Notes Regarding Mask Usage by the Public.”</li>
+<li>Morawska, LJGR, GR Johnson, ZD Ristovski, Megan Hargreaves, K Mengersen, Steve Corbett, Christopher Yu Hang Chao, Yuguo Li, and David Katoshevski. 2009. “Size Distribution and Sites of Origin of Droplets Expelled from the Human Respiratory Tract During Expiratory Activities.” <em>Journal of Aerosol Science</em> 40 (3): 256–69.</li>
+<li>Ouellet, James V. 2011. “Helmet Use and Risk Compensation in Motorcycle Accidents.” <em>Traffic Injury Prevention</em> 12 (1): 71–81.</li>
+<li>Peng, Yinan, Namita Vaidya, Ramona Finnie, Jeffrey Reynolds, Cristian Dumitru, Gibril Njie, Randy Elder, et al.&nbsp;2017. “Universal Motorcycle Helmet Laws to Reduce Injuries: A Community Guide Systematic Review.” <em>American Journal of Preventive Medicine</em> 52 (6): 820–32.</li>
+<li>Rojas Castro, Daniela, Rosemary M Delabre, and Jean-Michel Molina. 2019. “Give Prep a Chance: Moving on from the ‘Risk Compensation’ Concept.” <em>Journal of the International AIDS Society</em> 22: e25351.</li>
+<li>To, Kelvin Kai-Wang, Owen Tak-Yin Tsang, Wai-Shing Leung, Anthony Raymond Tam, Tak-Chiu Wu, David Christopher Lung, Cyril Chik-Yan Yip, et al.&nbsp;2020. “Temporal profiles of viral load in posterior oropharyngeal saliva samples and serum antibody responses during infection by SARS-CoV-2: an observational cohort study.” <em>Lancet Infect. Dis.</em> 0 (0). <a href="https://doi.org/10.1016/S1473-3099(20)30196-1" class="uri">https://doi.org/10.1016/S1473-3099(20)30196-1</a>.</li>
+<li>Wei, Wycliffe E. 2020. “Presymptomatic Transmission of SARS-CoV-2 â€” Singapore, January 23â€“March 16, 2020.” <em>MMWR. Morbidity and Mortality Weekly Report</em> 69. <a href="https://doi.org/10.15585/mmwr.mm6914e1" class="uri">https://doi.org/10.15585/mmwr.mm6914e1</a>.</li>
+<li>Wells, WF. 1934. “On Air-Borne Infection: Study Ii. Droplets and Droplet Nuclei.” <em>American Journal of Epidemiology</em> 20 (3): 611–18.</li>
+<li>Yan, Jing, Suvajyoti Guha, Prasanna Hariharan, and Matthew Myers. 2019. “Modeling the Effectiveness of Respiratory Protective Devices in Reducing Influenza Outbreak.” <em>Risk Analysis</em> 39 (3): 647–61. <a href="https://doi.org/10.1111/risa.13181" class="uri">https://doi.org/10.1111/risa.13181</a>.</li>
+<li>Zhang, Juanjuan, Maria Litvinova, Wei Wang, Yan Wang, Xiaowei Deng, Xinghui Chen, Mei Li, et al.&nbsp;2020. “Evolving Epidemiology and Transmission Dynamics of Coronavirus Disease 2019 Outside Hubei Province, China: A Descriptive and Modelling Study.” <em>The Lancet Infectious Diseases</em> 0 (0). <a href="https://doi.org/10.1016/S1473-3099(20)30230-9" class="uri">https://doi.org/10.1016/S1473-3099(20)30230-9</a>.</li>
+<li>Zou, Lirong, Feng Ruan, Mingxing Huang, Lijun Liang, Huitao Huang, Zhongsi Hong, Jianxiang Yu, et al.&nbsp;2020. “SARS-CoV-2 Viral Load in Upper Respiratory Specimens of Infected Patients.” <em>New England Journal of Medicine</em> 382 (12): 1177–9. <a href="https://doi.org/10.1056/NEJMc2001737" class="uri">https://doi.org/10.1056/NEJMc2001737</a>.</li>
+</ul>
+
+
+</section>
+
+ ]]></description>
+  <category>ai in society</category>
+  <category>covid19</category>
+  <guid>https://alephthoughts.com/thoughts/posts/ai-in-society/Masks4All.html</guid>
+  <pubDate>Tue, 14 Apr 2020 18:30:00 GMT</pubDate>
+  <media:content url="https://alephthoughts.com/thoughts/posts/ai-in-society/mask4all.jpeg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Paper Reading - Visualizing and Understanding Convolutional Networks</title>
+  <dc:creator>Abhishek </dc:creator>
+  <link>https://alephthoughts.com/thoughts/posts/vision/visualizingCNNs.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>The first paper I chose to write about is one of the most famous papers in the Deep Learning community titled, <a href="https://arxiv.org/abs/1311.2901">Visualizing and understanding convolutional networks</a> by <a href="https://www.matthewzeiler.com/">M. Zeiler</a>, <a href="https://cs.nyu.edu/~fergus/pmwiki/pmwiki.php">R. Fergus</a>. Appeared in 2013 this paper remains popular as it introduced some of the most fundamental ideas to aid our understanding of convolutional neural networks and transfer learning. Convolutional neural networks have performed exceedingly well over time on image related tasks. The main objective of this paper is enquire about :-</p>
+<ol type="1">
+<li>Why convolutional networks perform so well on image classification tasks?</li>
+<li>How the convolutional model architectures can be improved?</li>
+</ol>
+<p>The most important ideas introduced in this paper are the following:</p>
+<ol type="1">
+<li>Deconvnets and Convnet Visualization</li>
+<li>Convnet Explainability</li>
+<li>Transfer Learning</li>
+</ol>
+<p>Before looking into these ideas in a little detail, let’s first discuss the convnet model architecture studied and used in this paper. The standard operation of a convnet is to map colored two dimensional images to a probability vector over different classes i.e.&nbsp;it takes an image as input and returns a vector of probabilities(adding to 1) of the image belonging to each of the classes. Each layer of the convenet consists of:</p>
+<ul>
+<li><a href="https://www.superdatascience.com/blogs/convolutional-neural-networks-cnn-step-1-convolution-operation">convolution</a> of the previous layer output (for the first layer it’s the input image) with a set of filters (parameters)</li>
+<li>rectified linear units <a href="https://www.kaggle.com/dansbecker/rectified-linear-units-relu-in-deep-learning">relu</a>, which is essentially replacing all negative activations with 0</li>
+<li><a href="https://computersciencewiki.org/index.php/Max-pooling_/_Pooling">max pooling</a></li>
+<li>normalizing the activations by <a href="https://towardsdatascience.com/difference-between-local-response-normalization-and-batch-normalization-272308c034ac">local response normalization</a></li>
+</ul>
+<p>The top few layers of the convnet are the fully-connected layers follwed by a <a href="https://www.pyimagesearch.com/2016/09/12/softmax-classifiers-explained/">softmax classifier</a> at the end.</p>
+<p>Now let’s look at the important ideas discussed in this paper:</p>
+<section id="visualizing-convolutional-networks-with-deconvnet" class="level2">
+<h2 class="anchored" data-anchor-id="visualizing-convolutional-networks-with-deconvnet">Visualizing convolutional networks with Deconvnet</h2>
+<p>The process of visualizing a convnet involves identifying the cause of each activation by mapping the activations back to input pixel space with the aid of a <a href="https://matthewzeiler.com/mattzeiler/adaptivedeconvolutional.pdf">Deconvolutional Network</a> (deconvnet). A deconvnet can be thought of as a convnet but in reverse. It is attached to each of the convnet layers in order to probe the activations. In order to examine a given activation, all other activations in the conenet layer are set to zero and the feature maps are passed to the attached deconvnet layer. Then following operations are performed repeatedly until input pixel space is reconstructed:</p>
+<ul>
+<li><strong>Unpooling</strong> : Since max pooling operation is non-invertible, an approximate inverse is obtained by restoring the activations at the locations of maximum activation selection.</li>
+<li><strong>Rectification</strong> : The reconstructed signals are passed through a relu non-linearity.</li>
+<li><strong>Filtering</strong> : In the deconvnet each convnet filter is transposed (flipped vertically and horizontally) and applied to the rectified activations. <img src="https://alephthoughts.com/thoughts/posts/vision/my_icons/deconvnet.jpeg" class="img-fluid" alt="Deconvnet attached to a convnet ><"></li>
+</ul>
+<section id="convnet-visualization" class="level3">
+<h3 class="anchored" data-anchor-id="convnet-visualization">Convnet Visualization</h3>
+<p>The aforementioned approach is used to visualize the top 9 strongest activations for a given feature map. These activations are projected to pixel space and shown alongside corresponding image patches. Let’s see each layer one by one:</p>
+<section id="layer-2" class="level4">
+<h4 class="anchored" data-anchor-id="layer-2">Layer 2:</h4>
+<p>Layer 2 corresponds to corners and other edge/color conjuctions. <img src="https://alephthoughts.com/thoughts/posts/vision/Layer2.png" title="Layer 2" class="img-fluid"></p>
+</section>
+<section id="layer-3" class="level4">
+<h4 class="anchored" data-anchor-id="layer-3">Layer 3:</h4>
+<p>Layer 3 captures complex patterns such as mesh patterns, texts etc. <img src="https://alephthoughts.com/thoughts/posts/vision/Layer3.png" title="Layer 3" class="img-fluid"></p>
+</section>
+<section id="layer-4" class="level4">
+<h4 class="anchored" data-anchor-id="layer-4">Layer 4:</h4>
+<p>Layer 4 shows further variations and is able to classify objects in the picture such as dog faces, bird legs etc. <img src="https://alephthoughts.com/thoughts/posts/vision/Layer4.png" title="Layer 4" class="img-fluid"></p>
+</section>
+<section id="layer-5" class="level4">
+<h4 class="anchored" data-anchor-id="layer-5">Layer 5:</h4>
+<p>Layer 5 shows complete objects such as keyboards, dogs etc. <img src="https://alephthoughts.com/thoughts/posts/vision/Layer5.png" title="Layer 5" class="img-fluid"></p>
+</section>
+</section>
+<section id="key-insights" class="level3">
+<h3 class="anchored" data-anchor-id="key-insights">Key Insights</h3>
+<ul>
+<li>The lower layers of the model converge within few epochs and upper layers fully converge only after a considerable number of epochs. This suggests it might be beneficial to train different layers at different learning rates.</li>
+<li>By systematically occluding different portions of the image with a grey square and monitoring the output of the classifier, it was observed that the model was able to localize the objects in the scene (explainabilty).</li>
+<li>Overall depth of the model is important for obtaining good performance. Changing the size of the fully connected layers makes little difference to perfor- mance. However, increasing the size of the middle convolution layers give a useful gain in performance. But in- creasing these, while also enlarging the fully connected layers results in overfitting.</li>
+<li>Keeping intial layers trained on ImageNet fixed and training a new softmax classifier of appropriate size using training images from Caltech-256, Caltech-101, PASCAL VOC 2012 datasets resulted in faster training and better results. (Transfer Learning)</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>All images belong to M. Zeiler and R. Fergus. Zeiler’s image taken from <a href="https://www.matthewzeiler.com/">matthewzeiler.com</a>.</p>
+</div>
+</div>
+<div style="display: flex; justify-content: center;">
+<p><a href="https://www.buymeacoffee.com/alephthoughts" target="_blank"> <img src="https://alephthoughts.com/thoughts/posts/vision/https:/cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important; width: 217px !important;"> </a></p>
+</div>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>deep learning</category>
+  <category>computer vision</category>
+  <category>CNNs</category>
+  <guid>https://alephthoughts.com/thoughts/posts/vision/visualizingCNNs.html</guid>
+  <pubDate>Sun, 05 Apr 2020 18:30:00 GMT</pubDate>
+  <media:content url="https://alephthoughts.com/thoughts/posts/vision/mathew.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Covid-19, आपका समुदाय और आप - एक डेटा विज्ञान परिप्रेक्ष्य</title>
+  <dc:creator>Abhishek </dc:creator>
+  <link>https://alephthoughts.com/thoughts/posts/ai-in-society/covid19.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<blockquote class="blockquote">
+<p>हम डेटा वैज्ञानिक हैं - अर्थात, हमारा काम यह समझना है कि हम डेटा का विश्लेषण और व्याख्या कैसे करें। जब हम Covid-19 के डेटा का विश्लेषण करते हैं, तो हम बहुत चिंतित होते हैं। समाज के सबसे कमजोर हिस्सों, बुजुर्गों और गरीबों को सबसे अधिक खतरा है, लेकिन बीमारी के प्रसार और प्रभाव को नियंत्रित करने के लिए हम सभी को अपने व्यवहार को बदलने की आवश्यकता है। अपने हाथों को अच्छी तरह से और नियमित रूप से धोएं, समूहों और भीड़ से बचें, कार्यक्रमों को रद्द करें, और अपना चेहरा न छुएं। इस लेख में, हम बताते हैं कि हम क्यों चिंतित हैं, और आपको भी क्यों चिंतित होना चाहिए। आपको जो महत्वपूर्ण जानकारी जानने की आवश्यकता है, उसके एक उत्कृष्ट सारांश के लिए, ईथन एले (एक गैर-लाभकारी संस्था के अध्यक्ष जो महामारियों से जोखिम को कम करने के लिए प्रौद्योगिकियों का विकास करते है) द्वारा लिखित <a href="https://docs.google.com/document/u/1/d/1vumYWoiV7NlVoc27rMQvmVkVu5cOAbnaW_RKkq2RMaQ/mobilebasic">Corona in Brief</a> पढ़ें।</p>
+</blockquote>
+<section id="हम-एक-सचर-चकतस-परणल-क-आवशयकत-ह" class="level3">
+<h3 class="anchored" data-anchor-id="हम-एक-सचर-चकतस-परणल-क-आवशयकत-ह">हमें एक सुचारू चिकित्सा प्रणाली की आवश्यकता है</h3>
+<p>अभी 2 वर्ष पहले हममें से एक (रेचल) को मस्तिष्क में संक्रमण हुआ था, जिसके एक चौथाई मरीज़ो की मृत्यु हो जाती है, और एक तिहाई मरीज़ो को स्थायी संज्ञानात्मक क्षति पहुँचती है। कई अन्य लोगों की दृष्टि और श्रवण-शक्ति स्थायी रूप से नष्ट हो जाती है। अस्पताल की पार्किंग में पहुँचने तक ही रेचल बेसुध सी हो जाती। रेचल भाग्यशाली रही की उसे तुरंत देखभाल, निदान और उपचार प्राप्त हुआ। इस घटना से कुछ समय पहले तक रेचल काफी स्वस्थ थी। आपातकालीन कक्ष तुरंत मिल पाने के कारण ही शायद उसकी जान बच पायी।</p>
+<p>अब ज़रा Covid-19 के बारे में बात करते हैं, और आने वाले हफ्तों और महीनों में रेचल जैसी स्थिति में लोगों के साथ क्या हो सकता है। Covid-19 से संक्रमित पाए जाने वाले लोगों की संख्या हर 3 से 6 दिनों में दोगुनी हो जाती है। तीन दिनों में दोगुनी दर, इसका अर्थ यह है कि संक्रमित पाए जाने वाले लोगों की संख्या तीन सप्ताह में 100 गुना तक बढ़ सकती है (यह वास्तव में इतना सरल नहीं है, लेकिन तकनीकी विवरणों से भटकने से बचते हैं)। <a href="https://www.who.int/docs/default-source/coronaviruse/who-china-joint-mission-on-covid-19-final-report.pdf">10 संक्रमित लोगों में से एक</a> को कई हफ्तों तक अस्पताल में भर्ती रहने की आवश्यकता होती है, और इनमें से अधिकांश को ऑक्सीजन की भी आवश्यकता होती है। हालांकि इस वायरस के अभी बहुत शुरुआती दिन हैं, अभी से ही ऐसे क्षेत्र हैं जहां अस्पताल पूरी तरह से खत्म हो चुके हैं, और लोग अब उस उपचार को प्राप्त करने में सक्षम नहीं हैं जिनकी उन्हें आवश्यकता है (न केवल Covid-19 के लिए, बल्कि किसी और चीज के लिए भी, जैसे कि रेचल की जरूरत की जीवन रक्षक देखभाल)। उदाहरण के लिए, इटली में, जहां सिर्फ एक हफ्ते पहले अधिकारी कह रहे थे कि सब कुछ ठीक है, अब सोलह मिलियन लोगों को लॉक-डाउन पर रखा गया है (अपडेट: इसे पोस्ट करने के 6 घंटे बाद, इटली ने पूरे देश को लॉक-डाउन में डाल दिया), और इस तरह के तम्बू मरीजों की आमद को संभालने में मदद के लिए लगाए जा रहे हैं:</p>
+<p><img src="https://alephthoughts.com/thoughts/posts/ai-in-society/italymedicaltent.jpg" title="इटली में प्रयोग किया जा रहा एक चिकित्सा तम्बू" class="img-fluid"></p>
+<p>डॉ एंटोनियो पेसेन्ती, इटली के एक अत्यंत-प्रभावित क्षेत्र में क्षेत्रीय संकट पजवाबी कार्यवाही इकाई के प्रमुख ने <a href="https://www.reuters.com/article/us-health-coronavirus-italy/alarmed-italy-locks-down-north-to-prevent-spread-of-coronavirus-idUSKBN20V06R">कहा</a> है, “अब हम कॉरिडोर में गहन देखभाल उपचार स्थापित करने के लिए मजबूर हो रहे हैं, ऑपरेटिंग थिएटरों में, रिकवरी रूम में … दुनिया की एक सबसे अच्छी स्वास्थ्य प्रणाली, लोम्बार्डी में पतन से एक कदम दूर है।” ### यह फ्लू जैसा नहीं है फ्लू से संक्रमित लोगों की मृत्यु दर लगभग 0.1% है। हार्वर्ड में सेंटर फॉर कम्युनिकेबल डिजीज डायनेमिक्स के निदेशक मार्क लिप्सिच का <a href="https://www.washingtonpost.com/opinions/2020/03/06/why-its-so-hard-pin-down-risk-dying-coronavirus/">अनुमान है</a> कि Covid-19 के लिए यह दर 1-2% है। <a href="https://www.medrxiv.org/content/10.1101/2020.03.04.20031104v1.full.pdf">नवीनतम महामारी विज्ञान प्रतिरूपण</a> ने फरवरी में चीन में इस दर को 1.6% पाया, जो कि फ्लू की तुलना में सोलह गुना अधिक है (हालांकि यह काफी अनुदार संख्या हो सकती है, क्योंकि जब चिकिस्ता प्रणाली हालात का सामना नहीं कर पाती तब यह दर तेज़ी से बढ़ती है)। वर्तमान के सबसे अच्छे अनुमानों की उम्मीद है कि Covid-19 इस साल फ्लू की तुलना में इस साल 10 गुना अधिक लोगों की मृत्यु का कारण बनेगा (और एयरबीएनबी में डेटा विज्ञान के पूर्व निदेशक, <a href="https://docs.google.com/spreadsheets/d/1ktSfdDrX_uJsdM08azBflVOm4Z5ZVE75nA0lGygNgaA/edit#gid=0">एलेना ग्रेवाल का प्रतिरूपण</a> दर्शाता है कि यह सबसे खराब स्थिति में 100 गुना अधिक हो सकता है)। यह चिकित्सा प्रणाली पर भारी प्रभाव को नज़रअंदांज़ करते हुए है, जैसे कि ऊपर वर्णित है। ज़ाहिर है कि कुछ लोग खुद को समझाने की कोशिश कर रहे हैं कि यह कोई नई बात नहीं है, फ्लू जैसी बीमारी है, क्योंकि वास्तविकता को स्वीकार करना अत्यंत कठिन है और ये हालात काफी असामान्य हैं।</p>
+<p>हमारे मस्तिष्क की संरचना इस तरह की नहीं है कि हम घातांकीय रूप से बढ़ने वाली इस संक्रमित लोगों की संख्या को सहज रूप से समझ सकें। इसलिए हमें वैज्ञानिकों के रूप में इसका विश्लेषण करना होगा, न कि अपने सहज-ज्ञान का उपयोग करना होगा।</p>
+<p><img src="https://alephthoughts.com/thoughts/posts/ai-in-society/coronachart.png" title="यह दो सप्ताह में कहाँ होगा? दो महीनों में?" class="img-fluid"></p>
+<p>प्रत्येक व्यक्ति जिसे फ्लू है, औसतन, वह 1.3 अन्य लोगों को संक्रमित करता है। जिसे फ्लू के लिए “R0” कहा जाता है। यदि R0 1.0 से कम है, तो संक्रमण फैलना बंद हो जाता है और मर जाता है। यदि यह 1.0 से अधिक है, तो यह फैलता है। वर्तमान में चीन के बाहर Covid-19 के लिए R0 2-3 है। अंतर सुनने में छोटा लग सकता है, लेकिन संक्रमित लोगों की 20 “पीढ़ियां” जब संक्रमण आगे बढ़ाती हैं, 1.3 के R0 का परिणाम 146 संक्रमण होगा, लेकिन 2.5 के R0 का परिणाम होगा 3.6 करोड़! (यह निश्चित रूप से अधूरा है और कई वास्तविक दुनिया के प्रभावों को नजरअंदाज करता है, लेकिन यह Covid-19 और फ़्लू के बीच सापेक्ष अंतर का एक उचित चित्रण है, अन्य सभी तथ्यों को समान मानते हुए)।</p>
+<p>ध्यान दें कि R0 किसी बीमारी का एक मौलिक लक्षण नहीं है। यह जवाबी कार्यवाही पर बहुत निर्भर करता है, और यह समय अनुसार बदल सकता है। अतिविशेष रूप से, चीन में Covid-19 के लिए R0 में काफी कमी आई है, और अब यह 1.0 आ रहा है! आप पूछेंगे, कैसे? ऐसे बड़े पैमानों पर कदम उठाना जिनकी अमेरिका जैसे देश में कल्पना करना भी मुश्किल है- उदाहरण के लिए, कई विशाल शहरों को पूरी तरह से बंद कर देना, और एक परीक्षण प्रक्रिया विकसित करना जो एक सप्ताह में दस लाख से अधिक लोगों का परीक्षण मुमकिन बनाता है।</p>
+<p>एक चीज जो सोशल मीडिया पर बहुत अधिक उभरती है (एलोन मस्क जैसे अत्यधिक फ़ॉलो किए गए खातों से भी) कि लोगों में लॉजिस्टिक और घातीय वृद्धि के बीच अंतर की गलतफहमी है। “लॉजिस्टिक” वृद्धि महामारी के “s-आकार” विकास के स्वरुप को संदर्भित करता है। यकीनन घातीय वृद्धि हमेशा के लिए नहीं हो सकती, क्योंकि अन्यथा दुनिया में लोगों की संख्या से अधिक संख्या संक्रमित लोगों की हो जाएगी! इसलिए, अंत में, संक्रमण दर हमेशा कम होनी चाहिए, जिसके परिणामस्वरूप समय के साथ एक s-आकार (जो सिग्मॉइड के रूप में जाना जाता है) की वृद्धि दर बनती है। हालाँकि, घटती वृद्धि दर केवल एक कारण से होती है-यह कोई जादू नहीं है। मुख्य कारण हैं:</p>
+<ul>
+<li>बड़े पैमाने पर और प्रभावी सामुदायिक जवाबी कार्यवाही, या</li>
+<li>इतने बड़े प्रतिशत में लोग संक्रमित हैं कि फैलने के लिए कम असंक्रमित लोग बचे हैं।</li>
+</ul>
+<p>इसलिए, महामारी के “नियंत्रण” के लिए लॉजिस्टिक वृद्धि के स्वरुप पर निर्भर होने में कोई तार्किक समझदारी नहीं है।</p>
+<p>एक और बात जो आपके स्थानीय समुदाय में Covid-19 के प्रभाव को सहज रूप से समझना कठिन बना देती है, वह यह है कि संक्रमण और अस्पताल में भर्ती होने के बीच बहुत महत्वपूर्ण देरी होती है - आम तौर पर लगभग 11 दिन। यह शायद एक लम्बा समय न प्रतीत हो, लेकिन जब आप इसकी तुलना तब तक संक्रमित लोगों की संख्या से करते हैं, तो इसका मतलब है कि जब तक आप ध्यान देंगे कि अस्पताल में बिस्तर भर चुके हैं, तब तक सामुदायिक संक्रमण इस स्तर पर पहुंच जायेगा कि निपटने के लिए 5-10 गुना अधिक लोग होंगे।</p>
+<p>ध्यान दें कि कुछ शुरुआती संकेत ऐसे भी हैं कि आपके स्थानीय क्षेत्र में प्रभाव कम से कम कुछ हद तक जलवायु पर निर्भर हो सकता है। <a href="https://poseidon01.ssrn.com/delivery.php?ID=091071099092098096101097074089104068104013035023062021010031112088025099126064001093097030102106046016114116082016095089113023126034089078012119081090111118122007110026000085123071022022127025026080005029001020025126022000066075021086079031101116126112&amp;EXT=pdf">Covid-19 के संभावित प्रसार और मौसम-तत्व के पूर्वानुमान के लिए तापमान और अक्षांश विश्लेषण</a> बताता है कि यह बीमारी अब तक सुहावने जलवायु में फैल रही है (दुर्भाग्य से हमारे लिए, सैन फ्रांसिस्को में तापमान सीमा, जहां हम रहते हैं, उस सीमा के लिए सही है; यह लंदन सहित यूरोप के मुख्य जनसंख्या केंद्रों को भी शामिल करता है।)</p>
+</section>
+<section id="घबरए-नह-शनत-बनय-रख-यह-मददगर-नह-ह" class="level3">
+<h3 class="anchored" data-anchor-id="घबरए-नह-शनत-बनय-रख-यह-मददगर-नह-ह">“घबराएँ नहीं। शान्ति बनाये रखें।” यह मददगार नहीं है</h3>
+<p>एक आम प्रतिक्रिया जो हमने सोशल मीडिया पर उन लोगों के लिए देखी है जो चिंतित होने के कारणों की ओर इशारा कर रहे हैं, “घबराओ मत” या “शांत रहो”। कम से कम कहने में तो यह मददगार नहीं है। कोई यह नहीं कह रहा है कि आतंकित होना एक उपयुक्त प्रतिक्रिया है। किसी कारणवष, हालांकि, “शांत रहें” कुछ मंडलियों में बहुत लोकप्रिय प्रतिक्रिया है (लेकिन महामारी विज्ञानियों के बीच नहीं, जिनका काम इन चीजों पर नज़र रखना करना है)। शायद “शांत रहें” कुछ लोगों को अपनी निष्क्रियता के बारे में बेहतर महसूस करने में मदद करता है, या उन्हें ऐसे लोगों से बेहतर महसूस कराता है जिनकी वे कल्पना करते हैं कि वे बिना सिर की मुर्गी की तरह इधर-उधर भाग रहे हैं।</p>
+<p>लेकिन “शांत रहें” काफी आसानी से आपकी तैयारी और जवाबी कार्यवाही की विफलता का कारण बन सकता है। चीन में, दसियों लाख को लॉक-डाउन पर रखा गया था और दो नए अस्पतालों का निर्माण उस समय तक कर लिया गया था जब उनकी स्तिथि वैसी थी जैसी अमेरिका की अब है। इटली ने बहुत लंबा इंतजार किया, और आज (रविवार 8 मार्च को) उन्होंने 1692 लोगों को बंद करने के बावजूद 1492 नए मामले और 133 नई मौतें दर्ज कीं। इस समय सबसे अच्छी जानकारी के आधार पर हम यह पता लगा सकते हैं कि 2-3 सप्ताह पहले इटली भी उसी स्थिति में था,जो अमेरिका और ब्रिटेन में आज (संक्रमण के आंकड़ों के संदर्भ में) है।</p>
+<p>ध्यान दें कि इस समय पर Covid-19 के बारे में लगभग सब कुछ हवा में है। हम वास्तव में इसकी संक्रमण की गति या मृत्यु दर नहीं जानते हैं, हम यह नहीं जानते हैं कि यह सतहों पर कितनी देर तक सक्रिय रहता है, हम नहीं जानते कि यह गर्म परिस्थितियों में जीवित रह सकता है, फैल सकता है या नहीं। हमारे पास जो कुछ भी है वो इस समय तक लोगों द्वारा जुटाई गयी जानकारियों के आधार पर हमारे सर्वोत्तम अनुमान हैं। और याद रखें, इस जानकारी का अधिकांश हिस्सा चीन में, चीनी में है। वर्तमान में, चीन के अनुभव को समझने का सबसे अच्छा तरीका है कि चीन, जर्मनी, जापान, कोरिया, नाइजीरिया, रूस, सिंगापुर, अमेरिका और विश्व स्वास्थ्य संगठन (WHO) के 25 राष्ट्रीय और अंतर्राष्ट्रीय विशेषज्ञों के संयुक्त मिशन के आधार पर, <a href="https://www.who.int/docs/default-source/coronaviruse/who-china-joint-mission-on-covid-19-final-report.pdf">WHO-चीन संयुक्त मिशन की उत्कृष्ट रिपोर्ट को कोरोनावायरस रोग 2019 पर</a> पढ़ें।</p>
+<p>जब यह अनिश्चित है कि, यह वैश्विक महामारी बनेगा या नहीं, और शायद सब कुछ <em>बस</em> ठीक से गुज़र जाये बिना अस्पताल तंत्र के ढहे हुए, तब इसका अर्थ ये बिलकुल नहीं है कि कुछ न करना ही उचित जवाबी कार्यवाही है। यह जूए के समान होगा और किसी भी खतरे के प्रतिरूप के परिदृश्य में यह हमारी ईष्टतम प्रतिक्रिया नहीं होगी। यह भी काफी असंभव सा है कि इटली और चीन जैसे देश बिना किसी अच्छे कारण के अपनी अर्थव्यवस्था के बड़े हिस्से को प्रभावी ढंग से बंद कर देंगे। यह उन वास्तविक प्रभावों के साथ भी तर्कसंगत नहीं है जो हम संक्रमित क्षेत्रों में जमीन पर देख रहे हैं, जहां चिकित्सा प्रणाली सामना करने में असमर्थ है (उदाहरण के लिए, इटली “प्री-ट्राइएज” के लिए 462 टेंट का उपयोग कर रहा है, और अभी भी <a href="https://www.repubblica.it/cronaca/2020/03/08/news/coronavirus_situazione_italia-250665818/?ref=RHPPTP-BH-I250661466-C12-P5-S1.12-T1">आईसीयू रोगियों को स्थानांतरित करना है संक्रमित क्षेत्रों से</a>)।</p>
+<p>इसके बजाय, विचारशील, उचित प्रतिक्रिया उन चरणों का पालन करना है जो विशेषज्ञों द्वारा संक्रमण फैलाने से बचने के लिए अनुशंसित हैं:</p>
+<ul>
+<li>बड़े समूहों और भीड़ से बचें</li>
+<li>कार्यक्रमों को रद्द करें</li>
+<li>यदि संभव हो तो घर से काम करें</li>
+<li>घर से आते और जाते समय और बाहर आने पर बार-बार हाथ धोएं</li>
+<li>अपने चेहरे को छूने से बचें, खासकर जब आपके घर के बाहर (आसान नहीं!)</li>
+<li>सतहों और सामान को कीटाणु रहित करें (यह संभव है कि वायरस सतहों पर 9 दिनों तक सक्रिय रह सकता है, हालांकि यह अभी भी निश्चित रूप से ज्ञात नहीं है)।</li>
+</ul>
+</section>
+<section id="यह-कवल-आपक-बर-म-नह-ह" class="level3">
+<h3 class="anchored" data-anchor-id="यह-कवल-आपक-बर-म-नह-ह">यह केवल आपके बारे में नहीं है</h3>
+<p>यदि आप 50 वर्ष से कम उम्र के हैं, और जोखिम कारक नहीं हैं, जैसे कि कमज़ोर प्रतिरक्षा प्रणाली, हृदय रोग, धूम्रपान का इतिहास, या अन्य पुरानी बीमारियां, तो आपको कुछ आराम हो सकता है कि Covid-19 की आपको मारने की संभावना बहुत कम है। लेकिन इसके प्रति आपकी प्रतिकिरिया अभी भी बहुत मायने रखती है। आपके पास अभी भी संक्रमित होने की अधिक संभावना है, और यदि होते हैं, तो बस दूसरों को संक्रमित करने की भी उतनी ही सम्भावना है। औसतन, प्रत्येक संक्रमित व्यक्ति दो से अधिक लोगों को संक्रमित कर रहा है, और वे लक्षण दिखाने से पहले संक्रामक हो जाते हैं। यदि आपके पास ऐसे माता-पिता हैं जिनकी आप परवाह करते हैं, या दादा-दादी, और उनके साथ समय बिताने की योजना बनाते हैं, और बाद में पता चलता है कि आप उन्हें Covid-19 के साथ संक्रमित करने के लिए जिम्मेदार हैं, तो आपको इस बोझ के साथ जीना पड़ेगा।</p>
+<p>यहां तक कि अगर आप 50 से अधिक की उम्र के लोगों के संपर्क में नहीं हैं, तो यह संभावना है कि आपके पास ऐसे सहकर्मी और परिचित हैं जिनकी गंभीर बीमारियों का आपको अनुमान भी नहीं है। <a href="https://www.talentinnovation.org/_private/assets/DisabilitiesInclusion_KeyFindings-CTI.pdf">अनुसंधान से पता चलता है</a> कि कुछ लोग कार्यस्थल में अपने स्वास्थ्य की स्थिति का खुलासा करने से बचते हैं, यदि वो बच सकते हैं, क्योंकि उन्हें <a href="https://medium.com/@racheltho/the-tech-industry-is-failing-people-with-disabilities-and-chronic-illnesses-8e8aa17937f3">भेदभाव का डर</a> होता है। हम दोनों ही उच्च जोखिम की श्रेणियों में हैं, लेकिन कई लोग जिनसे हम नियमित रूप से बातचीत करते हैं, वे शायद यह नहीं जानते होंगे।</p>
+<p>और हाँ, यह केवल आपके आस पास के लोगो की बात नहीं है। यह एक अत्यधिक महत्वपूर्ण नैतिक मुद्दा है। प्रत्येक व्यक्ति जो वायरस के प्रसार को नियंत्रित करने में योगदान करने की पूरी कोशिश करता है, वह संक्रमण की दर को धीमा करने में अपने पूरे समुदाय की मदद कर रहा है। जैसा कि ज़ीनेप तुफैकी ने <a href="https://blogs.scientificamerican.com/observations/preparing-for-coronavirus-to-strike-the-u-s/">साइंटिफिक अमेरिकन में लिखा है</a>: “इस वायरस के लगभग अवश्यंभावी वैश्विक प्रसार के लिए तैयारी … समाज के लिए सबसे अधिक परोपकारी चीजों में से एक है जो आप कर सकते हैं”। वह लिखती हैं:</p>
+<blockquote class="blockquote">
+<p>हमें तैयार होना चाहिए, इसलिए नहीं कि हम व्यक्तिगत रूप से जोखिम महसूस कर सकते हैं, बल्कि इसलिए ताकि हम सभी के लिए जोखिम कम करने में मदद कर सकें। हमें तैयार नहीं होना चाहिए क्योंकि हम अपने नियंत्रण से बाहर एक कयामत के दिन का सामना कर रहे हैं, लेकिन क्योंकि हम इस जोखिम के हर पहलू को बदल सकते हैं जो हम एक समाज के रूप में सामना करते हैं। यह सही है, आपको तैयार रहना चाहिए क्योंकि आपके पड़ोसियों को आपको तैयार करने की आवश्यकता है - विशेष रूप से आपके बुजुर्ग पड़ोसी, आपके पड़ोसी जो अस्पतालों में काम करते हैं, आपके पड़ोसी पुरानी बीमारियों के साथ, और आपके पड़ोसी जिनके पास साधन या समय नहीं हैं तैयारी का जिसका कारण संसाधनों की कमी हो या समय की।</p>
+</blockquote>
+<p>इसने हमें व्यक्तिगत रूप से प्रभावित किया है। हमारा सबसे बड़ा और सबसे महत्वपूर्ण कोर्स फ़ास्ट.एआई, जो हमारे लिए वर्षों के काम की परिणति का प्रतिनिधित्व करता है, एक सप्ताह में सैन फ्रांसिस्को विश्वविद्यालय में शुरू होने वाला था। पिछले बुधवार (4 मार्च) को, हमने पूरी बात ऑनलाइन स्थानांतरित करने का निर्णय लिया। हम ऑनलाइन स्थानांतरित करने वाले पहले बड़े पाठ्यक्रमों में से एक थे। हमने ऐसा क्यों किया? क्योंकि हमें पिछले हफ्ते की शुरुआत में एहसास हुआ कि अगर हम इस कोर्स को चलाते हैं, तो हम अनुमानित रूप से सैकड़ों लोगों को एक संलग्न स्थान पर एक साथ आने के लिए प्रोत्साहित कर रहे थे, कई बार एक बहु-सप्ताह की अवधि में। संलग्न स्थानों में समूहों को एक साथ लाना सबसे खराब काम है जो इस समय किया जा सकता है। हमने यह सुनिश्चित करने के लिए नैतिक रूप से बाध्य महसूस किया कि कम से कम इस मामले में, यह नहीं हुआ। यह दिल तोड़ने वाला फैसला था। हमारे छात्रों के साथ सीधे काम करने में हमारा समय हर साल महान सुखों और सबसे अधिक उत्पादक अवधियों में से एक रहा है। और हमारे पास छात्रों को दुनिया भर से उड़ान भरने की योजना थी, जिन्हें हम वास्तव में निराश नहीं करना चाहते थे।</p>
+<p>लेकिन हमें पता था कि यह करना सही है, क्योंकि अन्यथा हम अपने समुदाय में बीमारी के प्रसार को बढ़ा सकते हैं।</p>
+</section>
+<section id="हम-वकर-क-समतल-करन-क-आवशयकत-ह" class="level3">
+<h3 class="anchored" data-anchor-id="हम-वकर-क-समतल-करन-क-आवशयकत-ह">हमें वक्र को समतल करने की आवश्यकता है</h3>
+<p>यह अत्यंत महत्वपूर्ण है, क्योंकि अगर हम किसी समुदाय में संक्रमण की दर को धीमा कर सकते हैं, तो हम उस समुदाय के अस्पतालों को दोनों, संक्रमित रोगियों से निपटने में, और नियमित रोगी भार में साथ देते हैं जिसे उन्हें संभालने की आवश्यकता है। इसे “वक्र को समतल करना” के रूप में वर्णित किया गया है, और इस चित्रमय मानचित्र में स्पष्ट रूप से दिखाया गया है:</p>
+<p><img src="https://alephthoughts.com/thoughts/posts/ai-in-society/chart.jpeg" title="बिंदु-रेखा के नीचे रहना ही सब-कुछ है" class="img-fluid"></p>
+<p>हेल्थ आईटी के पूर्व नेशनल कोऑर्डिनेटर फ़रज़ाद मोस्तश्री ने स्पष्ट किया: “हर दिन नए मामलों की पहचान की जा रही है, जिनका यात्रा इतिहास या किसी ज्ञात मामले से कोई संबंध नहीं है, और हम जानते हैं कि ये सिर्फ बड़ी समस्या की एक छोटी सी झलक है जिसका कारण है परिक्षण में हो रही देरी। इसका मतलब है कि अगले दो हफ्तों में निदान किए गए मामलों की संख्या में विस्फोट होगा … जब समुदाय में घातांकीय रूप से फैलाव हो रहा हो तब उसकी रोकथाम की कोशिश करना इस प्रकार है जैसे जलते हुए घर में चिंगारियों पर ध्यान लगाना। जब ऐसा होता है, तो हमें शमन करने के लिए रणनीतियों को बदलने की आवश्यकता होती है - स्वास्थ्य देखभाल पर चरम प्रभाव को कम करना और कम करने के लिए सुरक्षात्मक उपाय करना।” यदि हम बीमारी के फैलाव को कम रख सकते हैं कि हमारे अस्पताल भार को संभाल सकें, तो लोग उपचार तक पहुंच सकते हैं। लेकिन अगर मामले बहुत जल्दी आते हैं, तो ज़रूरतमंदो को अस्पताल में भर्ती होने नहीं मिलेगा।</p>
+<p><a href="https://twitter.com/LizSpecht/status/1236095186737852416">लिज़ स्पैट के अनुसार</a> यहां गणित कुछ ऐसा दिख सकता है:</p>
+<blockquote class="blockquote">
+<p>अमेरिका में प्रति 1000 लोगों पर लगभग 2.8 अस्पताल बेड हैं। 330M की आबादी के साथ, यह ~ 1M बेड है। किसी भी समय, उन बिस्तरों में से 65% पर पहले से ही कब्जा होता है। यह देश भर में उपलब्ध 330k बिस्तरों को छोड़ता है (शायद नियमित फ्लू के मौसम के कारण ये आँकड़ा इस समय थोड़ा कम होगा)। आइए इटली की संख्या पर निर्भर हो कर मान लें कि लगभग 10% मामले अस्पताल में भर्ती होने के लिए गंभीर हैं। (ध्यान रखें कि कई रोगियों को अस्पताल में हफ्तों तक रहना पड़ता है - दूसरे शब्दों में, यह प्रक्रिया बहुत धीमी होगी क्योंकि बिस्तर COVID19 रोगियों से भर जायेंगे)। इस अनुमान के अनुसार, 8 मई तक, अमेरिका में सभी खुले अस्पताल बेड भर जाएंगे। (ये यह बिलकुल नहीं बताता है कि यह बिस्तर अत्यधिक संक्रामक रोगो के अलगाव के लिए उपयुक्त होंगे या नहीं।) अगर हम गंभीर मामलों के अंश के बारे में दो घटक से ग़लत हैं, तो यह अस्पताल में बिस्तरों के ख़त्म होने की समयरेखा को मात्र 6 दिन से बदलता है जो किसी भी दिशा में हो सकता है। यदि 20% मामलों में अस्पताल में भर्ती होने की आवश्यकता होती है, तो बिस्तरों की ख़त्म होने की तारीख होगी ~ 2 मई, यदि केवल 5% मामलों में ही इसकी आवश्यकता होती है, तो हम इसे ~ 14 मई तक चला पाएंगे। 2.5% हमें 20 मई तक ले जायेगा। यह गणना बिलकुल ये मान के की गयी है कि गैर-Covid19 मामलो से बिस्तरों की मांग में कोई उतार चढ़ाव नहीं होगा, जो कि काफी संशयात्मक प्रतीत होता है। जैसे-जैसे स्वास्थ्य सेवा प्रणाली तेजी से बोझिल होती जा रही है, Rx की कमी इत्यादि बढ़ती जा रही है, गंभीर रोगों से जूझते लोगों की चिकित्सा जो सामान्य रूप से अच्छी तरह से प्रबंधित होती हैं, वह चिकित्सा संकट की स्तिथि में बदल सकती है जिसमें ऐसे लोगों को गहन देखभाल और अस्पताल भर्ती की ज़रूरत होगी।</p>
+</blockquote>
+</section>
+<section id="समज-क-जवब-करयवह-स-ह-सर-अतर-पड़त-ह" class="level3">
+<h3 class="anchored" data-anchor-id="समज-क-जवब-करयवह-स-ह-सर-अतर-पड़त-ह">समाज की जवाबी कार्यवाही से ही सारा अंतर पड़ता है</h3>
+<p>जैसा कि हमने चर्चा की है, यह गणित निश्चित नहीं है - चीन पहले ही दिखा चुका है कि ठोस कदम उठाकर प्रसार को कम करना संभव है। एक सफल जवाबी कार्यवाही का एक और शानदार उदाहरण वियतनाम है, जहां अन्य बातों के अलावा, एक राष्ट्रव्यापी विज्ञापन अभियान (एक आकर्षक गीत सहित) ने तेजी से समाज को उचित जवाबी कार्यवाही के लिए एकजुट किया और यह सुनिश्चित किया कि लोग अपने व्यवहार को उचित रूप से समायोजित करें।</p>
+<p>यह केवल एक काल्पनिक स्थिति नहीं है - यह 1918 फ्लू महामारी में स्पष्ट रूप से प्रदर्शित किया गया था। अमेरिका में दो शहरों ने महामारी के लिए बहुत अलग जवाबी कार्यवाही प्रदर्शित कीं: फिलाडेल्फिया में 200,000 लोगों की विशाल परेड का आयोजन किया गया ताकि युद्ध के लिए पैसे जुटा सकें। लेकिन सेंट लुइस ने बड़े संपर्कों को रद्द करने के साथ-साथ वायरस के प्रसार को कम करने के लिए सामाजिक संपर्कों को कम करने के लिए सावधानीपूर्वक तैयार की। यहाँ प्रत्येक शहर में मौतों की संख्या कितनी है, यह <a href="https://www.pnas.org/content/104/18/7582">नेशनल एकेडमी ऑफ साइंसेज की कार्यवाही</a> में दिखाया गया है:</p>
+<p><img src="https://alephthoughts.com/thoughts/posts/ai-in-society/fluchart.jpeg" title="1918 फ्लू महामारी में प्रतिकिर्याओं में अंतर का असर" class="img-fluid"></p>
+<p>फिलाडेल्फिया में स्थिति बेहद गंभीर हो गई, यहां तक कि एक समय पर ऐसे स्थान भी थे जहां फ्लू से मृतकों की भारी संख्या को संभालने के लिए <a href="https://www.history.com/news/spanish-flu-pandemic-dead">पर्याप्त ताबूत या मुर्दाघर</a> नहीं थे।</p>
+<p>रिचर्ड बेस्सर, जो कि रोग नियंत्रण और रोकथाम केंद्रों के कार्यवाहक निदेशक थे 2019 H1N1 महामारी के समय, ने <a href="https://www.washingtonpost.com/opinions/as-coronavirus-spreads-the-bill-for-our-public-health-failures-is-due/2020/03/05/9da09ed6-5f10-11ea-b29b-9db42f7803a7_story.html?utm_campaign=wp_week_in_ideas&amp;utm_medium=email&amp;utm_source=newsletter&amp;wpisrc=nl_ideas">कहा है</a> कि अमेरिका में “रोग के जोखिम से बचने की और अपने परिवार को बचाने की क्षमता निर्भर करती है, आय पर, स्वस्थ्य देखभाल तक पहुँच पर, और आव्रजन स्तिथि पर, और भी अन्य कारणों के साथ”, वे बताते हैं:</p>
+<blockquote class="blockquote">
+<p>बुजुर्गों और विकलांगों को विशेष जोखिम होता है जब उनके दैनिक जीवन और समर्थन प्रणाली बाधित होती है। ग्रामीण और मूल निवासी समुदायों सहित स्वास्थ्य देखभाल की आसान पहुंच के बिना, जरूरत के समय कठिन दूरी का सामना करना पड़ सकता है। पास के क्वार्टर में रहने वाले लोग - चाहे सार्वजनिक आवास, नर्सिंग होम, जेल, आश्रय या यहां तक कि सड़कों पर बेघर - लहरों में पीड़ित हो सकते हैं, जैसा कि हम पहले ही वाशिंगटन राज्य में देख चुके हैं। और कम वेतन वाले गिग इकॉनमी की कमजोरियां, गैर-वेतनभोगी श्रमिकों और अनिश्चित काम की सारणी, इस संकट के दौरान सभी के सामने उजागर हो जाएगी। 60 प्रतिशत अमेरिकी श्रम शक्ति से पूछें जो प्रति घंटा वेतन उन्हें मिलता है उससे ज़रूरत के समय छुट्टी लेना कितना आसान है।</p>
+</blockquote>
+<p>यूएस ब्यूरो ऑफ लेबर स्टैटिस्टिक्स से पता चलता है कि सबसे कम आय वाले बैंड में <a href="https://www.bls.gov/opub/ted/2018/higher-wage-workers-more-likely-than-lower-wage-workers-to-have-paid-leave-benefits-in-2018.htm">एक तिहाई से भी कम</a> लोगों को भुगतान के साथ बीमारी के लिए अवकाश मिलता है:</p>
+<p><img src="https://alephthoughts.com/thoughts/posts/ai-in-society/uspaidleave.png" title="ज़्यादातर गरीब अमेरिकियों को भुगतान सहित रोग-अवकाश नहीं मिलता, तो उन्हें काम पर जाना पड़ता है" class="img-fluid"></p>
+</section>
+<section id="अमरक-म-हमर-पस-परयपत-जनकर-नह-ह" class="level3">
+<h3 class="anchored" data-anchor-id="अमरक-म-हमर-पस-परयपत-जनकर-नह-ह">अमेरिका में हमारे पास पर्याप्त जानकारी नहीं है</h3>
+<p>यूएस में एक बड़ा मुद्दा यह है कि बहुत कम परीक्षण किया जा रहा है, और परीक्षण के परिणाम ठीक से साझा नहीं किए जा रहे हैं, जिसका अर्थ है कि हम नहीं जानते कि वास्तव में क्या हो रहा है। पिछले FDA कमिश्नर स्कॉट गोटलिब ने बताया कि सिएटल में बेहतर परीक्षण किया गया है, और हम वहाँ संक्रमण देख रहे हैं: “स्वतंत्र वैज्ञानिको के प्रहरी निगरानी कार्य के कारण हम सीएटल में के प्रकोप के बारे में जल्दी जान पाए हैं। अन्य शहरों में ऐसी निगरानी पूरी तरह से कभी नहीं हुई। अन्य अमेरिकी अतिप्रभावित क्षेत्रों का अभी तक पूरी तरह से पता नहीं लगाया जा सकता है। <a href="https://www.theatlantic.com/health/archive/2020/03/how-many-americans-have-been-tested-coronavirus/607597/">द अटलांटिक</a> के अनुसार, उपराष्ट्रपति माइक पेंस ने वादा किया कि इस सप्ताह”लगभग 1.5 मिलियन परीक्षण” उपलब्ध होंगे, लेकिन इस समय तक पूरे अमेरिका में 2,000 से कम लोगों का परीक्षण किया गया है। <a href="https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vRwAqp96T9sYYq2-i7Tj0pvTf6XVHjDSMIKBdZHXiCGGdNC0ypEU9NbngS8mxea55JuCFuua1MUeOj5/pubhtml">COVID ट्रैकिंग प्रोजेक्ट</a> पर आधारित, द अटलांटिक के रॉबिन्सन मेयर और एलेक्सिस मेड्रिगल, ने कहा:</p>
+<blockquote class="blockquote">
+<p>हमने जो आंकड़े इकट्ठे किए हैं, उनका सुझाव है कि Covid-19 और इससे होने वाली बीमारी, COVID-19, के प्रति अमेरिकी जवाबी कार्यवाही विशेष रूप से अन्य विकसित देशों के साथ तुलनात्मक रूप से सुस्त रही है। सीडीसी ने आठ दिन पहले पुष्टि की थी कि वायरस संयुक्त राज्य में सामुदायिक संचरण में था - यह उन अमेरिकियों को संक्रमित कर रहा था, जो न तो विदेश यात्रा पर थे और न ही उन लोगों के संपर्क में थे। दक्षिण कोरिया में, सामुदायिक प्रसारण के पहले मामले के एक सप्ताह के भीतर 66,650 से अधिक लोगों का परीक्षण किया गया था, और वह जल्दी से एक दिन में 10,000 लोगों का परीक्षण करने में सक्षम हो गया।</p>
+</blockquote>
+<p>समस्या का हिस्सा यह है कि यह एक राजनीतिक मुद्दा बन गया है। विशेष रूप से, राष्ट्रपति डोनाल्ड ट्रम्प ने यह स्पष्ट कर दिया है कि वह “संख्या” (जो कि अमेरिका में संक्रमित लोगों की संख्या है) को कम रखना चाहते हैं। यह एक उदाहरण है, जहां अनुकूलन मेट्रिक्स असल में अच्छे परिणाम प्राप्त करने में हस्तक्षेप करता है। (इस मुद्दे पर अधिक जानकारी के लिए, डेटा विज्ञान की नैतिकता पेपर देखें <a href="https://arxiv.org/abs/2002.08512">मैट्रिक्स की समस्या</a> एआई के लिए एक मौलिक समस्या है)। Google के AI के प्रमुख <a href="https://twitter.com/JeffDean/status/1236489084870119427">जेफ डीन ने ट्वीट कर</a> राजनीतिक विघटन की समस्याओं के बारे में अपनी चिंता व्यक्त की:</p>
+<blockquote class="blockquote">
+<p>जब मैंने WHO में काम किया, तो मैं AIDS (अब UNAIDS) पर वैश्विक कार्यक्रम का हिस्सा था, जो दुनिया को HIV/AIDS महामारी से निपटने में मदद करने के लिए बनाया गया था। वहां के कर्मचारी समर्पित डॉक्टर थे और वैज्ञानिकों ने उस संकट के समाधान में मदद करने के लिए तीव्रता से ध्यान केंद्रित किया। संकट के समय में, स्पष्ट और सटीक जानकारी सभी को उचित और सूचित निर्णय लेने में मदद करने के लिए महत्वपूर्ण है (देश, राज्य और स्थानीय सरकारें, कंपनियां, गैर सरकारी संगठन, स्कूल, परिवार और व्यक्ति)। सर्वोत्तम चिकित्सा और वैज्ञानिक विशेषज्ञों को सुनने के लिए सही जानकारी और नीतियों के साथ, हम सभी HIV/AIDS या Covid-19 द्वारा प्रस्तुत की गई चुनौतियों से पार पाएंगे। राजनीतिक हितों से प्रेरित दुष्प्रचार का वास्तविक जोखिम यह है की हम जल्दी काय्रवाही न कर के हालातों को बद से बत्तर बनाएंगे और यह सुनिश्चि करेंगे के महामारी से झूझते हुए हम ऐसे व्यहवार को बढ़ावा दे बैठे जिससे कि रोग और फैले। ऐसी स्तिथि को बनते हुए देखना बेहद दर्दनाक है।</p>
+</blockquote>
+<p>ऐसा लगता तो नहीं है के पारदर्शिता के सन्दर्भ में हालत को बदलने की राजनीतिक इच्छाशक्ति यहां है। <a href="https://www.wired.com/story/trumps-coronavirus-press-event-was-even-worse-than-it-looked/">वायर्ड के अनुसार</a>, स्वास्थ्य और मानव सेवा सचिव एलेक्स अजार ने कहा, “उन परीक्षणों के बारे में बात करना शुरू कर दिया जो स्वास्थ्य देखभाल कार्यकर्ता यह निर्धारित करने के लिए उपयोग करते हैं कि कोई नए कोरोनोवायरस से संक्रमित है या नहीं। उन किटों की कमी का मतलब अमेरिका में बीमारी के प्रसार और गंभीरता के बारे में महामारी विज्ञान संबंधी जानकारी का एक खतरनाक अभाव है, जो सरकार की ओर से अस्पष्टता से बढ़ा है। अज़ार ने यह कहने की कोशिश की कि अधिक परीक्षण किये जायेंगे पर गुणवत्ता नियंत्रण लंबित है।” लेकिन, उन्होंने जारी रखा: &gt; तब ट्रम्प ने अजार की बात काटते हुए कहा “लेकिन मुझे लगता है, महत्वपूर्ण बात यह है, किसी को भी, अभी और कल, यदि परीक्षण की ज़रूरत पड़ी है तो उसका परीक्षण हुआ है। वह हैं, उनके परीक्षण हुए हैं, और परीक्षण बहुत अच्छे हैं। ट्रम्प ने कहा कि जिसे परीक्षण की ज़रूरत है, उसे परीक्षण मिलेगा। यह असत्य है। उपराष्ट्रपति पेंस ने गुरुवार को संवाददाताओं से कहा कि अमेरिका के पास मांग को पूरा करने के लिए पर्याप्त परीक्षण किट नहीं हैं।</p>
+<p>अन्य देश अमेरिका की तुलना में बहुत अधिक तेजी से और महत्वपूर्ण रूप से जवाबी कार्यवाही कर रहे हैं। दक्षिण-पूर्वी एशिया के कई देश ताइवान सहित उत्तम परिणाम दिखा रहे हैं, जहां R0 अभी 0.3 से नीचे है, और सिंगापुर, जिसे द मॉडल फॉर Covid-19 रिस्पांस के रूप में प्रस्तावित किया जा रहा है। यह सिर्फ एशिया में ही नहीं है; उदाहरण के लिए, फ्रांस में, 1000 लोगों से अधिक का इकट्ठा होना मना है, और स्कूल अब तीन जिलों में बंद हैं।</p>
+</section>
+<section id="नषकरष" class="level3">
+<h3 class="anchored" data-anchor-id="नषकरष">निष्कर्ष</h3>
+<p>Covid-19 एक महत्वपूर्ण सामाजिक मुद्दा है, और हमें बीमारी के प्रसार को कम करने के लिए काम करना चाहिए। इसका मतलब है की:</p>
+<ul>
+<li>बड़े समूहों और भीड़ से बचना</li>
+<li>कार्यक्रमों को रद्द करना</li>
+<li>घर से काम करना, यदि संभव हो तो</li>
+<li>घर से आते और जाते समय और बाहर आने पर बार-बार हाथ धोएं</li>
+<li>अपने चेहरे को छूने से बचें, खासकर जब आपके घर के बाहर</li>
+</ul>
+<p>ध्यान दें: इसे छापने की जल्दबाज़ी में, इसमें उपयोग की गयी जानकारियों का हवाला और श्रेय देने में हमने उतनी सावधानी नहीं बरती है जितना हम आम तौर पर बरतते हैं । अगर हमसे कुछ भूल हुई हो तो कृपया हमे बतायें।</p>
+<p>प्रतिपुष्टि और टिप्पणियों के लिए सिल्वेन गुग्गर और एलेक्सिस गैलाघर को धन्यवाद।</p>
+<p><em>यह एक महत्वपूर्ण अंग्रेजी लेख का अनुवाद है, असली लेख अंग्रेजी में पढ़ने के लिए <a href="https://www.fast.ai/2020/03/09/coronavirus/">यहां क्लिक करें</a>।</em></p>
+<div style="display: flex; justify-content: center;">
+<p><a href="https://www.buymeacoffee.com/alephthoughts" target="_blank"> <img src="https://alephthoughts.com/thoughts/posts/ai-in-society/https:/cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important; width: 217px !important;"> </a></p>
+</div>
+
+
+</section>
+
+ ]]></description>
+  <category>ai in society</category>
+  <category>covid19</category>
+  <guid>https://alephthoughts.com/thoughts/posts/ai-in-society/covid19.html</guid>
+  <pubDate>Sun, 15 Mar 2020 18:30:00 GMT</pubDate>
+  <media:content url="https://alephthoughts.com/thoughts/posts/ai-in-society/coronavirus.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
+  <title>Publication Ready Jupyter Notebooks</title>
+  <dc:creator>Abhishek </dc:creator>
+  <link>https://alephthoughts.com/thoughts/posts/notebooks/jupyterNotebook.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>Documenting your work is an integral part of your development but if you are someone like me and you have to share your work with different set of technical and non-technical audience, you probably go an extra mile to create separate versions of the same results, one with code for your peers, and one for the business stakeholders who may find the code scary or distracting to say the least. <a href="https://jupyter.org/">The Jupyter Notebook</a> makes my life so much easier for the data analysis related work. Although jupyter notebook supports a variety of programming languages like <a href="https://julialang.org/">Julia</a>, <a href="python.org">Python</a> and <a href="https://www.r-project.org/">R</a> for live code and visualisations, alongwith <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>, <a href="https://en.wikipedia.org/wiki/HTML">HTML</a> and others for narrative text, in this post, we will see an example with python code.</p>
+<section id="installing-required-packages" class="level1">
+<h1>Installing Required Packages</h1>
+<p>Assuming you already have jupyter and python installed on your systems, you need to install the following packages additionally:</p>
+<section id="nbconvert" class="level2">
+<h2 class="anchored" data-anchor-id="nbconvert"><a href="https://github.com/jupyter/nbconvert">nbconvert</a></h2>
+<p>The nbconvert tools utilises <a href="http://jinja.pocoo.org/">Jinja</a> templates to convert your jupyter notebooks to various document formats such as HTML, LaTeX, PDF, Reveal JS, Markdown, ReStructured Text (rst) and executable script. You can install nbconvert using either of the commands depending on your python package manager:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span> pip install nbconvert</span>
+<span id="cb1-2"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span> conda install <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>c anaconda nbconvert</span></code></pre></div>
+</div>
+<p>To convert the notebook to the desired output format use the following command structure:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">$ jupyter nbconvert <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">--</span>to <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>output <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">format</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">input</span> notebook<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span></span></code></pre></div>
+</div>
+</section>
+<section id="hide_code" class="level2">
+<h2 class="anchored" data-anchor-id="hide_code"><a href="https://github.com/kirbs-/hide_code">Hide_Code</a></h2>
+<p>Hide_Code is an extension for your jupyter notebook, which allows you to selectively hide code, prompts and outputs in the jupyter notebook. It also enables these notebooks to be exported to HTML, LaTeX and PDF. Once hide_code is installed on your system, you can enable it by clicking View -&gt; Cell Toolbar -&gt; Hide Code on your jupyter notebook menu. <br> <img src="https://alephthoughts.com/thoughts/posts/notebooks/https:/raw.githubusercontent.com/kirbs-/hide_code/master/images/demo.gif" class="img-fluid" alt="hide code demo"> <br></p>
+<p>You can install hide_code using following commands:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span>pip install hide_code</span>
+<span id="cb3-2"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span>jupyter nbextension install <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">--</span>py hide_code</span>
+<span id="cb3-3"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span>jupyter nbextension enable <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">--</span>py hide_code</span>
+<span id="cb3-4"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span>jupyter serverextension enable <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">--</span>py hide_code</span></code></pre></div>
+</div>
+<p>You can export your notebooks to desired format using the following commands:<br></p>
+<section id="to-html" class="level3">
+<h3 class="anchored" data-anchor-id="to-html">To HTML <br></h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span>jupyter nbconvert <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">--</span>to hide_code_html notebook_to_convert.ipynb</span></code></pre></div>
+</div>
+</section>
+<section id="to-pdf" class="level3">
+<h3 class="anchored" data-anchor-id="to-pdf">To PDF</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span>jupyter nbconvert <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">--</span>to hide_code_pdf notebook_to_convert.ipynb</span></code></pre></div>
+</div>
+</section>
+<section id="to-latex" class="level3">
+<h3 class="anchored" data-anchor-id="to-latex">To LaTeX</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span>jupyter nbconvert <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">--</span>to hide_code_latexpdf notebook_to_convert.ipynb</span></code></pre></div>
+</div>
+</section>
+</section>
+<section id="tabulate" class="level2">
+<h2 class="anchored" data-anchor-id="tabulate"><a href="https://bitbucket.org/astanin/python-tabulate/src/master/">Tabulate</a></h2>
+<p>Tabulate is a python package used for pretty printing tabular data in python. You can install tabulate using either of the following commands:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span>pip install tabulate</span>
+<span id="cb7-2"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span>conda install <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>c conda<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>forge tabulate</span></code></pre></div>
+</div>
+</section>
+</section>
+<section id="creating-the-notebook" class="level1">
+<h1>Creating the notebook</h1>
+<p>I have created a <a href="https://github.com/alephthoughts/JupyterPublishDemo">demo notebook</a> on github which you can fork or download or work with your own example.</p>
+<section id="writing-narrative-text" class="level2">
+<h2 class="anchored" data-anchor-id="writing-narrative-text">Writing Narrative Text</h2>
+<p>In order to write the narrative text in Markdown or HTML, click on “Cell -&gt; Cell Type -&gt; Markdown” on jupyter menu or press “Esc + m” on your keyboard. This <a href="https://www.markdowntutorial.com/">tutorial</a> gives a good introduction on markdown.</p>
+</section>
+<section id="enable-hide_code" class="level2">
+<h2 class="anchored" data-anchor-id="enable-hide_code">Enable Hide_Code</h2>
+<p>Enable Hide_Code which gives you options to “Hide Prompt”, “Hide Code” and “Hide Cell” on the top right corner of each cell in the notebook. Using the following command convert your notebook to LaTeX format.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span>jupyter nbconvert <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">--</span>to hide_code_latex notebook_to_convert.ipynb</span></code></pre></div>
+</div>
+</section>
+<section id="adding-colors-to-your-latex-file" class="level2">
+<h2 class="anchored" data-anchor-id="adding-colors-to-your-latex-file">Adding colors to your LaTeX file</h2>
+<p>By default the export is black and white.You can add color to your latex element by using the following command:<br> <code>{\color{&lt;color name&gt;}&lt;element text&gt;}</code><br></p>
+<p>You can color entire sections using the following global definitions: <br></p>
+<pre><code>\usepackage{sectsty}
+\chapterfont{\color{brown}}
+\sectionfont{\color{brown}}
+\subsectionfont{\color{brown}}
+\subsubsectionfont{\color{teal}}
+\date{\color{brown}June 10, 2019}</code></pre>
+<p>You can deep dive into <a href="https://www.latex-tutorial.com/tutorials/?ref=hackr.io">LaTeX</a> if you want to customize it completely. <br> This brings us to the end of this post. Hope you will find it useful!</p>
+<div style="display: flex; justify-content: center;">
+<p><a href="https://www.buymeacoffee.com/alephthoughts" target="_blank"> <img src="https://alephthoughts.com/thoughts/posts/notebooks/https:/cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important; width: 217px !important;"> </a></p>
+</div>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>notebooks</category>
+  <category>data science</category>
+  <guid>https://alephthoughts.com/thoughts/posts/notebooks/jupyterNotebook.html</guid>
+  <pubDate>Fri, 14 Jun 2019 18:30:00 GMT</pubDate>
+  <media:content url="https://alephthoughts.com/thoughts/posts/notebooks/jupyter.png" medium="image" type="image/png" height="72" width="144"/>
+</item>
+<item>
+  <title>What’s in the name?</title>
+  <dc:creator>Abhishek </dc:creator>
+  <link>https://alephthoughts.com/thoughts/posts/welcome/Welcome.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<blockquote class="blockquote">
+<p>“What’s in a name? that which we call a rose By any other name would smell as sweet”</p>
+</blockquote>
+<section id="welcome-to-my-blog" class="level2">
+<h2 class="anchored" data-anchor-id="welcome-to-my-blog">Welcome to my blog!</h2>
+<p>This is the medium I will use to share my thoughts on many things that I find interesting. I have a buzzing mind which makes it hard for me to focus on one thing at a time. So I decided to name this blog after something that describes the state of my mind. How many thoughts at once do I have in my head?, I asked myself. My mind drifted to another question, What is the biggest number? It turns out the largest number is a geoglyph, “40” made of trees in Russia covering an area of 12000 square meters. 40Thoughts didn’t sound cool enough to me, so my search continued. A GoogolThoughts or GoogolplexThoughts are big cardinal numbers but I wanted something bigger. So I named this blog after the smallest infinity which is denoted by the first Hebrew letter “Aleph”.</p>
+<p>This place is going to be about stuff I find cool and numbers top that list. Another thing that is really cool is programming. I really love python for its easy of use and amazing community. Swift is another language that I find really interesting. I love reading about everything related to science and can spend hours discussing philosophy and politics. The common theme around all these things is my vision for a better world. I am by no means a good writer but still I would love to put my thoughts on things out there and love to read yours. So hope so see you on my blog.</p>
+<p>Cheers!!</p>
+
+
+</section>
+
+ ]]></description>
+  <category>others</category>
+  <guid>https://alephthoughts.com/thoughts/posts/welcome/Welcome.html</guid>
+  <pubDate>Thu, 13 Jun 2019 18:30:00 GMT</pubDate>
+  <media:content url="https://alephthoughts.com/thoughts/posts/welcome/shakespeare.jpg" medium="image" type="image/jpeg"/>
+</item>
+</channel>
+</rss>
