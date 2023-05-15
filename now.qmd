@@ -1,0 +1,37 @@
+---
+title: "Abhishek Sharma"
+image: abhishek.png
+about:
+  template: broadside
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/alephthoughts/
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/in/abhisheksharma-/
+    - icon: github
+      text: Github
+      href: https://github.com/alephthoughts/
+toc: false
+
+---
+---
+
+> An intelligent man cannot become anything seriously, and it is only the fool who becomes anything. ~ Fyodor Dostoevsky
+
+### Location
+Lucknow, Uttar Pradesh
+India
+
+### Now
+- Working at a Customer Experience Analytics firm in Bengaluru as a Data Science Senior Manager
+- Reading Zero to One
+- Building applications with Deep Learning
+- Writing 5 minutes journal
+- Listening to Naval
+
+### What should we read?
+A short history of nearly everything by Bill Bryson.
+
+---

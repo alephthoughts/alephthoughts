@@ -1,0 +1,19 @@
+---
+description: "alephthoughts | Analytics Consulting"
+title: Analytics and AI consulting for your business
+sidebar: false
+image: quarto.png
+toc: false
+---
+
+::: {layout="[21,79]" .profile-header}
+![](abhishek_transparent.png){.profile-pic}
+
+🚀 Hi there! I'm Abhishek Sharma, a passionate Data Scientist specializing in creating ML-driven data solutions 💡. Currently working remotely, I've gained valuable experience at Deloitte and Accenture as a Data Science & Analytics Consultant. Let's solve interesting problems together! 🌐
+:::
+## 💼 Get In Touch
+
+Do you need help operationalizing ML, or with any business problem that needs analytics and data solutions, I'm open to consulting work and other forms of advisory. 
+
+Email me at `abhisheksharma18@duck.com`, or DM me on [![](icon-linkedin.png){width="3%"}](https://www.linkedin.com/in/abhisheksharma-/) or [![](icon-twitter.png){width="3%"}](https://twitter.com/alepthoughts) if you'd like to chat!
+---

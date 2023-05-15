@@ -1,0 +1,138 @@
+/*-- scss:defaults  --*/
+$darky: #060C1C !default;
+$lighty: #ffffff !default;
+$highlighty: #A6AAAE !default;
+$hovery: #A430FF !default;
+$cuty: #70FFA9 !default;
+$primaryy: #FBA301 !default;
+$gray-800: $lighty !default;
+$bordery: #FFF9EB !default;
+
+$body-bg: $lighty !default;
+$body-color: $darky !default;
+$link-color: $highlighty !default;
+$link-hover-color: $hovery !default;
+$component-active-color:rgba(0, 0, 0, .75) !default;
+$component-active-bg: $highlighty !default;
+
+$input-bg: $lighty !default;
+$input-disabled-bg: $highlighty !default;
+$input-color: $darky !default;
+$input-border-color: $bordery !default;
+$input-placeholder-color: $highlighty !default;
+$input-group-addon-color: $highlighty !default;
+$input-group-addon-bg: $lighty !default;
+
+$table-accent-bg: rgba($bordery, .05) !default;
+$table-hover-bg:  rgba($bordery, .075) !default;
+$table-border-color: $primaryy !default;
+$table-dark-bg: $highlighty !default;
+$table-dark-border-color: darken($highlighty, 3%) !default;
+$table-dark-color: $body-bg !default;
+
+$table-bg-scale: 0 !default;
+
+$form-check-input-bg: $lighty !default;
+$form-check-input-border: 1px solid $bordery !default;
+$form-check-input-checked-bg-color: $highlighty !default;
+
+$form-switch-color:rgba(0, 0, 0, .25) !default;
+$form-switch-focus-color: $form-switch-color !default;
+
+$form-range-track-bg: $lighty !default;
+$form-range-thumb-bg: $lighty !default;
+
+
+$form-file-button-color: #70FFA9 !default;
+
+$dropdown-bg:  $lighty !default;
+$dropdown-divider-bg: $lighty !default;
+$dropdown-link-color:  $highlighty !default;
+$dropdown-link-hover-color: $hovery !default;
+$dropdown-link-hover-bg: $hovery !default;
+
+$nav-tabs-border-color:             $bordery !default;
+$nav-tabs-link-hover-border-color:  $nav-tabs-border-color !default;
+$nav-tabs-link-active-color:        $component-active-color !default;
+$nav-tabs-link-active-bg:           $hovery !default;
+$nav-tabs-link-active-border-color: $nav-tabs-border-color !default;
+
+$navbar-light-color: $hovery !default;
+$navbar-light-active-color: $hovery !default;
+
+$pagination-bg: transparent !default;
+$pagination-border-color: $bordery !default;
+$pagination-hover-bg: $hovery !default;
+$pagination-hover-border-color: $hovery !default;
+$pagination-active-color:rgba(255, 255, 255, .75) !default;
+$pagination-active-bg: $hovery !default;
+$pagination-active-border-color: $bordery !default;
+$pagination-disabled-color: $highlighty !default;
+$pagination-disabled-bg: transparent !default;
+$pagination-disabled-border-color: $highlighty !default;
+
+$card-border-color: rgba($lighty, .95) !default;
+$card-cap-bg: rgba($darky, .25) !default;
+$card-bg: rgba($lighty, .125) !default;
+
+$popover-bg: $lighty !default;
+$popover-border-color: $bordery !default;
+$popover-header-bg: $highlighty !default;
+
+$toast-background-color: lighten($body-bg, 95%) !default;
+$toast-border-color: rgba(255, 255, 255, .8) !default;
+$toast-header-color: $body-color !default;
+$toast-header-background-color: $toast-background-color !default;
+$toast-header-border-color: $toast-border-color !default;
+
+$modal-content-bg: $highlighty !default;
+$modal-content-border-color: $bordery !default;
+$modal-header-border-color: $bordery !default;
+
+$progress-bg: $lighty !default;
+$progress-bar-color: $primaryy !default;
+
+$list-group-color: $darky !default;
+$list-group-bg: transparent !default;
+$list-group-border-color: $bordery !default;
+$list-group-hover-bg: $hovery !default;
+$list-group-active-color: $highlighty !default;
+$list-group-action-color: $body-color !default;
+$list-group-action-hover-color: $hovery !default;
+
+$breadcrumb-active-color: $darky !default;
+
+$btn-close-color: $cuty !default;
+
+.badge {
+  &.bg-light {
+    color: $primaryy;
+  }
+}
+
+.navbar-nav {
+  .nav-item {
+    .nav-link {
+      .menu-text {
+        // Normal state color (optional, if you want to define it)
+        color: $darky;
+
+        // Hover effect
+        &:hover {
+          color: $primaryy;
+        }
+      }
+      
+      // Active page effect
+      &.active {
+        .menu-text {
+          color: $primaryy;
+        }
+      }
+    }
+  }
+}
+
+.title {
+  color: $darky;
+}
