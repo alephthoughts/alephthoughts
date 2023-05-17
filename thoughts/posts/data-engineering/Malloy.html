@@ -171,6 +171,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#source" id="toc-source" class="nav-link" data-scroll-target="#source">Source</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#malloys-features" id="toc-malloys-features" class="nav-link" data-scroll-target="#malloys-features">Malloy’s Features</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
@@ -714,7 +715,11 @@ order_by: 1
 </tbody>
 </table>
 <p>It recognizes that data naturally comes nested, and the need to separate them is an artifact of the SQL engine, not a real-world necessity.</p>
-<p># Malloy’s Features</p>
+</section>
+</section>
+</section>
+<section id="malloys-features" class="level1">
+<h1>Malloy’s Features</h1>
 <p>Malloy can query logs straight out of the box, providing a user-friendly interface for data management. It recognizes three types of join:</p>
 <ol type="1">
 <li>Join_one: for a single item.</li>
@@ -724,8 +729,6 @@ order_by: 1
 <p>But that’s not all. Malloy also writes nested data and handles non-rectangular data effectively, both in reading and writing. In fact, all Malloy queries read the data only once, which greatly increases efficiency.</p>
 <p>Furthermore, Malloy is compatible with a variety of systems, capable of writing queries against <a href="https://cloud.google.com/bigquery/">BigQuery</a>, <a href="https://www.postgresql.org/">PostgreSQL</a>, and <a href="https://duckdb.org/">DuckDB</a>.</p>
 <p>Malloy also offers a <a href="https://marketplace.visualstudio.com/items?itemName=malloydata.malloy-vscode">VSCode plugin</a> which is a file of extension <code>.malloy</code> and notebook support which is a file of extension <code>.malloynb</code>. In addition, malloy offers in-built support for charting and visualization which you can learn more about <a href="https://malloydata.github.io/documentation/visualizations/dashboards">here</a>.</p>
-</section>
-</section>
 </section>
 <section id="conclusion" class="level1">
 <h1>Conclusion</h1>
