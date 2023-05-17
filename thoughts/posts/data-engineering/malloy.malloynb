@@ -1,0 +1,26 @@
+[
+  {
+    "kind": 2,
+    "language": "malloy",
+    "value": "query: table('duckdb:orders.csv') + {\n join_many: items is table('duckdb:order_items.csv')\n on order_id = items.order_id\n}\n-> {\n group_by: order_date\n aggregate:\n total_revenue is items.price.sum()\n total_shipping is shipping_cost.sum()\norder_by: 1\n}",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "malloy",
+    "value": "query: table('duckdb:orders.csv') + {\n join_many: items is table('duckdb:order_items.csv')\n on order_id = items.order_id\n}\n-> {\n group_by: user_id\n aggregate:\n total_revenue is items.price.sum()\n total_shipping is shipping_cost.sum()\norder_by: 1\n}",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "malloy",
+    "value": "source: orders_items is table('duckdb:orders.csv') + {\n join_many: items is table('duckdb:order_items.csv')\n on order_id = items.order_id\n declare:\n total_revenue is items.price.sum()\n total_shipping is shipping_cost.sum()\n}",
+    "metadata": {}
+  },
+  {
+    "kind": 2,
+    "language": "malloy",
+    "value": "query: orders_items -> {\n group_by: order_date\n aggregate: total_revenue, total_shipping\n order_by: 1\n}",
+    "metadata": {}
+  }
+]

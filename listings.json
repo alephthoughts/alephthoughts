@@ -2,6 +2,7 @@
   {
     "listing": "/thoughts/index.html",
     "items": [
+      "/thoughts/posts/data-engineering/Malloy.html",
       "/thoughts/posts/data-engineering/PandasandSQL.html",
       "/thoughts/posts/data-engineering/ScalingPython.html",
       "/thoughts/posts/ai-in-society/Masks4All.html",
