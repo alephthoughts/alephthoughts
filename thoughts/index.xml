@@ -2899,7 +2899,7 @@ Note
 <ul>
 <li><strong>Unpooling</strong> : Since max pooling operation is non-invertible, an approximate inverse is obtained by restoring the activations at the locations of maximum activation selection.</li>
 <li><strong>Rectification</strong> : The reconstructed signals are passed through a relu non-linearity.</li>
-<li><strong>Filtering</strong> : In the deconvnet each convnet filter is transposed (flipped vertically and horizontally) and applied to the rectified activations. <img src="https://alephthoughts.com/thoughts/posts/vision/my_icons/deconvnet.jpeg" class="img-fluid" alt="Deconvnet attached to a convnet ><"></li>
+<li><strong>Filtering</strong> : In the deconvnet each convnet filter is transposed (flipped vertically and horizontally) and applied to the rectified activations. <img src="https://alephthoughts.com/thoughts/posts/vision/deconvnet.jpeg" title="Deconvnet" class="img-fluid"></li>
 </ul>
 <section id="convnet-visualization" class="level3">
 <h3 class="anchored" data-anchor-id="convnet-visualization">Convnet Visualization</h3>
