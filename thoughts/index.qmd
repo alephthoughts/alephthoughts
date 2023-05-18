@@ -12,7 +12,6 @@ listing:
   feed: true
 page-layout: full
 aliases: ["thoughts/"]
-title-block-banner: true
 ---
 
 :::{#thoughts-listing}
