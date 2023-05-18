@@ -7,6 +7,8 @@ exeucte:
 website:
   title: "alephthoughts"
   image: quarto.png
+  site-url: "https://alephthoughts.com"
+  description: "AI consulting for growing your business"
   page-footer: 
     center:
       - icon: linkedin
@@ -21,8 +23,6 @@ website:
   open-graph: true
   twitter-card: 
     creator: "@alephthoughts"
-  site-url: "https://alephthoughts.com"
-  description: "AI consulting for growing your business"
   navbar:
     title: false
     logo: quarto.png

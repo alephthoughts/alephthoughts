@@ -1,4 +1,7 @@
 ---
+website: 
+  site-url: "https://alephthoughts.com/thoughts"
+  description: "AI consulting for growing your business"
 listing:
   id: thoughts-listing
   contents: 
