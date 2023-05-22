@@ -2,46 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://alephthoughts.com/thoughts/index.html</loc>
-    <lastmod>2023-05-18T08:03:44.857Z</lastmod>
+    <lastmod>2023-05-22T02:27:11.112Z</lastmod>
   </url>
   <url>
     <loc>https://alephthoughts.com/thoughts/posts/welcome/Welcome.html</loc>
-    <lastmod>2023-05-18T08:03:45.877Z</lastmod>
+    <lastmod>2023-05-22T02:27:11.780Z</lastmod>
   </url>
   <url>
     <loc>https://alephthoughts.com/thoughts/posts/vision/visualizingCNNs.html</loc>
-    <lastmod>2023-05-18T08:03:46.545Z</lastmod>
+    <lastmod>2023-05-22T02:27:12.240Z</lastmod>
   </url>
   <url>
     <loc>https://alephthoughts.com/thoughts/posts/notebooks/jupyterNotebook.html</loc>
-    <lastmod>2023-05-18T08:03:47.149Z</lastmod>
+    <lastmod>2023-05-22T02:27:12.644Z</lastmod>
+  </url>
+  <url>
+    <loc>https://alephthoughts.com/thoughts/posts/midjourney/indian-stereotypical-people.html</loc>
+    <lastmod>2023-05-22T02:27:13.000Z</lastmod>
   </url>
   <url>
     <loc>https://alephthoughts.com/thoughts/posts/ai-in-society/Masks4All.html</loc>
-    <lastmod>2023-05-18T08:03:48.233Z</lastmod>
+    <lastmod>2023-05-22T02:27:13.788Z</lastmod>
   </url>
   <url>
     <loc>https://alephthoughts.com/thoughts/posts/ai-in-society/covid19.html</loc>
-    <lastmod>2023-05-18T08:03:49.789Z</lastmod>
+    <lastmod>2023-05-22T02:27:14.928Z</lastmod>
   </url>
   <url>
     <loc>https://alephthoughts.com/thoughts/posts/data-engineering/PandasandSQL.html</loc>
-    <lastmod>2023-05-18T08:03:53.121Z</lastmod>
+    <lastmod>2023-05-22T02:27:17.228Z</lastmod>
   </url>
   <url>
     <loc>https://alephthoughts.com/thoughts/posts/data-engineering/ScalingPython.html</loc>
-    <lastmod>2023-05-18T08:03:53.693Z</lastmod>
+    <lastmod>2023-05-22T02:27:17.612Z</lastmod>
   </url>
   <url>
     <loc>https://alephthoughts.com/thoughts/posts/data-engineering/Malloy.html</loc>
-    <lastmod>2023-05-18T08:03:54.753Z</lastmod>
+    <lastmod>2023-05-22T02:27:18.352Z</lastmod>
   </url>
   <url>
     <loc>https://alephthoughts.com/now.html</loc>
-    <lastmod>2023-05-18T08:03:55.245Z</lastmod>
+    <lastmod>2023-05-22T02:27:18.700Z</lastmod>
   </url>
   <url>
     <loc>https://alephthoughts.com/index.html</loc>
-    <lastmod>2023-05-18T08:03:55.661Z</lastmod>
+    <lastmod>2023-05-22T02:27:19.004Z</lastmod>
   </url>
 </urlset>
