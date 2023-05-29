@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://alephthoughts.com/</loc>
+  <lastmod>2023-05-24T08:12:19+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://alephthoughts.com/index.html</loc>
+  <lastmod>2023-05-24T08:12:19+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://alephthoughts.com/thoughts/</loc>
+  <lastmod>2023-05-24T08:12:19+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://alephthoughts.com/now.html</loc>
+  <lastmod>2023-05-24T08:12:19+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://alephthoughts.com/thoughts/posts/midjourney/indian-stereotypical-people.html</loc>
+  <lastmod>2023-05-24T08:12:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://alephthoughts.com/thoughts/posts/data-engineering/Malloy.html</loc>
+  <lastmod>2023-05-24T08:12:19+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://alephthoughts.com/thoughts/posts/data-engineering/PandasandSQL.html</loc>
+  <lastmod>2023-05-24T08:12:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://alephthoughts.com/thoughts/posts/data-engineering/ScalingPython.html</loc>
+  <lastmod>2023-05-24T08:12:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://alephthoughts.com/thoughts/posts/ai-in-society/Masks4All.html</loc>
+  <lastmod>2023-05-24T08:12:19+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://alephthoughts.com/thoughts/posts/vision/visualizingCNNs.html</loc>
+  <lastmod>2023-05-24T08:12:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://alephthoughts.com/thoughts/posts/ai-in-society/covid19.html</loc>
+  <lastmod>2023-05-24T08:12:19+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://alephthoughts.com/thoughts/posts/notebooks/jupyterNotebook.html</loc>
+  <lastmod>2023-05-24T08:12:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://alephthoughts.com/thoughts/posts/welcome/Welcome.html</loc>
+  <lastmod>2023-05-24T08:12:20+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
