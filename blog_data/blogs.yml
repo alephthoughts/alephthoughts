@@ -5,3 +5,10 @@
   categories: [marketing, AI, generative AI]
   description: |
     How Machine Learning is Changing the Game?
+- title: "Ethical AI"
+  path: https://www.afaqs.com/news/guest-article/ethical-ai-beyond-transparency-and-fairness
+  image: committee.png
+  date: 2023-07-13
+  categories: [AI, Ethics]
+  description: |
+    Beyond Transparency and Fairness
