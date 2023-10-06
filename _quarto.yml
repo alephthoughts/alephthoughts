@@ -32,7 +32,7 @@ website:
         text: Thoughts
       - href: now.qmd
         text: Now
-  google-analytics: "UA-116353462-1"
+  google-analytics: "G-E43JZZBJM8"
 
 format:
   html:
