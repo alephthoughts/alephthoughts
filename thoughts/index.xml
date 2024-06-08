@@ -6,17 +6,17 @@
       version="2.0">
 <channel>
 <title>alephthoughts</title>
-<link>https://alephthoughts.com/thoughts/index.html</link>
+<link>https://alephthoughts.com/thoughts/</link>
 <atom:link href="https://alephthoughts.com/thoughts/index.xml" rel="self" type="application/rss+xml"/>
 <description>AI consulting for growing your business</description>
 <image>
 <url>https://alephthoughts.com/quarto.png</url>
 <title>alephthoughts</title>
-<link>https://alephthoughts.com/thoughts/index.html</link>
+<link>https://alephthoughts.com/thoughts/</link>
 <height>144</height>
 <width>144</width>
 </image>
-<generator>quarto-1.3.450</generator>
+<generator>quarto-1.4.555</generator>
 <lastBuildDate>Thu, 13 Jul 2023 00:00:00 GMT</lastBuildDate>
 <item>
   <title>Ethical AI</title>
@@ -34,6 +34,7 @@
   <dc:creator>Abhishek </dc:creator>
   <link>https://alephthoughts.com/thoughts/posts/midjourney/indian-stereotypical-people.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -159,7 +160,7 @@
 <h1>West Bengal</h1>
 <p><img src="https://alephthoughts.com/thoughts/posts/midjourney/04-West-Bengal.png" class="img-fluid"></p>
 <div style="display: flex; justify-content: center;">
-<p><a href="https://www.buymeacoffee.com/alephthoughts" target="_blank"> <img src="https://alephthoughts.com/thoughts/posts/midjourney/https:/cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important; width: 217px !important;"> </a></p>
+<p><a href="https://www.buymeacoffee.com/alephthoughts" target="_blank"> <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important; width: 217px !important;"> </a></p>
 </div>
 
 
@@ -182,6 +183,7 @@
 
 
 
+
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -200,7 +202,7 @@ Note
 <p>Data is a crucial part of all organizations, and it’s only when data is understood and utilised correctly, the businesses can truly thrive. Running a successful business today depends on the data and insights derived from it that make you smarter. A common misconception that surrounds data is that <em>data is rectangular</em>. That is, in fact, not true. Humans tend to visualize data as rectangles than leads to this misconception. Most operations that we perform on data such as filtering, aggregating, projecting, and windowing are all based on rectangular models. Even the join operation takes in two rectangles and gives a rectangle as the joined output.</p>
 <p>In a common ecommerce analysis you can expect two tables:</p>
 <p><strong>Orders</strong></p>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>order_id</th>
@@ -237,7 +239,7 @@ Note
 </tbody>
 </table>
 <p><strong>Order Items</strong></p>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>item_id</th>
@@ -300,7 +302,7 @@ Note
 <pre><code>SELECT
  sum(shipping_cost) AS total_shipping
 FROM orders</code></pre>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>total_shipping</th>
@@ -316,7 +318,7 @@ FROM orders</code></pre>
 <pre><code>SELECT
  sum(price) AS total_revenue
 FROM items</code></pre>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>total_revenue</th>
@@ -336,7 +338,7 @@ FROM items</code></pre>
 FROM ‘orders.csv’
 GROUP BY 1
 ORDER BY 1</code></pre>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>order_date</th>
@@ -363,7 +365,7 @@ JOIN ‘items.cvs’ AS items on
  orders.order_id = items.order_id
 GROUP BY 1
 ORDER BY 1</code></pre>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>order_date</th>
@@ -383,7 +385,7 @@ ORDER BY 1</code></pre>
 </table>
 <p><strong>How does revenue relate to shipping?</strong></p>
 <p>This is what we expect:</p>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>order_date</th>
@@ -413,7 +415,7 @@ FROM ‘orders.csv’ AS orders
 JOIN ‘items.cvs’ AS items ON orders.order_id = items.order_id
 GROUP BY 1
 ORDER BY 1</code></pre>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>order_date</th>
@@ -438,7 +440,7 @@ ORDER BY 1</code></pre>
 <pre><code>SELECT *
 FROM ‘orders.csv’ orders
 LEFT JOIN ‘items.csv’ AS items ON orders.order_id = items.order_id</code></pre>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 11%">
 <col style="width: 16%">
@@ -543,7 +545,7 @@ LEFT JOIN ‘items.csv’ AS items ON orders.order_id = items.order_id</code></p
 <p>From the <code>date</code> dimension the <code>total_shipping</code> and <code>total_revenue</code> look like this:</p>
 <p><img src="https://alephthoughts.com/thoughts/posts/data-engineering/measure_by_date.png" title="Metrics over date dimension" class="img-fluid"></p>
 <p>Now, suppose there is another dimension <strong>user</strong> that looks like:</p>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>user_id</th>
@@ -597,7 +599,7 @@ LEFT JOIN ‘items.csv’ AS items ON orders.order_id = items.order_id</code></p
 order_by: 1
 }</code></pre>
 <p>which results in this output:</p>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>order_date</th>
@@ -640,7 +642,7 @@ order_by: 1
  total_shipping is shipping_cost.sum()
 order_by: 1
 }</code></pre>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>user_id</th>
@@ -692,7 +694,7 @@ order_by: 1
  aggregate: total_revenue, total_shipping
  order_by: 1
 }</code></pre>
-<table class="table">
+<table class="caption-top table">
 <thead>
 <tr class="header">
 <th>order_date</th>
@@ -743,7 +745,7 @@ order_by: 1
 <li><a href="https://www.youtube.com/watch?v=zmmJgwc3oPI&amp;embeds_referring_euri=https%3A%2F%2Fwww.datacouncil.ai%2F&amp;source_ve_path=Mjg2NjY&amp;feature=emb_logo">Lloyd Tabb’s talk</a></li>
 </ul>
 <div style="display: flex; justify-content: center;">
-<p><a href="https://www.buymeacoffee.com/alephthoughts" target="_blank"> <img src="https://alephthoughts.com/thoughts/posts/data-engineering/https:/cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important; width: 217px !important;"> </a></p>
+<p><a href="https://www.buymeacoffee.com/alephthoughts" target="_blank"> <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important; width: 217px !important;"> </a></p>
 </div>
 
 
@@ -767,13 +769,14 @@ order_by: 1
   <category>generative AI</category>
   <guid>https://alephthoughts.com/</guid>
   <pubDate>Mon, 06 Mar 2023 00:00:00 GMT</pubDate>
-  <media:content url="https://static.businessworld.in/article/article_extra_large_image/1674872739_Kt26I7_technology_.png" medium="image" type="image/png"/>
+  <media:content url="https://static.businessworld.in/1674872739_Kt26I7_technology_.png" medium="image" type="image/png"/>
 </item>
 <item>
   <title>Pandas and SQL side by side</title>
   <dc:creator>Abhishek </dc:creator>
   <link>https://alephthoughts.com/thoughts/posts/data-engineering/PandasandSQL.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -801,13 +804,13 @@ order_by: 1
 <section id="selecting-data" class="level2">
 <h2 class="anchored" data-anchor-id="selecting-data">SELECTing Data</h2>
 <p>Once you import the data, select 5 rows from the data just to inspects. Below is an example of how to select top 5 rows in pandas:</p>
-<div class="cell" data-execution_count="4">
+<div id="cell-6" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1">data.head()</span></code></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -926,7 +929,7 @@ order_by: 1
 </div>
 </div>
 <p>You can achieve the same result in SQL:</p>
-<div class="cell" data-execution_count="5">
+<div id="cell-8" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">sqldf(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"SELECT * FROM data LIMIT 5"</span>)</span></code></pre></div>
@@ -934,7 +937,7 @@ font-style: inherit;">"SELECT * FROM data LIMIT 5"</span>)</span></code></pre></
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1053,7 +1056,7 @@ font-style: inherit;">"SELECT * FROM data LIMIT 5"</span>)</span></code></pre></
 </div>
 </div>
 <p>Both pandas and SQL allow you to select specific columns from the dataframe(pandas) or table(SQL).</p>
-<div class="cell" data-execution_count="6">
+<div id="cell-10" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1">data[[<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'Name'</span>, <span class="st" style="color: #20794D;
@@ -1067,7 +1070,7 @@ font-style: inherit;">'Year'</span>]].head()</span></code></pre></div>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1119,7 +1122,7 @@ font-style: inherit;">'Year'</span>]].head()</span></code></pre></div>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="7">
+<div id="cell-11" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1">sqldf(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'SELECT Name, Age, Team, Year FROM data LIMIT 5'</span>)</span></code></pre></div>
@@ -1127,7 +1130,7 @@ font-style: inherit;">'SELECT Name, Age, Team, Year FROM data LIMIT 5'</span>)</
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1183,7 +1186,7 @@ font-style: inherit;">'SELECT Name, Age, Team, Year FROM data LIMIT 5'</span>)</
 <section id="filtering-with-constraints" class="level2">
 <h2 class="anchored" data-anchor-id="filtering-with-constraints">FILTERing with constraints</h2>
 <p><code>iloc</code> property of a pandas dataframe allows you to select a row by its index as shown below. Here we are particulary selecting the 6th row by applying the filter on index.</p>
-<div class="cell" data-execution_count="8">
+<div id="cell-14" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1">data.iloc[<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">6</span>]</span></code></pre></div>
@@ -1207,7 +1210,7 @@ Name: 6, dtype: object</code></pre>
 </div>
 </div>
 <p>In SQL most databases provide a rowid index to select a specific row from the table.</p>
-<div class="cell" data-execution_count="9">
+<div id="cell-16" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1">sqldf(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"SELECT * FROM data WHERE rowid=6"</span>)</span></code></pre></div>
@@ -1215,7 +1218,7 @@ font-style: inherit;">"SELECT * FROM data WHERE rowid=6"</span>)</span></code></
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1263,7 +1266,7 @@ font-style: inherit;">"SELECT * FROM data WHERE rowid=6"</span>)</span></code></
 </div>
 <p>You can filter on a condition applied on column or multiple columns. In case of multiple columns, the conditions are combined with boolen expressions such as AND, OR etc.</p>
 <p>Here is how to count records which satisfy the condition “Age of the athelete is greater than 30”.</p>
-<div class="cell" data-execution_count="10">
+<div id="cell-18" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1">data[data[<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'Age'</span>]<span class="op" style="color: #5E5E5E;
@@ -1277,7 +1280,7 @@ font-style: inherit;">'ID'</span>].count()</span></code></pre></div>
 <pre><code>42107</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="11">
+<div id="cell-19" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1">sqldf(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'SELECT COUNT(*) FROM data WHERE Age &gt; 30'</span>)</span></code></pre></div>
@@ -1285,7 +1288,7 @@ font-style: inherit;">'SELECT COUNT(*) FROM data WHERE Age &gt; 30'</span>)</spa
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1304,7 +1307,7 @@ font-style: inherit;">'SELECT COUNT(*) FROM data WHERE Age &gt; 30'</span>)</spa
 </div>
 </div>
 <p>Below is an example of multiple conditions. We are selecting all records of <code>Hockey</code> for team <code>India</code>.</p>
-<div class="cell" data-execution_count="12">
+<div id="cell-21" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1">data[(data[<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'Team'</span>] <span class="op" style="color: #5E5E5E;
@@ -1324,7 +1327,7 @@ font-style: inherit;">'Hockey'</span>)]</span></code></pre></div>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1551,7 +1554,7 @@ font-style: inherit;">'Hockey'</span>)]</span></code></pre></div>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="13">
+<div id="cell-22" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1">sqldf(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'SELECT * FROM data WHERE Team="India" AND Sport="Hockey"'</span>)</span></code></pre></div>
@@ -1559,7 +1562,7 @@ font-style: inherit;">'SELECT * FROM data WHERE Team="India" AND Sport="Hockey"'
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1790,7 +1793,7 @@ font-style: inherit;">'SELECT * FROM data WHERE Team="India" AND Sport="Hockey"'
 <section id="sorting" class="level2">
 <h2 class="anchored" data-anchor-id="sorting">SORTing</h2>
 <p>Sorting is another common operation required during data analysis. You can sort on one or more columns and in ascending (low to high) or descending (high to low) order.</p>
-<div class="cell" data-execution_count="14">
+<div id="cell-25" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1">data.sort_values(by<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
@@ -1804,7 +1807,7 @@ font-style: inherit;">False</span>).head()</span></code></pre></div>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -1922,7 +1925,7 @@ font-style: inherit;">False</span>).head()</span></code></pre></div>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="15">
+<div id="cell-26" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1">sqldf(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'SELECT * from data ORDER BY Age DESC LIMIT 5'</span>)</span></code></pre></div>
@@ -1930,7 +1933,7 @@ font-style: inherit;">'SELECT * from data ORDER BY Age DESC LIMIT 5'</span>)</sp
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2054,12 +2057,12 @@ font-style: inherit;">'SELECT * from data ORDER BY Age DESC LIMIT 5'</span>)</sp
 <p>Joining one dataset with another is a common operation while working with data. This is a simple aspect of SQL which stumps more people than it should.</p>
 <p>I reckon, it is important to work with a simple example using few rows of data to get this right. That is what I am going to do using synthetic tables <code>employee</code> and <code>assets</code> with dummy data.</p>
 <p>Please notice the column we are joining on, usually termed as <em>key</em>. If the <em>key</em> has duplicate values, the records multiply.</p>
-<div class="cell" data-execution_count="18">
+<div id="cell-29" class="cell" data-execution_count="18">
 <div class="cell-output cell-output-display" data-execution_count="18">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2105,12 +2108,12 @@ font-style: inherit;">'SELECT * from data ORDER BY Age DESC LIMIT 5'</span>)</sp
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="19">
+<div id="cell-30" class="cell" data-execution_count="19">
 <div class="cell-output cell-output-display" data-execution_count="19">
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2160,7 +2163,7 @@ font-style: inherit;">'SELECT * from data ORDER BY Age DESC LIMIT 5'</span>)</sp
 <h3 class="anchored" data-anchor-id="inner-join">INNER JOIN</h3>
 <p>The simplest type of join is the <code>inner</code> join. This operation returns the common records from the left table (employee) and the right table (asset).</p>
 <p>Pandas uses <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.merge.html">merge</a> method to join to tables.</p>
-<div class="cell" data-execution_count="20">
+<div id="cell-33" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb15" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1">employee.merge(asset, on<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
@@ -2170,7 +2173,7 @@ font-style: inherit;">'EmployeeID'</span>)</span></code></pre></div>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2204,7 +2207,7 @@ font-style: inherit;">'EmployeeID'</span>)</span></code></pre></div>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="21">
+<div id="cell-34" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1">sqldf(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'SELECT * FROM employee E JOIN asset A ON E.EmployeeID = A.EmployeeID'</span>)</span></code></pre></div>
@@ -2212,7 +2215,7 @@ font-style: inherit;">'SELECT * FROM employee E JOIN asset A ON E.EmployeeID = A
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2253,7 +2256,7 @@ font-style: inherit;">'SELECT * FROM employee E JOIN asset A ON E.EmployeeID = A
 <section id="left-outer-join" class="level3">
 <h3 class="anchored" data-anchor-id="left-outer-join">LEFT OUTER JOIN</h3>
 <p>In Left Outer Join, you get all records from the left table, and only matching records from the right table. Note the <code>NaN</code> and <code>None</code> values resulting in rows for which <em>key</em> doesn’t match.</p>
-<div class="cell" data-execution_count="22">
+<div id="cell-37" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1">employee.merge(asset, on<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
@@ -2267,7 +2270,7 @@ font-style: inherit;">'left'</span>)</span></code></pre></div>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2325,7 +2328,7 @@ font-style: inherit;">'left'</span>)</span></code></pre></div>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="23">
+<div id="cell-38" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1">sqldf(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'SELECT E.*, A.* FROM employee E LEFT JOIN asset A ON E.EmployeeID = A.EmployeeID'</span>)</span></code></pre></div>
@@ -2333,7 +2336,7 @@ font-style: inherit;">'SELECT E.*, A.* FROM employee E LEFT JOIN asset A ON E.Em
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2401,7 +2404,7 @@ font-style: inherit;">'SELECT E.*, A.* FROM employee E LEFT JOIN asset A ON E.Em
 <section id="right-outer-join" class="level3">
 <h3 class="anchored" data-anchor-id="right-outer-join">RIGHT OUTER JOIN</h3>
 <p>Right join has the opposite effect of the left join.</p>
-<div class="cell" data-execution_count="24">
+<div id="cell-41" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1">employee.merge(asset, on<span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
@@ -2415,7 +2418,7 @@ font-style: inherit;">'right'</span>)</span></code></pre></div>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2474,7 +2477,7 @@ font-style: inherit;">'right'</span>)</span></code></pre></div>
 </div>
 </div>
 <p>In fact pandassql doesn’t support Right Join but you can achieve the same result by calling <code>asset</code> as the left table and <code>employee</code> as the right table.</p>
-<div class="cell" data-execution_count="25">
+<div id="cell-43" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1">sqldf(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'SELECT E.*, A.* FROM asset A LEFT JOIN employee E ON A.EmployeeID = E.EmployeeID'</span>)</span></code></pre></div>
@@ -2482,7 +2485,7 @@ font-style: inherit;">'SELECT E.*, A.* FROM asset A LEFT JOIN employee E ON A.Em
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2554,7 +2557,7 @@ font-style: inherit;">'SELECT E.*, A.* FROM asset A LEFT JOIN employee E ON A.Em
 <h2 class="anchored" data-anchor-id="queries-with-aggregates">Queries with aggregates</h2>
 <p>Aggregates are another SQL technique where you group your records based on one or more columns and perform some aggregate calculation on another set of columns such as MIN, MAX, SUM, COUNT, AVG, and so on.</p>
 <p>Here is an example of count where we count <code>Medal</code>s by team, sort them in descending order and show top % results.</p>
-<div class="cell" data-execution_count="26">
+<div id="cell-47" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1">data.groupby(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'Team'</span>, as_index<span class="op" style="color: #5E5E5E;
@@ -2574,7 +2577,7 @@ font-style: inherit;">False</span>).head()</span></code></pre></div>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2614,7 +2617,7 @@ font-style: inherit;">False</span>).head()</span></code></pre></div>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="27">
+<div id="cell-48" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1">sqldf(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'SELECT Team, COUNT(Medal) FROM data GROUP BY Team ORDER BY COUNT(Medal) DESC LIMIT 5'</span>)</span></code></pre></div>
@@ -2622,7 +2625,7 @@ font-style: inherit;">'SELECT Team, COUNT(Medal) FROM data GROUP BY Team ORDER B
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2663,7 +2666,7 @@ font-style: inherit;">'SELECT Team, COUNT(Medal) FROM data GROUP BY Team ORDER B
 </div>
 </div>
 <p>Here is another example where we filter just one sport <code>swimming</code> and do the earlier calculation.</p>
-<div class="cell" data-execution_count="28">
+<div id="cell-50" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb23" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1">data[data[<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'Sport'</span>]<span class="op" style="color: #5E5E5E;
@@ -2689,7 +2692,7 @@ font-style: inherit;">False</span>).head()</span></code></pre></div>
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2729,7 +2732,7 @@ font-style: inherit;">False</span>).head()</span></code></pre></div>
 </div>
 </div>
 </div>
-<div class="cell" data-execution_count="29">
+<div id="cell-51" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1">sqldf(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'SELECT Team, COUNT(Medal) FROM data Where Sport = "Swimming" GROUP BY Team ORDER BY COUNT(Medal) DESC LIMIT 5'</span>)</span></code></pre></div>
@@ -2737,7 +2740,7 @@ font-style: inherit;">'SELECT Team, COUNT(Medal) FROM data Where Sport = "Swimmi
 <div>
 
 
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
 <thead>
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
@@ -2794,7 +2797,7 @@ font-style: inherit;">'SELECT Team, COUNT(Medal) FROM data Where Sport = "Swimmi
 <li><a href="https://t.co/c1KRNA74vY">SQL for Data Scientists by Renee Teate</a></li>
 </ul>
 <div style="display: flex; justify-content: center;">
-<p><a href="https://www.buymeacoffee.com/alephthoughts" target="_blank"> <img src="https://alephthoughts.com/thoughts/posts/data-engineering/https:/cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important; width: 217px !important;"> </a></p>
+<p><a href="https://www.buymeacoffee.com/alephthoughts" target="_blank"> <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important; width: 217px !important;"> </a></p>
 </div>
 
 
@@ -2823,12 +2826,13 @@ font-style: inherit;">'SELECT Team, COUNT(Medal) FROM data Where Sport = "Swimmi
 
 
 
+
 <blockquote class="blockquote">
 <p>Scaling, in general, is starting out with a small solution and growing it into a bigger solution.</p>
 </blockquote>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://alephthoughts.com/thoughts/posts/data-engineering/scalingpython.png" title="what does it mean to scale?" class="img-fluid figure-img"></p>
+<p><img src="https://alephthoughts.com/thoughts/posts/data-engineering/scalingpython.png" title="what does it mean to scale?" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 <p>Different people mean different things when they talk about scaling. Do you want to scale a mountain, a web app, or an ML pipeline?</p>
@@ -2890,7 +2894,7 @@ Note
 </div>
 </div>
 <div style="display: flex; justify-content: center;">
-<p><a href="https://www.buymeacoffee.com/alephthoughts" target="_blank"> <img src="https://alephthoughts.com/thoughts/posts/data-engineering/https:/cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important; width: 217px !important;"> </a></p>
+<p><a href="https://www.buymeacoffee.com/alephthoughts" target="_blank"> <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important; width: 217px !important;"> </a></p>
 </div>
 
 
@@ -2908,6 +2912,7 @@ Note
   <dc:creator>Abhishek </dc:creator>
   <link>https://alephthoughts.com/thoughts/posts/ai-in-society/Masks4All.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -2982,7 +2987,7 @@ Note
 </div>
 </div>
 <div style="display: flex; justify-content: center;">
-<p><a href="https://www.buymeacoffee.com/alephthoughts" target="_blank"> <img src="https://alephthoughts.com/thoughts/posts/ai-in-society/https:/cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important; width: 217px !important;"> </a></p>
+<p><a href="https://www.buymeacoffee.com/alephthoughts" target="_blank"> <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important; width: 217px !important;"> </a></p>
 </div>
 </section>
 <section id="उदधरण" class="level2">
@@ -3024,6 +3029,7 @@ Note
   <dc:creator>Abhishek </dc:creator>
   <link>https://alephthoughts.com/thoughts/posts/vision/visualizingCNNs.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -3098,7 +3104,7 @@ Note
 </div>
 </div>
 <div style="display: flex; justify-content: center;">
-<p><a href="https://www.buymeacoffee.com/alephthoughts" target="_blank"> <img src="https://alephthoughts.com/thoughts/posts/vision/https:/cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important; width: 217px !important;"> </a></p>
+<p><a href="https://www.buymeacoffee.com/alephthoughts" target="_blank"> <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important; width: 217px !important;"> </a></p>
 </div>
 
 
@@ -3118,6 +3124,7 @@ Note
   <dc:creator>Abhishek </dc:creator>
   <link>https://alephthoughts.com/thoughts/posts/ai-in-society/covid19.html</link>
   <description><![CDATA[ 
+
 
 
 
@@ -3221,7 +3228,7 @@ Note
 <p>प्रतिपुष्टि और टिप्पणियों के लिए सिल्वेन गुग्गर और एलेक्सिस गैलाघर को धन्यवाद।</p>
 <p><em>यह एक महत्वपूर्ण अंग्रेजी लेख का अनुवाद है, असली लेख अंग्रेजी में पढ़ने के लिए <a href="https://www.fast.ai/2020/03/09/coronavirus/">यहां क्लिक करें</a>।</em></p>
 <div style="display: flex; justify-content: center;">
-<p><a href="https://www.buymeacoffee.com/alephthoughts" target="_blank"> <img src="https://alephthoughts.com/thoughts/posts/ai-in-society/https:/cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important; width: 217px !important;"> </a></p>
+<p><a href="https://www.buymeacoffee.com/alephthoughts" target="_blank"> <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important; width: 217px !important;"> </a></p>
 </div>
 
 
@@ -3243,6 +3250,7 @@ Note
 
 
 
+
 <p>Documenting your work is an integral part of your development but if you are someone like me and you have to share your work with different set of technical and non-technical audience, you probably go an extra mile to create separate versions of the same results, one with code for your peers, and one for the business stakeholders who may find the code scary or distracting to say the least. <a href="https://jupyter.org/">The Jupyter Notebook</a> makes my life so much easier for the data analysis related work. Although jupyter notebook supports a variety of programming languages like <a href="https://julialang.org/">Julia</a>, <a href="python.org">Python</a> and <a href="https://www.r-project.org/">R</a> for live code and visualisations, alongwith <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>, <a href="https://en.wikipedia.org/wiki/HTML">HTML</a> and others for narrative text, in this post, we will see an example with python code.</p>
 <section id="installing-required-packages" class="level1">
 <h1>Installing Required Packages</h1>
@@ -3250,7 +3258,7 @@ Note
 <section id="nbconvert" class="level2">
 <h2 class="anchored" data-anchor-id="nbconvert"><a href="https://github.com/jupyter/nbconvert">nbconvert</a></h2>
 <p>The nbconvert tools utilises <a href="http://jinja.pocoo.org/">Jinja</a> templates to convert your jupyter notebooks to various document formats such as HTML, LaTeX, PDF, Reveal JS, Markdown, ReStructured Text (rst) and executable script. You can install nbconvert using either of the commands depending on your python package manager:</p>
-<div class="cell">
+<div id="cell-3" class="cell">
 <div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span> pip install nbconvert</span>
@@ -3261,7 +3269,7 @@ background-color: null;
 font-style: inherit;">-</span>c anaconda nbconvert</span></code></pre></div>
 </div>
 <p>To convert the notebook to the desired output format use the following command structure:</p>
-<div class="cell">
+<div id="cell-5" class="cell">
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1">$ jupyter nbconvert <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">--</span>to <span class="op" style="color: #5E5E5E;
@@ -3281,9 +3289,9 @@ font-style: inherit;">&gt;</span></span></code></pre></div>
 </section>
 <section id="hide_code" class="level2">
 <h2 class="anchored" data-anchor-id="hide_code"><a href="https://github.com/kirbs-/hide_code">Hide_Code</a></h2>
-<p>Hide_Code is an extension for your jupyter notebook, which allows you to selectively hide code, prompts and outputs in the jupyter notebook. It also enables these notebooks to be exported to HTML, LaTeX and PDF. Once hide_code is installed on your system, you can enable it by clicking View -&gt; Cell Toolbar -&gt; Hide Code on your jupyter notebook menu. <br> <img src="https://alephthoughts.com/thoughts/posts/notebooks/https:/raw.githubusercontent.com/kirbs-/hide_code/master/images/demo.gif" class="img-fluid" alt="hide code demo"> <br></p>
+<p>Hide_Code is an extension for your jupyter notebook, which allows you to selectively hide code, prompts and outputs in the jupyter notebook. It also enables these notebooks to be exported to HTML, LaTeX and PDF. Once hide_code is installed on your system, you can enable it by clicking View -&gt; Cell Toolbar -&gt; Hide Code on your jupyter notebook menu. <br> <img src="https://raw.githubusercontent.com/kirbs-/hide_code/master/images/demo.gif" class="img-fluid" alt="hide code demo"> <br></p>
 <p>You can install hide_code using following commands:</p>
-<div class="cell">
+<div id="cell-7" class="cell">
 <div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>pip install hide_code</span>
@@ -3306,7 +3314,7 @@ font-style: inherit;">--</span>py hide_code</span></code></pre></div>
 <p>You can export your notebooks to desired format using the following commands:<br></p>
 <section id="to-html" class="level3">
 <h3 class="anchored" data-anchor-id="to-html">To HTML <br></h3>
-<div class="cell">
+<div id="cell-9" class="cell">
 <div class="sourceCode cell-code" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>jupyter nbconvert <span class="op" style="color: #5E5E5E;
@@ -3316,7 +3324,7 @@ font-style: inherit;">--</span>to hide_code_html notebook_to_convert.ipynb</span
 </section>
 <section id="to-pdf" class="level3">
 <h3 class="anchored" data-anchor-id="to-pdf">To PDF</h3>
-<div class="cell">
+<div id="cell-11" class="cell">
 <div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>jupyter nbconvert <span class="op" style="color: #5E5E5E;
@@ -3326,7 +3334,7 @@ font-style: inherit;">--</span>to hide_code_pdf notebook_to_convert.ipynb</span>
 </section>
 <section id="to-latex" class="level3">
 <h3 class="anchored" data-anchor-id="to-latex">To LaTeX</h3>
-<div class="cell">
+<div id="cell-13" class="cell">
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>jupyter nbconvert <span class="op" style="color: #5E5E5E;
@@ -3338,7 +3346,7 @@ font-style: inherit;">--</span>to hide_code_latexpdf notebook_to_convert.ipynb</
 <section id="tabulate" class="level2">
 <h2 class="anchored" data-anchor-id="tabulate"><a href="https://bitbucket.org/astanin/python-tabulate/src/master/">Tabulate</a></h2>
 <p>Tabulate is a python package used for pretty printing tabular data in python. You can install tabulate using either of the following commands:</p>
-<div class="cell">
+<div id="cell-15" class="cell">
 <div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>pip install tabulate</span>
@@ -3362,7 +3370,7 @@ font-style: inherit;">-</span>forge tabulate</span></code></pre></div>
 <section id="enable-hide_code" class="level2">
 <h2 class="anchored" data-anchor-id="enable-hide_code">Enable Hide_Code</h2>
 <p>Enable Hide_Code which gives you options to “Hide Prompt”, “Hide Code” and “Hide Cell” on the top right corner of each cell in the notebook. Using the following command convert your notebook to LaTeX format.</p>
-<div class="cell">
+<div id="cell-17" class="cell">
 <div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!</span>jupyter nbconvert <span class="op" style="color: #5E5E5E;
@@ -3382,7 +3390,7 @@ font-style: inherit;">--</span>to hide_code_latex notebook_to_convert.ipynb</spa
 \date{\color{brown}June 10, 2019}</code></pre>
 <p>You can deep dive into <a href="https://www.latex-tutorial.com/tutorials/?ref=hackr.io">LaTeX</a> if you want to customize it completely. <br> This brings us to the end of this post. Hope you will find it useful!</p>
 <div style="display: flex; justify-content: center;">
-<p><a href="https://www.buymeacoffee.com/alephthoughts" target="_blank"> <img src="https://alephthoughts.com/thoughts/posts/notebooks/https:/cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important; width: 217px !important;"> </a></p>
+<p><a href="https://www.buymeacoffee.com/alephthoughts" target="_blank"> <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important; width: 217px !important;"> </a></p>
 </div>
 
 
@@ -3401,6 +3409,7 @@ font-style: inherit;">--</span>to hide_code_latex notebook_to_convert.ipynb</spa
   <dc:creator>Abhishek </dc:creator>
   <link>https://alephthoughts.com/thoughts/posts/welcome/Welcome.html</link>
   <description><![CDATA[ 
+
 
 
 
