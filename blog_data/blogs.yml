@@ -19,3 +19,10 @@
   categories: [uv, python]
   description: |
     Why I decided to look into UV?
+- title: "Using AI to destroy your business"
+  path: https://aipndr.substack.com/p/using-ai-to-destroy-your-business
+  image: ai-strategy.jpg
+  date: 2025-06-23
+  categories: [AI, strategy]
+  description: |
+    The AI failure playbook
